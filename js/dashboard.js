@@ -10,3 +10,16 @@ if (isLoggedIn !== "true") {
 
 }
 
+// Logout
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", function () {
+
+    localStorage.removeItem("isLoggedIn");
+
+    alert("Logged out successfully!");
+
+    window.location.href = "index.html";
+
+});
