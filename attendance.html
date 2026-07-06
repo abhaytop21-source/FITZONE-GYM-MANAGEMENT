@@ -32,18 +32,18 @@
         <div class="cards">
 
             <div class="dashboard-card">
-                <h3>Today's Check-ins</h3>
-                <h2>85</h2>
+                <h3>Total Members</h3>
+                <h2 id="totalMembers">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Check-outs</h3>
-                <h2>72</h2>
+                <h3>Present Today</h3>
+                <h2 id="presentMembers">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Present Members</h3>
-                <h2>13</h2>
+                <h3>Absent Today</h3>
+                <h2 id="absentMembers">0</h2>
             </div>
 
         </div>
@@ -54,37 +54,21 @@
 
             <table>
 
-                <tr>
-                    <th>Member ID</th>
-                    <th>Name</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
-                    <th>Status</th>
-                </tr>
+                <thead>
 
-                <tr>
-                    <td>101</td>
-                    <td>Rahul Sharma</td>
-                    <td>07:10 AM</td>
-                    <td>08:30 AM</td>
-                    <td>Completed</td>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Plan</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
 
-                <tr>
-                    <td>102</td>
-                    <td>Amit Patel</td>
-                    <td>08:15 AM</td>
-                    <td>09:20 AM</td>
-                    <td>Completed</td>
-                </tr>
+                </thead>
 
-                <tr>
-                    <td>103</td>
-                    <td>Priya Singh</td>
-                    <td>06:40 PM</td>
-                    <td>-</td>
-                    <td>Inside Gym</td>
-                </tr>
+                <tbody id="attendanceTable">
+
+                </tbody>
 
             </table>
 
