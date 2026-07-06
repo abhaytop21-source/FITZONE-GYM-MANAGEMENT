@@ -1,5 +1,7 @@
 let members = JSON.parse(localStorage.getItem("members")) || [];
 
+let editIndex = -1;
+
 const memberTable = document.getElementById("memberTable");
 
 const addMemberBtn = document.getElementById("addMemberBtn");
@@ -67,6 +69,8 @@ addMemberBtn.addEventListener("click", () => {
 
     }
 
+    if(editIndex === -1){
+
     members.push({
 
         name: memberName.value,
@@ -75,7 +79,24 @@ addMemberBtn.addEventListener("click", () => {
 
     });
 
-    localStorage.setItem("members", JSON.stringify(members));
+}
+else{
+
+    members[editIndex] = {
+
+        name: memberName.value,
+        phone: memberPhone.value,
+        plan: memberPlan.value
+
+    };
+
+    editIndex = -1;
+
+    addMemberBtn.innerText = "Add Member";
+
+}
+
+localStorage.setItem("members", JSON.stringify(members));
 
     memberName.value = "";
     memberPhone.value = "";
@@ -95,6 +116,18 @@ function deleteMember(index){
     localStorage.setItem("members", JSON.stringify(members));
 
     displayMembers();
+
+}
+
+function editMember(index){
+
+    memberName.value = members[index].name;
+    memberPhone.value = members[index].phone;
+    memberPlan.value = members[index].plan;
+
+    editIndex = index;
+
+    addMemberBtn.innerText = "Update Member";
 
 }
 
