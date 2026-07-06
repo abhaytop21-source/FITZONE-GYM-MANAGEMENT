@@ -32,64 +32,51 @@
         <div class="cards">
 
             <div class="dashboard-card">
-                <h3>Monthly Revenue</h3>
-                <h2>₹1,25,000</h2>
+                <h3>Total Revenue</h3>
+                <h2 id="totalRevenue">₹0</h2>
             </div>
 
             <div class="dashboard-card">
                 <h3>Pending Payments</h3>
-                <h2>₹15,000</h2>
+                <h2 id="pendingPayments">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Renewals Due</h3>
-                <h2>18</h2>
+                <h3>Paid Members</h3>
+                <h2 id="paidMembers">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Total Transactions</h3>
-                <h2>245</h2>
+                <h3>Total Members</h3>
+                <h2 id="paymentMembers">0</h2>
             </div>
 
         </div>
 
         <div class="recent-members">
 
-            <h2>Recent Payments</h2>
+            <h2>Member Payments</h2>
 
             <table>
 
+                <thead>
+
                 <tr>
-                    <th>Invoice ID</th>
-                    <th>Member Name</th>
+
+                    <th>ID</th>
+                    <th>Name</th>
                     <th>Plan</th>
                     <th>Amount</th>
                     <th>Status</th>
+                    <th>Action</th>
+
                 </tr>
 
-                <tr>
-                    <td>INV001</td>
-                    <td>Rahul Sharma</td>
-                    <td>Premium</td>
-                    <td>₹1999</td>
-                    <td>Paid</td>
-                </tr>
+                </thead>
 
-                <tr>
-                    <td>INV002</td>
-                    <td>Amit Patel</td>
-                    <td>VIP</td>
-                    <td>₹3999</td>
-                    <td>Paid</td>
-                </tr>
+                <tbody id="paymentTable">
 
-                <tr>
-                    <td>INV003</td>
-                    <td>Priya Singh</td>
-                    <td>Basic</td>
-                    <td>₹999</td>
-                    <td>Pending</td>
-                </tr>
+                </tbody>
 
             </table>
 
