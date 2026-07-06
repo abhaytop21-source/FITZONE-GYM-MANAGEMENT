@@ -425,3 +425,12 @@ table th{
 .gallery-grid img:hover{
     transform:scale(1.03);
 }
+
+/* login.js */
+
+#errorMessage{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+    color:red;
+}
