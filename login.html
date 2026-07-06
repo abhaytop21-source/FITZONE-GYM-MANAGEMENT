@@ -15,15 +15,27 @@
         <h1>FITZONE</h1>
         <h2>Owner Login</h2>
 
-        <form>
+        <form id="loginForm">
 
-            <input type="email" placeholder="Enter Email">
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter Email"
+                required
+            >
 
-            <input type="password" placeholder="Enter Password">
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                required
+            >
 
-            <a href="dashboard.html">
-                <button type="button">Login</button>
-            </a>
+            <button type="submit">
+                Login
+            </button>
+
+            <p id="errorMessage"></p>
 
         </form>
 
