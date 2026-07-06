@@ -32,22 +32,22 @@
 
             <div class="dashboard-card">
                 <h3>Total Members</h3>
-                <h2>250</h2>
+                <h2 id="dashboardMembers">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Today's Attendance</h3>
-                <h2>85</h2>
+                <h3>Present Today</h3>
+                <h2 id="dashboardPresent">0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Monthly Revenue</h3>
-                <h2>₹1,25,000</h2>
+                <h3>Total Revenue</h3>
+                <h2 id="dashboardRevenue">₹0</h2>
             </div>
 
             <div class="dashboard-card">
-                <h3>Expired Plans</h3>
-                <h2>12</h2>
+                <h3>Pending Payments</h3>
+                <h2 id="dashboardPending">0</h2>
             </div>
 
         </div>
@@ -57,26 +57,21 @@
             <h2>Recent Members</h2>
 
             <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Plan</th>
-                    <th>Status</th>
-                </tr>
 
-                <tr>
-                    <td>101</td>
-                    <td>Rahul Sharma</td>
-                    <td>Premium</td>
-                    <td>Active</td>
-                </tr>
+                <thead>
 
-                <tr>
-                    <td>102</td>
-                    <td>Amit Patel</td>
-                    <td>VIP</td>
-                    <td>Active</td>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Plan</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="recentMembers">
+
+                </tbody>
 
             </table>
 
