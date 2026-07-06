@@ -32,8 +32,12 @@ function displayMembers() {
 
             <td>
 
+                <button onclick="editMember(${index})">
+                    ✏ Edit
+                </button>
+
                 <button onclick="deleteMember(${index})">
-                    Delete
+                    🗑 Delete
                 </button>
 
             </td>
