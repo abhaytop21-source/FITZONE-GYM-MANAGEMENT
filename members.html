@@ -10,14 +10,41 @@
 
 <div class="dashboard">
 
+    <!-- Sidebar -->
+     
     <div class="sidebar">
-        <h2 class="gym-name">FITZONE</h2>
+
+        <div class="sidebar-header">
+
+            <h2 class="gym-name">FITZONE</h2>
+
+        </div>
+
+        <div class="owner-profile">
+
+            <div class="owner-avatar">
+                👤
+            </div>
+
+            <h3 class="owner-name">
+                Gym Owner
+            </h3>
+
+            <p class="owner-role">
+                Administrator
+            </p>
+
+            <p class="owner-email" id="ownerEmail">
+                owner@fitzone.com
+            </p>
+
+        </div>
 
         <ul>
 
-            <li><a class="dash-btn" href="dashboard.html">🏠 Dashboard</a></li>
+            <li><a class="dash-btn active" href="dashboard.html">🏠 Dashboard</a></li>
 
-            <li><a class="dash-btn active" href="members.html">👥 Members</a></li>
+            <li><a class="dash-btn" href="members.html">👥 Members</a></li>
 
             <li><a class="dash-btn" href="attendance.html">📅 Attendance</a></li>
 
@@ -27,7 +54,15 @@
 
         </ul>
 
-        <li><a class="log-btn" href="index.html">Logout</a></li>
+        <a class="log-btn" href="#" id="logoutBtn">
+            🚪 Logout
+        </a>
+
+        <div class="sidebar-footer">
+
+            FITZONE v2.0
+
+        </div>
 
     </div>
 
