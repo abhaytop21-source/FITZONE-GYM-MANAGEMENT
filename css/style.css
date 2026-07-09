@@ -451,3 +451,31 @@ table th{
     font-weight:bold;
     color:red;
 }
+
+/* Sidebar Active Link */
+
+.dash-btn.active{
+
+    background:#ff7b00;
+
+    color:white;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    display:block;
+
+}
+
+.dash-btn{
+
+    transition:0.3s ease;
+
+}
+
+.dash-btn:hover{
+
+    transform:translateX(8px);
+
+}
