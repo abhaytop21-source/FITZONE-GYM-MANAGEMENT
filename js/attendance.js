@@ -86,6 +86,11 @@ function markPresent(index){
 
     displayAttendance();
 
+    showToast(
+        "📅 Attendance",
+        "Marked as Present."
+    );
+
 }
 
 function markAbsent(index){
@@ -98,6 +103,11 @@ function markAbsent(index){
     );
 
     displayAttendance();
+
+    showToast(
+        "📅 Attendance",
+        "Marked as Absent."
+    );
 
 }
 

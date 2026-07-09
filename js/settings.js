@@ -68,7 +68,10 @@ saveBtn.addEventListener("click", () => {
 
     gymTitle.innerText = settings.gymName;
 
-    alert("✅ Gym Profile Saved Successfully!");
+    showToast(
+        "🏋 Gym Profile",
+        "Gym Profile Saved Successfully."
+    );
 
 });
 

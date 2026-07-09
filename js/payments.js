@@ -94,6 +94,11 @@ function payNow(index){
 
     displayPayments();
 
+    showToast(
+        "💳 Payment",
+        "Payment recorded successfully."
+    );
+
 }
 
 displayPayments();

@@ -63,7 +63,10 @@ addMemberBtn.addEventListener("click", () => {
         memberPlan.value === ""
     ) {
 
-        alert("Please fill all fields.");
+        showToast(
+            "⚠ Missing Information",
+            "Please fill all fields."
+        );
 
         return;
 
@@ -71,15 +74,15 @@ addMemberBtn.addEventListener("click", () => {
 
     if(editIndex === -1){
 
-    members.push({
+        members.push({
 
-        name: memberName.value,
-        phone: memberPhone.value,
-        plan: memberPlan.value
+            name: memberName.value,
+            phone: memberPhone.value,
+            plan: memberPlan.value
 
-    });
+        });
 
-}
+    }
 else{
 
     members[editIndex] = {
@@ -94,6 +97,11 @@ else{
 
     addMemberBtn.innerText = "Add Member";
 
+    showToast(
+        "✏️ Member Updated",
+        "Member information updated successfully."
+    );
+
 }
 
 localStorage.setItem("members", JSON.stringify(members));
@@ -103,6 +111,11 @@ localStorage.setItem("members", JSON.stringify(members));
     memberPlan.value = "";
 
     displayMembers();
+
+    showToast(
+        "✅ Success",
+        "Member Added Successfully."
+    );
 
 });
 
@@ -116,6 +129,11 @@ function deleteMember(index){
     localStorage.setItem("members", JSON.stringify(members));
 
     displayMembers();
+
+    showToast(
+        "🗑 Member Deleted",
+        "Member removed successfully."
+    );
 
 }
 

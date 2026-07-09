@@ -587,3 +587,61 @@ table th{
     font-size:13px;
 
 }
+
+/* ===========================
+   TOAST NOTIFICATION
+=========================== */
+
+.toast{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    min-width:320px;
+
+    background:#222;
+
+    color:white;
+
+    padding:18px 20px;
+
+    border-left:6px solid #ff9800;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    transform:translateX(450px);
+
+    transition:.4s ease;
+
+    z-index:9999;
+
+}
+
+.toast.show{
+
+    transform:translateX(0);
+
+}
+
+.toast-title{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+
+}
+
+.toast-message{
+
+    font-size:14px;
+
+    color:#ddd;
+
+}
