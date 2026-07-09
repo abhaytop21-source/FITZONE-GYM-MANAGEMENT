@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Profile | FITZONE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2 id="gymTitle">FITZONE</h2>
+
+        <ul>
+
+            <li><a class="dash-btn" href="dashboard.html">🏠 Dashboard</a></li>
+
+            <li><a class="dash-btn" href="members.html">👥 Members</a></li>
+
+            <li><a class="dash-btn" href="attendance.html">📅 Attendance</a></li>
+
+            <li><a class="dash-btn" href="payments.html">💳 Payments</a></li>
+
+            <li><a class="dash-btn active" href="settings.html">⚙ Gym Profile</a></li>
+
+        </ul>
+
+        <li>
+            <a class="log-btn" href="#" id="logoutBtn">
+                🚪 Logout
+            </a>
+        </li>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <h1>Gym Profile</h1>
+
+        <p>
+            Manage your gym information. These details will be shown throughout the system.
+        </p>
+
+        <div class="member-form">
+
+            <input
+                type="text"
+                id="gymName"
+                placeholder="Gym Name">
+
+            <input
+                type="text"
+                id="ownerName"
+                placeholder="Owner Name">
+
+            <input
+                type="text"
+                id="phone"
+                placeholder="Phone Number">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address">
+
+            <input
+                type="text"
+                id="address"
+                placeholder="Gym Address">
+
+            <input
+                type="time"
+                id="openingTime">
+
+            <input
+                type="time"
+                id="closingTime">
+
+            <button id="saveSettings">
+                💾 Save Gym Profile
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/settings.js"></script>
+
+</body>
+</html>
