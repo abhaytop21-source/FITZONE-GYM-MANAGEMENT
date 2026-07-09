@@ -16,4 +16,9 @@ if (settings) {
         item.innerText = settings.ownerName;
     });
 
+    // Owner Email
+    document.querySelectorAll(".owner-email").forEach(item => {
+        item.innerText = settings.email;
+    });
+    
 }
