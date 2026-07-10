@@ -72,11 +72,8 @@ dashboardRevenue.innerText = "₹" + revenue;
 dashboardPending.innerText = pending;
 
 // Recent Members
-recentMembers.innerHTML = "";
 
-members.slice(-5).reverse().forEach((member, index) => {
-
-        const memberCards =
+    const memberCards =
     document.getElementById("memberCards");
 
     memberCards.innerHTML="";
@@ -97,13 +94,18 @@ members.slice(-5).reverse().forEach((member, index) => {
 
     <p>📞 ${member.phone}</p>
 
-    <p>🏋 ${member.plan}</p>
+    <p class="member-plan">🏋 ${member.plan} Member</p>
 
-    <p>🟢 Active</p>
+    <div class="status-badge">
+
+        🟢 Active
+
+    </div>
+
 
     <button onclick="viewMember(${members.length-1-index})">
 
-    View Details
+    Member Profile
 
     </button>
 
@@ -113,7 +115,6 @@ members.slice(-5).reverse().forEach((member, index) => {
 
     });
 
-});
 
 function viewMember(index){
 

@@ -856,9 +856,9 @@ table{
 
 #memberCards{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    flex-wrap:wrap;
 
     gap:20px;
 
@@ -866,35 +866,57 @@ table{
 
 .member-card{
 
-    background:#1d1d1d;
+    background:#1a1a1a;
 
-    border-radius:15px;
+    border:1px solid #2f2f2f;
 
-    padding:20px;
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
 
     transition:.3s;
 
-    border:1px solid #333;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+
+    width:300px;
+
+    margin-top:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
 
 }
 
 .member-card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-8px);
 
-    border-color:#ff9800;
+    border-color:#ff7b00;
+
+    box-shadow:0 15px 35px rgba(255,123,0,.25);
 
 }
 
 .member-avatar{
 
-    width:70px;
+    width:80px;
 
-    height:70px;
+    height:80px;
 
-    background:#ff9800;
+    margin:0 auto 18px;
 
     border-radius:50%;
+
+    background:#ff7b00;
+
+    color:white;
+
+    font-size:34px;
 
     display:flex;
 
@@ -902,36 +924,157 @@ table{
 
     align-items:center;
 
-    font-size:35px;
-
-    margin:auto;
-
-    margin-bottom:15px;
+    font-weight:bold;
 
 }
 
 .member-card h3{
 
-    text-align:center;
+    margin-bottom:8px;
 
-    color:white;
+    font-size:22px;
 
 }
 
 .member-card p{
 
-    text-align:center;
+    color:#bdbdbd;
 
-    color:#bbb;
+    margin:8px 0;
 
-    margin:6px 0;
+    font-size:15px;
 
 }
 
 .member-card button{
 
-    width:100%;
+    margin-top:20px;
 
-    margin-top:15px;
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff7b00;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.member-card button:hover{
+
+    background:#ff9500;
+
+}
+
+/* ===========================
+   Member Control Center
+=========================== */
+
+.member-modal{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.7);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.member-modal-content{
+
+    background:#1e1e1e;
+
+    width:500px;
+    max-width:90%;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    position:relative;
+
+    animation:popup .3s ease;
+
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#ff9800;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+.status-badge{
+
+    display:inline-block;
+
+    background:#1f8f4d;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin:10px 0;
+
+}
+
+.member-plan{
+
+    color:#ff9800;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    margin:8px 0;
 
 }
