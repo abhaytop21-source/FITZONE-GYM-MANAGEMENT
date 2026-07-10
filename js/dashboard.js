@@ -76,20 +76,47 @@ recentMembers.innerHTML = "";
 
 members.slice(-5).reverse().forEach((member, index) => {
 
-    recentMembers.innerHTML += `
+        const memberCards =
+    document.getElementById("memberCards");
 
-    <tr>
+    memberCards.innerHTML="";
 
-        <td>${members.length - index}</td>
+    members.slice(-6).reverse().forEach((member,index)=>{
 
-        <td>${member.name}</td>
+    memberCards.innerHTML +=`
 
-        <td>${member.plan}</td>
+    <div class="member-card">
 
-        <td>Active</td>
+    <div class="member-avatar">
 
-    </tr>
+    👤
+
+    </div>
+
+    <h3>${member.name}</h3>
+
+    <p>📞 ${member.phone}</p>
+
+    <p>🏋 ${member.plan}</p>
+
+    <p>🟢 Active</p>
+
+    <button onclick="viewMember(${members.length-1-index})">
+
+    View Details
+
+    </button>
+
+    </div>
 
     `;
 
+    });
+
 });
+
+function viewMember(index){
+
+    console.log(members[index]);
+
+}

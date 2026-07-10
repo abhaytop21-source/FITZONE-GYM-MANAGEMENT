@@ -843,3 +843,95 @@ table{
 }
 
 }
+
+/* ==============================
+   Dashboard Member Cards
+================================ */
+
+.member-dashboard{
+
+    margin-top:30px;
+
+}
+
+#memberCards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}
+
+.member-card{
+
+    background:#1d1d1d;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    transition:.3s;
+
+    border:1px solid #333;
+
+}
+
+.member-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#ff9800;
+
+}
+
+.member-avatar{
+
+    width:70px;
+
+    height:70px;
+
+    background:#ff9800;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+    margin:auto;
+
+    margin-bottom:15px;
+
+}
+
+.member-card h3{
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.member-card p{
+
+    text-align:center;
+
+    color:#bbb;
+
+    margin:6px 0;
+
+}
+
+.member-card button{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
