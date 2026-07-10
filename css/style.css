@@ -645,3 +645,201 @@ table th{
     color:#ddd;
 
 }
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#1c1c1c;
+
+    padding:15px 20px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+}
+
+.menu-btn{
+
+    background:#ff7b00;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    font-size:22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+    background:#ff9500;
+
+}
+
+.topbar-right{
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+/* ==========================================
+   Overlay
+========================================== */
+
+.overlay{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.5);
+
+    display:none;
+
+    z-index:998;
+
+}
+
+.overlay.show{
+
+    display:block;
+
+}
+
+/* ==========================================
+   Sidebar Animation
+========================================== */
+
+.sidebar{
+
+    transition:.4s ease;
+
+    z-index:999;
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:992px){
+
+.dashboard{
+
+    display:block;
+
+}
+
+.sidebar{
+
+    position:fixed;
+
+    left:-270px;
+
+    top:0;
+
+    width:250px;
+
+    height:100vh;
+
+    background:#111;
+
+}
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+.main-content{
+
+    width:100%;
+
+    margin-left:0;
+
+    padding:20px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:15px;
+
+}
+
+table{
+
+    display:block;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+}
+
+.member-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.member-form input,
+
+.member-form button{
+
+    width:100%;
+
+}
+
+}
+
+/* ==========================================
+   Desktop
+========================================== */
+
+@media(min-width:993px){
+
+.menu-btn{
+
+    display:none;
+
+}
+
+.overlay{
+
+    display:none !important;
+
+}
+
+}
