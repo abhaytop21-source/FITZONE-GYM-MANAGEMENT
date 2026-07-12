@@ -113,11 +113,16 @@ dashboardPending.innerText = pending;
 
     `;
 
-    });
+});
 
+ function viewMember(index){
 
-function viewMember(index){
+    toast("🚧 Member Control Center - Coming in Phase 3");
 
-    console.log(members[index]);
+}   
+
+function closeMemberModal(){
+
+    document.getElementById("memberModal").style.display="none";
 
 }

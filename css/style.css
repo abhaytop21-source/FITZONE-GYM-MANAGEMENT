@@ -1001,8 +1001,9 @@ table{
 
     background:#1e1e1e;
 
-    width:500px;
-    max-width:90%;
+    width:720px;
+
+    max-width: 90%;
 
     border-radius:15px;
 
@@ -1049,21 +1050,17 @@ table{
 
 .status-badge{
 
-    display:inline-block;
-
     background:#1f8f4d;
 
     color:white;
 
-    padding:6px 14px;
+    padding:8px 18px;
 
-    border-radius:20px;
+    border-radius:30px;
 
-    font-size:13px;
+    font-size:14px;
 
     font-weight:bold;
-
-    margin:10px 0;
 
 }
 
@@ -1078,3 +1075,4 @@ table{
     margin:8px 0;
 
 }
+
