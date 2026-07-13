@@ -186,6 +186,141 @@ function validateStep1() {
 
 
 // ==========================================
+// STEP 2 VALIDATION
+// ==========================================
+
+function validateStep2() {
+
+    let valid = true;
+
+    const gymName = document.getElementById("gymName");
+    const address = document.getElementById("address");
+    const city = document.getElementById("city");
+    const state = document.getElementById("state");
+    const openingTime = document.getElementById("openingTime");
+    const closingTime = document.getElementById("closingTime");
+
+    // ---------- Gym Name ----------
+
+    if (!isRequired(gymName.value)) {
+
+        showError(gymName, "Gym name is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(gymName);
+
+    }
+
+    // ---------- Address ----------
+
+    if (!isRequired(address.value)) {
+
+        showError(address, "Address is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(address);
+
+    }
+
+    // ---------- City ----------
+
+    if (!isRequired(city.value)) {
+
+        showError(city, "City is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(city);
+
+    }
+
+    // ---------- State ----------
+
+    if (!isRequired(state.value)) {
+
+        showError(state, "State is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(state);
+
+    }
+
+    // ---------- Opening Time ----------
+
+    if (!isRequired(openingTime.value)) {
+
+        showError(openingTime, "Opening time is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(openingTime);
+
+    }
+
+    // ---------- Closing Time ----------
+
+    if (!isRequired(closingTime.value)) {
+
+        showError(closingTime, "Closing time is required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(closingTime);
+
+    }
+
+    // ---------- Time Validation ----------
+
+    if (
+        openingTime.value &&
+        closingTime.value &&
+        openingTime.value >= closingTime.value
+    ) {
+
+        showError(closingTime, "Closing time must be later than opening time.");
+        valid = false;
+
+    }
+
+    return valid;
+
+}
+
+
+// ==========================================
+// STEP 3 VALIDATION
+// ==========================================
+
+
+function validateStep3() {
+
+    const cards = plansContainer.querySelectorAll(".membership-card");
+
+    if (cards.length === 0) {
+
+        alert("Please create at least one membership plan.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+
+// ==========================================
 // Welcome
 // ==========================================
 
@@ -235,7 +370,11 @@ step2Back.addEventListener("click", () => {
 
 step2Next.addEventListener("click", () => {
 
-    showStep(step2, step3, "75%");
+    if (validateStep2()) {
+
+        showStep(step2, step3, "75%");
+
+    }
 
 });
 
@@ -357,56 +496,36 @@ savePlan.addEventListener("click", () => {
 // STEP 3 -> STEP 4
 // ==========================================
 
-step3Next.addEventListener("click",()=>{
+step3Next.addEventListener("click", () => {
 
+    if (validateStep3()) {
 
-    // ---------- Owner ----------
+        // Review - Owner
 
-    document.getElementById("reviewOwner").innerHTML=`
+        document.getElementById("reviewOwner").innerHTML = `
+            <strong>${document.getElementById("firstName").value}
+            ${document.getElementById("lastName").value}</strong><br>
+            📧 ${document.getElementById("ownerEmail").value}<br>
+            📞 ${document.getElementById("ownerPhone").value}
+        `;
 
-        <strong>${document.getElementById("firstName").value}
-        ${document.getElementById("lastName").value}</strong><br>
+        // Review - Gym
 
-        📧 ${document.getElementById("ownerEmail").value}<br>
+        document.getElementById("reviewGym").innerHTML = `
+            <strong>${document.getElementById("gymName").value}</strong><br>
+            🏋 ${document.getElementById("gymType").value || "Not Selected"}<br>
+            📍 ${document.getElementById("address").value},
+            ${document.getElementById("city").value},
+            ${document.getElementById("state").value}
+        `;
 
-        📞 ${document.getElementById("ownerPhone").value}
+        // Review - Plans
 
-    `;
+        document.getElementById("reviewPlans").innerHTML =
+            plansContainer.innerHTML;
 
-
-    // ---------- Gym ----------
-
-    document.getElementById("reviewGym").innerHTML=`
-
-        <strong>${document.getElementById("gymName").value}</strong><br>
-
-        🏋 ${document.getElementById("gymType").value}<br>
-
-        📞 ${document.getElementById("gymPhone").value}<br>
-
-        📧 ${document.getElementById("gymEmail").value || "Not Provided"}<br>
-
-        📍 ${document.getElementById("address").value},
-        ${document.getElementById("city").value},
-        ${document.getElementById("state").value},
-        ${document.getElementById("country").value}<br>
-
-        🕒 ${document.getElementById("openingTime").value}
-        -
-        ${document.getElementById("closingTime").value}
-
-    `;
-
-
-    // ---------- Membership ----------
-
-    document.getElementById("reviewPlans").innerHTML=
-
-        plansContainer.innerHTML;
-
-
-    showStep(step3,step4,"100%");
-
+        showStep(step3, step4, "100%");
+    }
 
 });
 
