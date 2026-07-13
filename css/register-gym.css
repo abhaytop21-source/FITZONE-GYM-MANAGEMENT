@@ -725,24 +725,3 @@ textarea{
 }
 
 
-.input-error{
-
-    border:2px solid #ff4d4d !important;
-
-}
-
-.input-success{
-
-    border:2px solid #00c853 !important;
-
-}
-
-.error-message{
-
-    color:#ff4d4d;
-
-    font-size:13px;
-
-    margin-top:6px;
-
-}

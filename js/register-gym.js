@@ -54,6 +54,138 @@ function showStep(currentStep, nextStep, progress){
 
 
 // ==========================================
+// STEP 1 VALIDATION
+// ==========================================
+
+function validateStep1() {
+
+    let valid = true;
+
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const email = document.getElementById("ownerEmail");
+    const phone = document.getElementById("ownerPhone");
+    const password = document.getElementById("ownerPassword");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    // ---------- First Name ----------
+
+    if (!isRequired(firstName.value)) {
+
+        showError(firstName, "First name is required.");
+        valid = false;
+
+    } else if (!minLength(firstName.value, 2)) {
+
+        showError(firstName, "Minimum 2 characters required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(firstName);
+
+    }
+
+    // ---------- Last Name ----------
+
+    if (!isRequired(lastName.value)) {
+
+        showError(lastName, "Last name is required.");
+        valid = false;
+
+    } else if (!minLength(lastName.value, 2)) {
+
+        showError(lastName, "Minimum 2 characters required.");
+        valid = false;
+
+    } else {
+
+        showSuccess(lastName);
+
+    }
+
+    // ---------- Email ----------
+
+    if (!isRequired(email.value)) {
+
+        showError(email, "Email is required.");
+        valid = false;
+
+    } else if (!isValidEmail(email.value)) {
+
+        showError(email, "Enter a valid email address.");
+        valid = false;
+
+    } else {
+
+        showSuccess(email);
+
+    }
+
+    // ---------- Phone ----------
+
+    if (!isRequired(phone.value)) {
+
+        showError(phone, "Phone number is required.");
+        valid = false;
+
+    } else if (!isValidPhone(phone.value)) {
+
+        showError(phone, "Phone number must contain exactly 10 digits.");
+        valid = false;
+
+    } else {
+
+        showSuccess(phone);
+
+    }
+
+    // ---------- Password ----------
+
+    if (!isRequired(password.value)) {
+
+        showError(password, "Password is required.");
+        valid = false;
+
+    } else if (!isStrongPassword(password.value)) {
+
+        showError(
+            password,
+            "Password must be at least 8 characters with uppercase, lowercase and number."
+        );
+
+        valid = false;
+
+    } else {
+
+        showSuccess(password);
+
+    }
+
+    // ---------- Confirm Password ----------
+
+    if (!isRequired(confirmPassword.value)) {
+
+        showError(confirmPassword, "Please confirm your password.");
+        valid = false;
+
+    } else if (!isMatch(password.value, confirmPassword.value)) {
+
+        showError(confirmPassword, "Passwords do not match.");
+        valid = false;
+
+    } else {
+
+        showSuccess(confirmPassword);
+
+    }
+
+    return valid;
+
+}
+
+
+// ==========================================
 // Welcome
 // ==========================================
 
@@ -79,10 +211,13 @@ startButton.addEventListener("click", () => {
 
 step1Next.addEventListener("click", () => {
 
-    showStep(step1, step2, "50%");
+    if(validateStep1()){
+
+        showStep(step1, step2, "50%");
+
+    }
 
 });
-
 
 // Step 2 → Step 1
 
