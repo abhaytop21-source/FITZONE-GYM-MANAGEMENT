@@ -169,7 +169,7 @@
 
                             <label>First Name</label>
 
-                            <input type="text">
+                            <input type="text" id="firstName">
 
                         </div>
 
@@ -177,7 +177,7 @@
 
                             <label>Last Name</label>
 
-                            <input type="text">
+                            <input type="text" id="lastName">
 
                         </div>
 
@@ -185,7 +185,7 @@
 
                             <label>Email Address</label>
 
-                            <input type="email">
+                            <input type="email" id="ownerEmail">
 
                         </div>
 
@@ -193,7 +193,7 @@
 
                             <label>Phone Number</label>
 
-                            <input type="tel">
+                            <input type="tel" id="ownerPhone">
 
                         </div>
 
@@ -201,7 +201,7 @@
 
                             <label>Password</label>
 
-                            <input type="password">
+                            <input type="password" id="ownerPassword">
 
                         </div>
 
@@ -209,7 +209,7 @@
 
                             <label>Confirm Password</label>
 
-                            <input type="password">
+                            <input type="password" id="confirmPassword">
 
                         </div>
 
@@ -226,7 +226,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- ================= STEP 2 ================= -->
@@ -247,7 +246,7 @@
 
                             <label>Gym Name</label>
 
-                            <input type="text" placeholder="Iron Temple Fitness">
+                            <input type="text" placeholder="Iron Temple Fitness" id="gymName">
 
                         </div>
 
@@ -255,7 +254,7 @@
 
                             <label>Gym Type</label>
 
-                            <select>
+                            <select id="gymType">
 
                                 <option>Select Gym Type</option>
 
@@ -283,7 +282,7 @@
 
                             <label>Gym Phone Number</label>
 
-                            <input type="tel">
+                            <input type="tel" id="gymPhone">
 
                         </div>
 
@@ -291,7 +290,7 @@
 
                             <label>Gym Email (Optional)</label>
 
-                            <input type="email">
+                            <input type="email" id="gymEmail">
 
                         </div>
 
@@ -299,7 +298,7 @@
 
                             <label>Address</label>
 
-                            <input type="text">
+                            <input type="text" id="address">
 
                         </div>
 
@@ -307,7 +306,7 @@
 
                             <label>City</label>
 
-                            <input type="text">
+                            <input type="text" id="city">
 
                         </div>
 
@@ -315,7 +314,7 @@
 
                             <label>State</label>
 
-                            <input type="text">
+                            <input type="text" id="state">
 
                         </div>
 
@@ -323,7 +322,7 @@
 
                             <label>Country</label>
 
-                            <input type="text" value="India">
+                            <input type="text" id="country" value="India">
 
                         </div>
 
@@ -331,7 +330,7 @@
 
                             <label>Opening Time</label>
 
-                            <input type="time">
+                            <input type="time" id="openingTime">
 
                         </div>
 
@@ -339,7 +338,7 @@
 
                             <label>Closing Time</label>
 
-                            <input type="time">
+                            <input type="time" id="closingTime">
 
                         </div>
 
@@ -347,7 +346,7 @@
 
                             <label>Gym Logo (Optional)</label>
 
-                            <input type="file">
+                            <input type="file" id="gymLogo">
 
                         </div>
 
@@ -465,7 +464,71 @@
 
                 </div>
 
-                
+                <!-- ================= STEP 4 ================= -->
+
+                <div class="form-step hidden" id="step4">
+
+                    <div class="step-title">
+
+                        <h2>Review & Launch</h2>
+
+                        <span>Step 4 of 4</span>
+
+                    </div>
+
+                    <div class="review-section">
+
+                        <div class="review-card">
+
+                            <h3>👤 Owner Information</h3>
+
+                            <p id="reviewOwner">
+                                Your owner information will appear here.
+                            </p>
+
+                        </div>
+
+                        <div class="review-card">
+
+                            <h3>🏢 Gym Information</h3>
+
+                            <p id="reviewGym">
+                                Your gym information will appear here.
+                            </p>
+
+                        </div>
+
+                        <div class="review-card">
+
+                            <h3>💳 Membership Plans</h3>
+
+                            <div id="reviewPlans">
+
+                                No plans added.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="setup-buttons">
+
+                        <button class="previous-btn" id="step4Back">
+
+                            ← Previous
+
+                        </button>
+
+                        <button class="continue-btn" id="launchGym">
+
+                            🚀 Launch My Gym
+
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 

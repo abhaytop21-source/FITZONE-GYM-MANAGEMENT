@@ -1,23 +1,61 @@
+// ==========================================
+// FITZONE REGISTER GYM
+// Part 1 - Navigation
+// ==========================================
+
+
+// ---------- Welcome Screen ----------
+
 const startButton = document.getElementById("startSetup");
-
 const welcomeCard = document.getElementById("welcomeCard");
-
 const setupCard = document.getElementById("setupCard");
 
 
-// ================= STEP 2 -> STEP 3 =================
-
-
-const step1 = document.getElementById("step1");
-const step2 = document.getElementById("step2");
-
-const step1Next = document.getElementById("step1Next");
-const step2Back = document.getElementById("step2Back");
+// ---------- Progress Bar ----------
 
 const progressFill = document.getElementById("progressFill");
 
 
-// Start Wizard
+// ---------- Steps ----------
+
+const step1 = document.getElementById("step1");
+const step2 = document.getElementById("step2");
+const step3 = document.getElementById("step3");
+const step4 = document.getElementById("step4");
+
+
+// ---------- Buttons ----------
+
+const step1Next = document.getElementById("step1Next");
+
+const step2Back = document.getElementById("step2Back");
+const step2Next = document.getElementById("step2Next");
+
+const step3Back = document.getElementById("step3Back");
+const step3Next = document.getElementById("step3Next");
+
+const step4Back = document.getElementById("step4Back");
+const launchGym = document.getElementById("launchGym");
+
+
+// ==========================================
+// Helper Function
+// ==========================================
+
+function showStep(currentStep, nextStep, progress){
+
+    currentStep.classList.add("hidden");
+
+    nextStep.classList.remove("hidden");
+
+    progressFill.style.width = progress;
+
+}
+
+
+// ==========================================
+// Welcome
+// ==========================================
 
 startButton.addEventListener("click", () => {
 
@@ -28,54 +66,241 @@ startButton.addEventListener("click", () => {
 });
 
 
-// Step 1 -> Step 2
+// ==========================================
+// Step Navigation
+// ==========================================
+
+
+// ==========================================
+// STEP 1 -> STEP 2
+// ==========================================
+
+// Step 1 → Step 2
 
 step1Next.addEventListener("click", () => {
 
-    step1.classList.add("hidden");
-
-    step2.classList.remove("hidden");
-
-    progressFill.style.width = "50%";
+    showStep(step1, step2, "50%");
 
 });
 
 
-// Step 2 -> Step 1
+// Step 2 → Step 1
 
 step2Back.addEventListener("click", () => {
 
-    step2.classList.add("hidden");
-
-    step1.classList.remove("hidden");
-
-    progressFill.style.width = "25%";
+    showStep(step2, step1, "25%");
 
 });
 
-// ================= STEP 2 -> STEP 3 =================
+// ==========================================
+// STEP 2 -> STEP 3
+// ==========================================
 
-const step3 = document.getElementById("step3");
-
-const step2Next = document.getElementById("step2Next");
-const step3Back = document.getElementById("step3Back");
+// Step 2 → Step 3
 
 step2Next.addEventListener("click", () => {
 
-    step2.classList.add("hidden");
-
-    step3.classList.remove("hidden");
-
-    progressFill.style.width = "75%";
+    showStep(step2, step3, "75%");
 
 });
 
+
+// Step 3 → Step 2
+
 step3Back.addEventListener("click", () => {
 
-    step3.classList.add("hidden");
+    showStep(step3, step2, "50%");
 
-    step2.classList.remove("hidden");
+});
 
-    progressFill.style.width = "50%";
+
+// ==========================================
+//  - MEMBERSHIP + REVIEW
+// ==========================================
+
+
+// ---------- Membership ----------
+
+const savePlan = document.getElementById("savePlan");
+const plansContainer = document.getElementById("plansContainer");
+
+savePlan.addEventListener("click", () => {
+
+    const name = document.getElementById("planName").value.trim();
+
+    const price = document.getElementById("planPrice").value.trim();
+
+    const duration = document.getElementById("planDuration").value.trim();
+
+    const description = document.getElementById("planDescription").value.trim();
+
+
+    if(name==="" || price==="" || duration===""){
+
+        alert("Please fill all required fields.");
+
+        return;
+
+    }
+
+
+    const empty = plansContainer.querySelector(".empty-plan");
+
+    if(empty){
+
+        empty.remove();
+
+    }
+
+
+    const card = document.createElement("div");
+
+    card.className="membership-card";
+
+
+    card.innerHTML = `
+
+        <h3>💳 ${name}</h3>
+
+        <p>💰 <strong>₹${price}</strong> / Month</p>
+
+        <p>🗓 Duration : ${duration} Days</p>
+
+        <p>📝 ${description || "No Description"}</p>
+
+        <div class="plan-actions">
+
+            <button>Edit</button>
+
+            <button class="delete-plan">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    card.querySelector(".delete-plan").addEventListener("click",()=>{
+
+        card.remove();
+
+        if(plansContainer.children.length===0){
+
+            plansContainer.innerHTML=`
+
+                <p class="empty-plan">
+
+                    No membership plans added yet.
+
+                </p>
+
+            `;
+
+        }
+
+    });
+
+
+    plansContainer.appendChild(card);
+
+
+    document.getElementById("planName").value="";
+
+    document.getElementById("planPrice").value="";
+
+    document.getElementById("planDuration").value="";
+
+    document.getElementById("planDescription").value="";
+
+});
+
+
+// ==========================================
+// STEP 3 -> STEP 4
+// ==========================================
+
+step3Next.addEventListener("click",()=>{
+
+
+    // ---------- Owner ----------
+
+    document.getElementById("reviewOwner").innerHTML=`
+
+        <strong>${document.getElementById("firstName").value}
+        ${document.getElementById("lastName").value}</strong><br>
+
+        📧 ${document.getElementById("ownerEmail").value}<br>
+
+        📞 ${document.getElementById("ownerPhone").value}
+
+    `;
+
+
+    // ---------- Gym ----------
+
+    document.getElementById("reviewGym").innerHTML=`
+
+        <strong>${document.getElementById("gymName").value}</strong><br>
+
+        🏋 ${document.getElementById("gymType").value}<br>
+
+        📞 ${document.getElementById("gymPhone").value}<br>
+
+        📧 ${document.getElementById("gymEmail").value || "Not Provided"}<br>
+
+        📍 ${document.getElementById("address").value},
+        ${document.getElementById("city").value},
+        ${document.getElementById("state").value},
+        ${document.getElementById("country").value}<br>
+
+        🕒 ${document.getElementById("openingTime").value}
+        -
+        ${document.getElementById("closingTime").value}
+
+    `;
+
+
+    // ---------- Membership ----------
+
+    document.getElementById("reviewPlans").innerHTML=
+
+        plansContainer.innerHTML;
+
+
+    showStep(step3,step4,"100%");
+
+
+});
+
+
+// ==========================================
+// STEP 4 -> STEP 3
+// ==========================================
+
+step4Back.addEventListener("click",()=>{
+
+    showStep(step4,step3,"75%");
+
+});
+
+
+// ==========================================
+// Launch Gym
+// ==========================================
+
+launchGym.addEventListener("click",()=>{
+
+    alert(
+
+        `🎉 Congratulations!
+
+        Your gym has been created successfully!
+
+        Next we will connect it with Flask and Database.`
+
+    );
 
 });
