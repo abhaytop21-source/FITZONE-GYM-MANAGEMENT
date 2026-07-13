@@ -1,0 +1,81 @@
+/* ==========================
+        NAVBAR
+========================== */
+
+.navbar{
+
+    width:100%;
+
+    padding:25px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.logo i{
+
+    font-size:26px;
+
+}
+
+.nav-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.nav-buttons a{
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.member-btn{
+
+    background:#ffe600;
+
+    color:#111;
+
+}
+
+.owner-btn{
+
+    background:#12c9ff;
+
+    color:#fff;
+
+}
+
+.nav-buttons a:hover{
+
+    transform:translateY(-3px);
+
+}

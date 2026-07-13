@@ -1,0 +1,113 @@
+/* ==========================================
+   FITZONE Global Styles
+========================================== */
+
+:root{
+
+    --primary:#ff7b00;
+    --primary-hover:#ff9800;
+
+    --background:#0f0f0f;
+    --surface:#1a1a1a;
+    --surface-light:#2a2a2a;
+
+    --border:#333;
+
+    --text:#ffffff;
+    --text-light:#bdbdbd;
+
+    --radius:12px;
+
+    --transition:0.3s ease;
+
+}
+
+/* Reset */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+/* Body */
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    line-height:1.6;
+
+}
+
+/* Links */
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+/* Lists */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* Images */
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+/* Buttons */
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    transition:var(--transition);
+
+    font-family:inherit;
+
+}
+
+/* Inputs */
+
+input,
+select,
+textarea{
+
+    font-family:inherit;
+
+    outline:none;
+
+}
+
+/* Containers */
+
+.container{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
