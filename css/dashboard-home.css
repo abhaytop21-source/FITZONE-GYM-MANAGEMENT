@@ -1,0 +1,174 @@
+/* ==========================================
+   Dashboard Home
+========================================== */
+
+/* Dashboard Home */
+
+.dashboard-home{
+
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+
+}
+
+/* ==========================================
+   Section Header
+========================================== */
+
+.section-header{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+}
+
+.section-header h2{
+
+    font-size:28px;
+    font-weight:700;
+    color:var(--text);
+
+}
+
+.section-header p{
+
+    color:var(--text-light);
+    font-size:15px;
+
+}
+
+/* ==========================================
+   Business Overview Grid
+========================================== */
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+/* ==========================================
+   Overview Card
+========================================== */
+
+.overview-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    transition:var(--transition);
+
+}
+
+.overview-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================
+   Icon
+========================================== */
+
+.card-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.card-icon i{
+
+    color:#fff;
+
+    font-size:22px;
+
+}
+
+/* ==========================================
+   Card Information
+========================================== */
+
+.card-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.card-info h3{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.card-info p{
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================
+   Growth
+========================================== */
+
+.card-growth{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#22c55e;
+
+}
+
+.card-growth i{
+
+    font-size:13px;
+
+}
