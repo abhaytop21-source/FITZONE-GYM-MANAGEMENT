@@ -3,157 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Gym Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<div class="dashboard">
+    <!-- ========================= -->
+    <!-- Dashboard Members Layout -->
+    <!-- ========================= -->
 
-    <div class="overlay" id="overlay"></div>
+    <div class="dashboard-container">
 
-    <!-- Sidebar -->
+        <!-- ========================= -->
+        <!-- Sidebar -->
+        <!-- ========================= -->
 
-    <div class="sidebar">
+        <aside class="sidebar">
 
-        <div class="sidebar-header">
-
-            <h2 class="gym-name">FITZONE</h2>
-
-        </div>
-
-        <div class="owner-profile">
-
-            <div class="owner-avatar">
-                👤
+            <div class="logo">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>FITZONE</h2>
             </div>
 
-            <h3 class="owner-name">
-                Gym Owner
-            </h3>
+            <nav class="sidebar-menu">
 
-            <p class="owner-role">
-                Administrator
-            </p>
+                <a href="#">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
 
-            <p class="owner-email" id="ownerEmail">
-                owner@fitzone.com
-            </p>
+                <a href="members.html" class="active">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
 
-        </div>
+                <a href="#">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
 
-        <ul>
+                <a href="#">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
 
-            <li><a class="dash-btn" href="dashboard.html">🏠 Dashboard</a></li>
+                <a href="#">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Membership Plans</span>
+                </a>
 
-            <li><a class="dash-btn active" href="members.html">👥 Members</a></li>
+                <a href="#">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Trainers</span>
+                </a>
 
-            <li><a class="dash-btn" href="attendance.html">📅 Attendance</a></li>
+                <a href="#">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
 
-            <li><a class="dash-btn" href="payments.html">💳 Payments</a></li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Gym Settings</span>
+                </a>
 
-            <li><a class="dash-btn" href="settings.html">⚙ Gym Profile</a></li>
+            </nav>
 
-        </ul>
+        </aside>
 
-        <a class="log-btn" href="#" id="logoutBtn">
-            🚪 Logout
-        </a>
+        <!-- ========================= -->
+        <!-- Main Content -->
+        <!-- ========================= -->
 
-        <div class="sidebar-footer">
+        <main class="main-content">
 
-            FITZONE v2.0
+            <!-- Header -->
 
-        </div>
+            <header class="top-header">
+
+                <div class="gym-info">
+
+                    <h2>Iron Temple Fitness</h2>
+
+                    <p>Owner ID : GYM0001</p>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="notification-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                    </button>
+
+                    <div class="owner-profile">
+
+                        <img src="images/default-user.png" alt="Owner">
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Dynamic Content -->
+
+            <section id="content-area">
+
+                <!-- =========================
+                        MEMBERS PAGE
+                ========================== -->
+
+                <div class="page-header">
+
+                    <div>
+                        <h2>Members Management</h2>
+                        <p>Manage all your gym members from one place.</p>
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                    MEMBERS OVERVIEW
+                ========================== -->
+
+                <section class="overview-grid">
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div class="card-content">
+                            <h3 id="totalMembers">0</h3>
+                            <p>Total Members</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <div class="card-content">
+                            <h3 id="activeMembers">0</h3>
+                            <p>Active Members</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-user-clock"></i>
+                        </div>
+
+                        <div class="card-content">
+                            <h3 id="expiringMembers">0</h3>
+                            <p>Expiring Soon</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+
+                        <div class="card-content">
+                            <h3 id="premiumMembers">0</h3>
+                            <p>Premium Members</p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- =========================
+                    TOOLBAR
+                ========================== -->
+
+                <section class="members-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="searchMember"
+                            placeholder="Search members..."
+                        >
+
+                    </div>
+
+                    <select id="memberFilter">
+
+                        <option value="all">All Members</option>
+                        <option value="active">Active</option>
+                        <option value="expired">Expired</option>
+                        <option value="premium">Premium</option>
+
+                    </select>
+
+                    <button class="add-member-btn" id="addMemberBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Member
+
+                    </button>
+
+                </section>
+
+                <!-- =========================
+                        MEMBERS TABLE
+                ========================== -->
+
+                <section class="table-card">
+
+                    <table class="members-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Plan</th>
+                                <th>Expiry</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="membersTableBody">
+
+                            <!-- Members will come from database later -->
+
+                        </tbody>
+
+                    </table>
+
+                    <div class="empty-state" id="emptyState">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <h3>No Members Yet</h3>
+
+                        <p>Add your first gym member to get started.</p>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
 
     </div>
-
-     <!-- Main Content -->
-
-    <div class="main-content">
-
-        <div class="topbar">
-
-            <button id="menuBtn" class="menu-btn">
-                ☰
-            </button>
-
-            <div class="topbar-right">
-
-                <span id="todayDate"></span>
-
-            </div>
-
-        </div>
-
-        <h1>Members Management</h1>
-
-        <div class="member-form">
-
-            <input
-                type="text"
-                id="memberName"
-                placeholder="Member Name"
-            >
-
-            <input
-                type="text"
-                id="memberPhone"
-                placeholder="Phone Number"
-            >
-
-            <select id="memberPlan" class="plan-select">
-
-                <option value="">Select Plan</option>
-                <option>Basic</option>
-                <option>Premium</option>
-                <option>VIP</option>
-
-            </select>
-
-            <button id="addMemberBtn">
-                Add Member
-            </button>
-
-        </div>
-
-        <br>
-
-        <input
-        type="text"
-        id="searchMember" class="search-input"
-        placeholder="🔍 Search Member..."
-        >
-
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Plan</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-
-            </thead>
-
-            <tbody id="memberTable">
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
-
-<script src="js/members.js"></script>
-<script src="js/global.js"></script>
-<script src="js/toast.js"></script>
-<script src="js/responsive.js"></script>
 
 </body>
 </html>
