@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- Dashboard Layout -->
+    <!-- ========================= -->
+
+    <div class="dashboard-container">
+
+        <!-- ========================= -->
+        <!-- Sidebar -->
+        <!-- ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>FITZONE</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="members.html">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
+
+
+                <a href="attendance.html">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="membership-plans.html">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Membership Plans</span>
+                </a>
+
+                <a href="trainers.html" class="active">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Trainers</span>
+                </a>
+                
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Gym Settings</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- ========================= -->
+        <!-- Main Content -->
+        <!-- ========================= -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div class="gym-info">
+
+                    <h2>Iron Temple Fitness</h2>
+
+                    <p>Owner ID : GYM0001</p>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="notification-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                    </button>
+
+                    <div class="owner-profile">
+
+                        <img src="images/default-user.png" alt="Owner">
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Dynamic Content -->
+
+            <section id="content-area">
+
+                <!-- ==========================================
+                            PAGE HEADER
+                ========================================== -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h1>Trainers</h1>
+
+                        <p>Manage trainers, their profiles and assignments.</p>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                            TOOLBAR
+                ========================================== -->
+
+                <div class="trainers-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="trainerSearch"
+                            placeholder="Search Trainer">
+
+                    </div>
+
+                    <select id="statusFilter">
+
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="leave">On Leave</option>
+
+                    </select>
+
+                    <button class="add-trainer-btn" id="addTrainerBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Trainer
+
+                    </button>
+
+                </div>
+
+                <!-- ==========================================
+                            TRAINERS GRID
+                ========================================== -->
+
+                <div class="trainers-grid">
+
+                    <!-- Trainer Card 1 -->
+
+                    <div class="trainer-card">
+
+                        <div class="trainer-image">
+
+                            <img src="https://placehold.co/300x300?text=Trainer" alt="Trainer">
+
+                        </div>
+
+                        <div class="trainer-info">
+
+                            <h2>Rahul Sharma</h2>
+
+                            <span class="specialization">
+                                Strength Trainer
+                            </span>
+
+                            <div class="trainer-details">
+
+                                <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+
+                                <p><i class="fa-solid fa-envelope"></i> rahul@email.com</p>
+
+                                <p><i class="fa-solid fa-star"></i> 5 Years Experience</p>
+
+                                <p><i class="fa-solid fa-users"></i> 24 Members Assigned</p>
+
+                            </div>
+
+                            <span class="status active">
+
+                                Active
+
+                            </span>
+
+                            <div class="trainer-actions">
+
+                                <button class="edit-btn">
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                    Edit
+
+                                </button>
+
+                                <button class="delete-btn">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Delete
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Trainer Card 2 -->
+
+                    <div class="trainer-card">
+
+                        <div class="trainer-image">
+
+                            <img src="https://placehold.co/300x300?text=Trainer" alt="Trainer">
+
+                        </div>
+
+                        <div class="trainer-info">
+
+                            <h2>Priya Patel</h2>
+
+                            <span class="specialization">
+
+                                Yoga Instructor
+
+                            </span>
+
+                            <div class="trainer-details">
+
+                                <p><i class="fa-solid fa-phone"></i> +91 9988776655</p>
+
+                                <p><i class="fa-solid fa-envelope"></i> priya@email.com</p>
+
+                                <p><i class="fa-solid fa-star"></i> 7 Years Experience</p>
+
+                                <p><i class="fa-solid fa-users"></i> 18 Members Assigned</p>
+
+                            </div>
+
+                            <span class="status leave">
+
+                                On Leave
+
+                            </span>
+
+                            <div class="trainer-actions">
+
+                                <button class="edit-btn">
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                    Edit
+
+                                </button>
+
+                                <button class="delete-btn">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Delete
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                            ADD / EDIT TRAINER MODAL
+                ========================================== -->
+
+                <div class="modal-overlay" id="trainerModal">
+
+                    <div class="trainer-modal">
+
+                        <!-- Modal Header -->
+
+                        <div class="modal-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-user-plus"></i>
+
+                                Add Trainer
+
+                            </h2>
+
+                            <button id="closeTrainerModal">
+
+                                <i class="fa-solid fa-xmark"></i>
+
+                            </button>
+
+                        </div>
+
+                        <!-- Modal Body -->
+
+                        <div class="modal-body">
+
+                            <div class="trainer-form">
+
+                                <div class="form-group">
+
+                                    <label>Trainer Name</label>
+
+                                    <input
+                                        type="text"
+                                        id="trainerName"
+                                        placeholder="Enter Trainer Name">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Specialization</label>
+
+                                    <select id="trainerSpecialization">
+
+                                        <option value="">Select Specialization</option>
+                                        <option>Strength Trainer</option>
+                                        <option>Cardio Trainer</option>
+                                        <option>Yoga Instructor</option>
+                                        <option>CrossFit Coach</option>
+                                        <option>Personal Trainer</option>
+                                        <option>Zumba Instructor</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Phone Number</label>
+
+                                    <input
+                                        type="tel"
+                                        id="trainerPhone"
+                                        placeholder="Enter Phone Number">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Email Address</label>
+
+                                    <input
+                                        type="email"
+                                        id="trainerEmail"
+                                        placeholder="Enter Email Address">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Experience (Years)</label>
+
+                                    <input
+                                        type="number"
+                                        id="trainerExperience"
+                                        placeholder="Enter Experience">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Status</label>
+
+                                    <select id="trainerStatus">
+
+                                        <option value="active">Active</option>
+                                        <option value="leave">On Leave</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Trainer Photo</label>
+
+                                    <input
+                                        type="file"
+                                        id="trainerPhoto"
+                                        accept="image/*">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Modal Footer -->
+
+                        <div class="modal-footer">
+
+                            <button class="cancel-btn">
+
+                                Cancel
+
+                            </button>
+
+                            <button class="confirm-btn">
+
+                                Save Trainer
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/trainers.js"></script>
+
+</body>
+</html>

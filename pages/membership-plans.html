@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- Dashboard Layout -->
+    <!-- ========================= -->
+
+    <div class="dashboard-container">
+
+        <!-- ========================= -->
+        <!-- Sidebar -->
+        <!-- ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>FITZONE</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="members.html">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
+
+
+                <a href="attendance.html">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="membership-plans.html" class="active">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Membership Plans</span>
+                </a>
+
+                <a href="trainers.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Trainers</span>
+                </a>
+
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Gym Settings</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- ========================= -->
+        <!-- Main Content -->
+        <!-- ========================= -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div class="gym-info">
+
+                    <h2>Iron Temple Fitness</h2>
+
+                    <p>Owner ID : GYM0001</p>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="notification-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                    </button>
+
+                    <div class="owner-profile">
+
+                        <img src="images/default-user.png" alt="Owner">
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Dynamic Content -->
+
+            <section id="content-area">
+
+                <!-- ==========================================
+                            PAGE HEADER
+                ========================================== -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h1>Membership Plans</h1>
+
+                        <p>Manage gym membership plans and pricing.</p>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                            TOOLBAR
+                ========================================== -->
+
+                <div class="plans-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="planSearch"
+                            placeholder="Search Membership Plan">
+
+                    </div>
+
+                    <button
+                        class="add-plan-btn"
+                        id="addPlanBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Plan
+
+                    </button>
+
+                </div>
+
+                <!-- ==========================================
+                            PLANS GRID
+                ========================================== -->
+
+                <div class="plans-grid">
+
+                    <!-- Basic Plan -->
+
+                    <div class="plan-card">
+
+                        <div class="plan-header">
+
+                            <h2>Basic</h2>
+
+                            <span class="price">₹800 / Month</span>
+
+                        </div>
+
+                        <div class="plan-duration">
+
+                            <strong>Duration:</strong> 30 Days
+
+                        </div>
+
+                        <div class="plan-members">
+
+                            <strong>Members Using:</strong> 18
+
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li><i class="fa-solid fa-check"></i> Gym Access</li>
+                            <li><i class="fa-solid fa-check"></i> Cardio Area</li>
+                            <li><i class="fa-solid fa-check"></i> Locker Access</li>
+
+                        </ul>
+
+                        <div class="plan-actions">
+
+                            <button class="edit-btn">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                            <button class="delete-btn">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Premium Plan -->
+
+                    <div class="plan-card">
+
+                        <div class="plan-header">
+
+                            <h2>Premium</h2>
+
+                            <span class="price">₹1500 / Month</span>
+
+                        </div>
+
+                        <div class="plan-duration">
+
+                            <strong>Duration:</strong> 30 Days
+
+                        </div>
+
+                        <div class="plan-members">
+
+                            <strong>Members Using:</strong> 25
+
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li><i class="fa-solid fa-check"></i> Gym Access</li>
+                            <li><i class="fa-solid fa-check"></i> Cardio Area</li>
+                            <li><i class="fa-solid fa-check"></i> Locker Access</li>
+                            <li><i class="fa-solid fa-check"></i> Personal Trainer</li>
+                            <li><i class="fa-solid fa-check"></i> Steam Bath</li>
+
+                        </ul>
+
+                        <div class="plan-actions">
+
+                            <button class="edit-btn">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                            <button class="delete-btn">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Elite Plan -->
+
+                    <div class="plan-card">
+
+                        <div class="plan-header">
+
+                            <h2>Elite</h2>
+
+                            <span class="price">₹2500 / Month</span>
+
+                        </div>
+
+                        <div class="plan-duration">
+
+                            <strong>Duration:</strong> 30 Days
+
+                        </div>
+
+                        <div class="plan-members">
+
+                            <strong>Members Using:</strong> 9
+
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li><i class="fa-solid fa-check"></i> All Premium Features</li>
+                            <li><i class="fa-solid fa-check"></i> Diet Consultation</li>
+                            <li><i class="fa-solid fa-check"></i> Unlimited PT Sessions</li>
+                            <li><i class="fa-solid fa-check"></i> VIP Locker</li>
+
+                        </ul>
+
+                        <div class="plan-actions">
+
+                            <button class="edit-btn">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                            <button class="delete-btn">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                            ADD / EDIT PLAN MODAL
+                ========================================== -->
+
+                <div class="modal-overlay" id="planModal">
+
+                    <div class="plan-modal">
+
+                        <!-- Modal Header -->
+
+                        <div class="modal-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                                Add Membership Plan
+
+                            </h2>
+
+                            <button id="closePlanModal">
+
+                                <i class="fa-solid fa-xmark"></i>
+
+                            </button>
+
+                        </div>
+
+                        <!-- Modal Body -->
+
+                        <div class="modal-body">
+
+                            <div class="plan-form">
+
+                                <!-- Plan Name -->
+
+                                <div class="form-group">
+
+                                    <label>Plan Name</label>
+
+                                    <input
+                                        type="text"
+                                        id="planName"
+                                        placeholder="Enter Plan Name">
+
+                                </div>
+
+                                <!-- Price -->
+
+                                <div class="form-group">
+
+                                    <label>Monthly Price (₹)</label>
+
+                                    <input
+                                        type="number"
+                                        id="planPrice"
+                                        placeholder="Enter Monthly Price">
+
+                                </div>
+
+                                <!-- Duration -->
+
+                                <div class="form-group">
+
+                                    <label>Duration (Days)</label>
+
+                                    <input
+                                        type="number"
+                                        id="planDuration"
+                                        placeholder="30">
+
+                                </div>
+
+                                <!-- Features -->
+
+                                <div class="form-group">
+
+                                    <label>Plan Features</label>
+
+                                    <textarea
+                                        id="planFeatures"
+                                        rows="6"
+                                        placeholder="One feature per line&#10;Gym Access&#10;Cardio&#10;Locker"></textarea>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Modal Footer -->
+
+                        <div class="modal-footer">
+
+                            <button class="cancel-btn">
+
+                                Cancel
+
+                            </button>
+
+                            <button class="confirm-btn">
+
+                                Save Plan
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/membership-plans.js"></script>
+
+</body>
+</html>

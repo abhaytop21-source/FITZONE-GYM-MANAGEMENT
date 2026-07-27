@@ -1,104 +1,116 @@
-// Load Members
-let members = JSON.parse(localStorage.getItem("members")) || [];
+/* =====================================================
+                    PAYMENTS MODULE
+===================================================== */
 
-// Load Payments
-let payments = JSON.parse(localStorage.getItem("payments")) || {};
+/* ===========================
+        DOM ELEMENTS
+=========================== */
 
-const paymentTable = document.getElementById("paymentTable");
+const receivePaymentBtn = document.getElementById("receivePaymentBtn");
+const paymentModal = document.getElementById("paymentModal");
+const closePaymentModal = document.getElementById("closePaymentModal");
 
-const totalRevenue = document.getElementById("totalRevenue");
-const pendingPayments = document.getElementById("pendingPayments");
-const paidMembers = document.getElementById("paidMembers");
-const paymentMembers = document.getElementById("paymentMembers");
+const cancelBtn = document.querySelector(".cancel-btn");
+const confirmBtn = document.querySelector(".confirm-btn");
 
-// Plan Prices
-const planPrice = {
+const memberResults = document.querySelectorAll(".member-result");
+const selectedCard = document.querySelector(".selected-card");
 
-    "Basic":999,
-    "Premium":1999,
-    "VIP":3999
 
-};
+/* ===========================
+        MODAL FUNCTIONS
+=========================== */
 
-function displayPayments(){
+function openModal() {
 
-    paymentTable.innerHTML="";
+    paymentModal.classList.add("active");
 
-    let revenue = 0;
-    let paid = 0;
+}
 
-    members.forEach((member,index)=>{
+function closeModal() {
 
-        let status = payments[index] || "Pending";
+    paymentModal.classList.remove("active");
 
-        let amount = planPrice[member.plan] || 0;
+}
 
-        if(status==="Paid"){
 
-            revenue += amount;
-            paid++;
+/* ===========================
+        MEMBER SELECTION
+=========================== */
 
-        }
+memberResults.forEach(member => {
 
-        paymentTable.innerHTML += `
+    member.addEventListener("click", () => {
 
-        <tr>
+        const name = member.querySelector("h4").textContent;
+        const id = member.querySelector("p").textContent;
 
-            <td>${index+1}</td>
+        selectedCard.innerHTML = `
 
-            <td>${member.name}</td>
+            <div class="selected-photo">
 
-            <td>${member.plan}</td>
+                <i class="fa-solid fa-user"></i>
 
-            <td>₹${amount}</td>
+            </div>
 
-            <td>${status}</td>
+            <div>
 
-            <td>
+                <h4>${name}</h4>
 
-            <button onclick="payNow(${index})">
+                <p>${id}</p>
 
-            💳 Pay
+                <small style="color:#22c55e;">
 
-            </button>
+                    Ready to Receive Payment
 
-            </td>
+                </small>
 
-        </tr>
+            </div>
 
         `;
 
     });
 
-    totalRevenue.innerText="₹"+revenue;
+});
 
-    paidMembers.innerText=paid;
 
-    paymentMembers.innerText=members.length;
+/* ===========================
+        EVENTS
+=========================== */
 
-    pendingPayments.innerText=members.length-paid;
+receivePaymentBtn.addEventListener("click", openModal);
 
-}
+closePaymentModal.addEventListener("click", closeModal);
 
-function payNow(index){
+cancelBtn.addEventListener("click", closeModal);
 
-    payments[index]="Paid";
 
-    localStorage.setItem(
+/* Close Modal */
 
-        "payments",
+window.addEventListener("click", (e) => {
 
-        JSON.stringify(payments)
+    if (e.target === paymentModal) {
 
-    );
+        closeModal();
 
-    displayPayments();
+    }
 
-    showToast(
-        "💳 Payment",
-        "Payment recorded successfully."
-    );
+});
 
-}
 
-displayPayments();
+/* Dummy Payment */
+
+confirmBtn.addEventListener("click", () => {
+
+    alert("✅ Payment Received Successfully!");
+
+    closeModal();
+
+});
+
+
+/* ===========================
+            INIT
+=========================== */
+
+console.log("Payments Module Loaded");

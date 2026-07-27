@@ -3,152 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payments</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Gym Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<div class="dashboard">
+    <!-- ========================= -->
+    <!-- Dashboard Layout -->
+    <!-- ========================= -->
 
-    <div class="overlay" id="overlay"></div>
+    <div class="dashboard-container">
 
-    <!-- Sidebar -->
-     
-    <div class="sidebar">
+        <!-- ========================= -->
+        <!-- Sidebar -->
+        <!-- ========================= -->
 
-        <div class="sidebar-header">
+        <aside class="sidebar">
 
-            <h2 class="gym-name">FITZONE</h2>
-
-        </div>
-
-        <div class="owner-profile">
-
-            <div class="owner-avatar">
-                👤
+            <div class="logo">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>FITZONE</h2>
             </div>
 
-            <h3 class="owner-name">
-                Gym Owner
-            </h3>
+            <nav class="sidebar-menu">
 
-            <p class="owner-role">
-                Administrator
-            </p>
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
 
-            <p class="owner-email" id="ownerEmail">
-                owner@fitzone.com
-            </p>
+                <a href="members.html">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
 
-        </div>
 
-        <ul>
+                <a href="attendance.html">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
 
-            <li><a class="dash-btn" href="dashboard.html">🏠 Dashboard</a></li>
+                <a href="payments.html" class="active">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
 
-            <li><a class="dash-btn" href="members.html">👥 Members</a></li>
+                <a href="membership-plans.html">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Membership Plans</span>
+                </a>
 
-            <li><a class="dash-btn" href="attendance.html">📅 Attendance</a></li>
+                <a href="trainers.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Trainers</span>
+                </a>
 
-            <li><a class="dash-btn active" href="payments.html">💳 Payments</a></li>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Gym Settings</span>
+                </a>
 
-            <li><a class="dash-btn" href="settings.html">⚙ Gym Profile</a></li>
+            </nav>
 
-        </ul>
+        </aside>
 
-        <a class="log-btn" href="#" id="logoutBtn">
-            🚪 Logout
-        </a>
+        <!-- ========================= -->
+        <!-- Main Content -->
+        <!-- ========================= -->
 
-        <div class="sidebar-footer">
+        <main class="main-content">
 
-            FITZONE v2.0
+            <!-- Header -->
 
-        </div>
+            <header class="top-header">
 
+                <div class="gym-info">
+
+                    <h2>Iron Temple Fitness</h2>
+
+                    <p>Owner ID : GYM0001</p>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="notification-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                    </button>
+
+                    <div class="owner-profile">
+
+                        <img src="images/default-user.png" alt="Owner">
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Dynamic Content -->
+
+            <section id="content-area">
+
+                <!-- =========================
+                        PAGE HEADER
+                ========================== -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h1>Payments</h1>
+
+                        <p>Manage membership payments and payment history.</p>
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                        TOOLBAR
+                ========================== -->
+
+                <div class="payments-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="paymentSearch"
+                            placeholder="Search by Member Name or ID">
+
+                    </div>
+
+                    <div class="toolbar-right">
+
+                        <select id="paymentFilter">
+
+                            <option>All Status</option>
+                            <option>Paid</option>
+                            <option>Due</option>
+                            <option>Overdue</option>
+
+                        </select>
+
+                        <button
+                            class="receive-payment-btn"
+                            id="receivePaymentBtn">
+
+                            <i class="fa-solid fa-money-bill-wave"></i>
+
+                            Receive Payment
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                        PAYMENTS TABLE
+                ========================== -->
+
+                <div class="payments-table-container">
+
+                    <table class="payments-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Member ID</th>
+                                <th>Name</th>
+                                <th>Plan</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="paymentsTable">
+
+                            <tr class="empty-row">
+
+                                <td colspan="8">
+
+                                    <div class="empty-state">
+
+                                        <i class="fa-solid fa-wallet"></i>
+
+                                        <h3>No Payment Records</h3>
+
+                                        <p>
+
+                                            Payment records will appear here after members start making payments.
+
+                                        </p>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- ==========================================
+                            RECEIVE PAYMENT MODAL
+                ========================================== -->
+
+                <div class="modal-overlay" id="paymentModal">
+
+                    <div class="payment-modal">
+
+                        <!-- Modal Header -->
+
+                        <div class="modal-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-money-bill-wave"></i>
+
+                                Receive Payment
+
+                            </h2>
+
+                            <button id="closePaymentModal">
+
+                                <i class="fa-solid fa-xmark"></i>
+
+                            </button>
+
+                        </div>
+
+                        <!-- Modal Body -->
+
+                        <div class="modal-body">
+
+                            <!-- Search -->
+
+                            <div class="search-member-box">
+
+                                <label>Search Member</label>
+
+                                <input
+                                    type="text"
+                                    id="paymentMemberSearch"
+                                    placeholder="Search by Name or Member ID">
+
+                            </div>
+
+                            <!-- Search Results -->
+
+                            <div class="search-results">
+
+                                <div class="member-result">
+
+                                    <div class="member-photo">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                    </div>
+
+                                    <div class="member-info">
+
+                                        <h4>Soham Dhas</h4>
+
+                                        <p>GYM001</p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="member-result">
+
+                                    <div class="member-photo">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                    </div>
+
+                                    <div class="member-info">
+
+                                        <h4>Rahul Patil</h4>
+
+                                        <p>GYM002</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Selected Member -->
+
+                            <div class="selected-member">
+
+                                <h3>Selected Member</h3>
+
+                                <div class="selected-card">
+
+                                    <div class="selected-photo">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h4>No Member Selected</h4>
+
+                                        <p>Select a member above.</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Payment Details -->
+
+                            <div class="payment-details">
+
+                                <h3>Payment Details</h3>
+
+                                <div class="payment-grid">
+
+                                    <div class="payment-field">
+
+                                        <label>Membership Plan</label>
+
+                                        <input
+                                            type="text"
+                                            value="Premium"
+                                            readonly>
+
+                                    </div>
+
+                                    <div class="payment-field">
+
+                                        <label>Amount</label>
+
+                                        <input
+                                            type="text"
+                                            value="₹1500"
+                                            readonly>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Payment Method -->
+
+                            <div class="payment-method">
+
+                                <h3>Payment Method</h3>
+
+                                <div class="method-options">
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            checked>
+
+                                        Cash
+
+                                    </label>
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod">
+
+                                        UPI
+
+                                    </label>
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod">
+
+                                        Card
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Modal Footer -->
+
+                        <div class="modal-footer">
+
+                            <button class="cancel-btn">
+
+                                Cancel
+
+                            </button>
+
+                            <button class="confirm-btn">
+
+                                Receive Payment
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        
     </div>
 
-    <!-- Main Content -->
-
-    <div class="main-content">
-
-        <div class="topbar">
-
-            <button id="menuBtn" class="menu-btn">
-                ☰
-            </button>
-
-            <div class="topbar-right">
-
-                <span id="todayDate"></span>
-
-            </div>
-
-        </div>
-
-        <h1>Payments & Revenue</h1>
-
-        <div class="cards">
-
-            <div class="dashboard-card">
-                <h3>Total Revenue</h3>
-                <h2 id="totalRevenue">₹0</h2>
-            </div>
-
-            <div class="dashboard-card">
-                <h3>Pending Payments</h3>
-                <h2 id="pendingPayments">0</h2>
-            </div>
-
-            <div class="dashboard-card">
-                <h3>Paid Members</h3>
-                <h2 id="paidMembers">0</h2>
-            </div>
-
-            <div class="dashboard-card">
-                <h3>Total Members</h3>
-                <h2 id="paymentMembers">0</h2>
-            </div>
-
-        </div>
-
-        <div class="recent-members">
-
-            <h2 class="gym-name">FITZONE</h2>
-
-            <table>
-
-                <thead>
-
-                <tr>
-
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Plan</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Action</th>
-
-                </tr>
-
-                </thead>
-
-                <tbody id="paymentTable">
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="js/payments.js"></script>
-<script src="js/global.js"></script>
-<script src="js/responsive.js"></script>
-<script src="js/toast.js"></script>
+    <script src="../js/payments.js"></script>
 
 </body>
 </html>

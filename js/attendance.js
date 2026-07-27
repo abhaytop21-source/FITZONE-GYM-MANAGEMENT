@@ -1,114 +1,132 @@
-// Load Members
-let members = JSON.parse(localStorage.getItem("members")) || [];
+/* =====================================================
+                ATTENDANCE MODULE
+===================================================== */
 
-// Load Attendance
-let attendance =
-JSON.parse(localStorage.getItem("attendance")) || {};
+/* ===========================
+        DOM ELEMENTS
+=========================== */
 
-const attendanceTable =
-document.getElementById("attendanceTable");
+const checkInBtn = document.getElementById("checkInBtn");
+const checkInModal = document.getElementById("checkInModal");
+const closeAttendanceModal = document.getElementById("closeAttendanceModal");
 
-// Dashboard Cards
-const totalMembers =
-document.getElementById("totalMembers");
+const cancelBtn = document.querySelector(".cancel-btn");
+const confirmBtn = document.querySelector(".confirm-btn");
 
-const presentMembers =
-document.getElementById("presentMembers");
+const todayDate = document.getElementById("todayDate");
 
-const absentMembers =
-document.getElementById("absentMembers");
+const memberResults = document.querySelectorAll(".member-result");
+const selectedCard = document.querySelector(".selected-card");
 
-function displayAttendance(){
 
-    attendanceTable.innerHTML="";
+/* ===========================
+        TODAY'S DATE
+=========================== */
 
-    let present = 0;
+function loadTodayDate() {
 
-    members.forEach((member,index)=>{
+    const today = new Date();
 
-        let status =
-        attendance[index] || "Absent";
+    const options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    };
 
-        if(status==="Present")
-            present++;
+    todayDate.textContent = today.toLocaleDateString("en-IN", options);
 
-        attendanceTable.innerHTML +=`
+}
 
-        <tr>
 
-        <td>${index+1}</td>
+/* ===========================
+        MODAL FUNCTIONS
+=========================== */
 
-        <td>${member.name}</td>
+function openModal() {
 
-        <td>${member.plan}</td>
+    checkInModal.classList.add("active");
 
-        <td>${status}</td>
+}
 
-        <td>
+function closeModal() {
 
-        <button onclick="markPresent(${index})">
+    checkInModal.classList.remove("active");
 
-        ✅ Present
+}
 
-        </button>
 
-        <button onclick="markAbsent(${index})">
+/* ===========================
+        MEMBER SELECTION
+=========================== */
 
-        ❌ Absent
+memberResults.forEach(member => {
 
-        </button>
+    member.addEventListener("click", () => {
 
-        </td>
+        const name = member.querySelector("h4").textContent;
+        const id = member.querySelector("p").textContent;
 
-        </tr>
+        selectedCard.innerHTML = `
+            <div class="selected-photo">
+                <i class="fa-solid fa-user"></i>
+            </div>
 
+            <div>
+
+                <h4>${name}</h4>
+
+                <p>${id}</p>
+
+                <small style="color:#22c55e;">
+                    Ready for Check In
+                </small>
+
+            </div>
         `;
 
     });
 
-    totalMembers.innerText = members.length;
+});
 
-    presentMembers.innerText = present;
 
-    absentMembers.innerText =
-    members.length-present;
+/* ===========================
+        EVENTS
+=========================== */
 
-}
+checkInBtn.addEventListener("click", openModal);
 
-function markPresent(index){
+closeAttendanceModal.addEventListener("click", closeModal);
 
-    attendance[index]="Present";
+cancelBtn.addEventListener("click", closeModal);
 
-    localStorage.setItem(
-        "attendance",
-        JSON.stringify(attendance)
-    );
 
-    displayAttendance();
+/* Close Modal */
 
-    showToast(
-        "📅 Attendance",
-        "Marked as Present."
-    );
+window.addEventListener("click", (e) => {
 
-}
+    if (e.target === checkInModal) {
 
-function markAbsent(index){
+        closeModal();
 
-    attendance[index]="Absent";
+    }
 
-    localStorage.setItem(
-        "attendance",
-        JSON.stringify(attendance)
-    );
+});
 
-    displayAttendance();
 
-    showToast(
-        "📅 Attendance",
-        "Marked as Absent."
-    );
+/* Dummy Check In */
 
-}
+confirmBtn.addEventListener("click", () => {
 
-displayAttendance();
+    alert("✅ Member Checked In Successfully!");
+
+    closeModal();
+
+});
+
+
+/* ===========================
+        INIT
+=========================== */
+
+loadTodayDate();

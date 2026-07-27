@@ -1,0 +1,589 @@
+/* =====================================================
+                MEMBERSHIP PLANS PAGE
+===================================================== */
+
+/* ===========================
+        PAGE HEADER
+=========================== */
+
+.page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.page-title h1{
+
+    color:#fff;
+    font-size:38px;
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.page-title p{
+
+    color:#9ca3af;
+    font-size:15px;
+
+}
+
+
+/* ===========================
+        TOOLBAR
+=========================== */
+
+.plans-toolbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.search-box{
+
+    flex:1;
+    min-width:320px;
+
+    position:relative;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#8b8b8b;
+
+}
+
+.search-box input{
+
+    width:100%;
+    height:50px;
+
+    padding:0 18px 0 48px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:#232323;
+
+    color:#fff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    border:1px solid #ff7b00;
+
+    box-shadow:0 0 0 3px rgba(255,123,0,.15);
+
+}
+
+
+/* Add Button */
+
+.add-plan-btn{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#ff7b00;
+
+    color:#fff;
+
+    padding:13px 24px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.add-plan-btn:hover{
+
+    background:#ff912c;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ===========================
+        PLANS GRID
+=========================== */
+
+.plans-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+
+}
+
+
+/* ===========================
+        PLAN CARD
+=========================== */
+
+.plan-card{
+
+    background:#1d1d1d;
+
+    border:1px solid #2f2f2f;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.3s;
+
+}
+
+.plan-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#ff7b00;
+
+}
+
+
+/* Header */
+
+.plan-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.plan-header h2{
+
+    color:#fff;
+
+    font-size:24px;
+
+}
+
+.price{
+
+    color:#ff7b00;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+/* Info */
+
+.plan-duration,
+.plan-members{
+
+    color:#d1d5db;
+
+    margin-bottom:10px;
+
+}
+
+/* =====================================================
+                    FEATURES LIST
+===================================================== */
+
+.plan-features{
+
+    list-style:none;
+
+    margin:20px 0;
+
+    padding:0;
+
+}
+
+.plan-features li{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    color:#d1d5db;
+
+    margin-bottom:12px;
+
+    font-size:15px;
+
+}
+
+.plan-features i{
+
+    color:#22c55e;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+                    ACTION BUTTONS
+===================================================== */
+
+.plan-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.plan-actions button{
+
+    flex:1;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.delete-btn{
+
+    background:#dc2626;
+
+    color:#fff;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+
+
+/* =====================================================
+                        MODAL
+===================================================== */
+
+.plan-modal{
+
+    width:95%;
+    max-width:650px;
+
+    background:#1d1d1d;
+
+    border-radius:18px;
+
+    border:1px solid #333;
+
+    overflow:hidden;
+
+    max-height:90vh;
+    overflow-y:auto;
+
+}
+
+
+/* Header */
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 25px;
+
+    border-bottom:1px solid #333;
+
+}
+
+.modal-header h2{
+
+    color:#fff;
+
+    font-size:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.modal-header button{
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+}
+
+
+/* Body */
+
+.modal-body{
+
+    padding:25px;
+
+}
+
+.plan-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    color:#d1d5db;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input,
+.form-group textarea{
+
+    background:#232323;
+
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:140px;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    border-color:#ff7b00;
+
+    box-shadow:0 0 0 3px rgba(255,123,0,.15);
+
+}
+
+
+/* Footer */
+
+.modal-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:20px 25px;
+
+    border-top:1px solid #333;
+
+}
+
+.cancel-btn,
+.confirm-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cancel-btn{
+
+    background:#374151;
+
+    color:#fff;
+
+}
+
+.cancel-btn:hover{
+
+    background:#4b5563;
+
+}
+
+.confirm-btn{
+
+    background:#ff7b00;
+
+    color:#fff;
+
+}
+
+.confirm-btn:hover{
+
+    background:#ff912c;
+
+}
+
+
+/* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+@media(max-width:768px){
+
+    .plans-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .search-box{
+
+        min-width:100%;
+
+    }
+
+    .plan-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .plan-actions{
+
+        flex-direction:column;
+
+    }
+
+    .modal-footer{
+
+        flex-direction:column;
+
+    }
+
+    .cancel-btn,
+    .confirm-btn{
+
+        width:100%;
+
+    }
+
+}

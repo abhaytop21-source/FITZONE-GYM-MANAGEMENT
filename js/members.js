@@ -10,6 +10,87 @@ const memberName = document.getElementById("memberName");
 const memberPhone = document.getElementById("memberPhone");
 const memberPlan = document.getElementById("memberPlan");
 
+const totalMembers = document.getElementById("totalMembers");
+const activeMembers = document.getElementById("activeMembers");
+const expiringMembers = document.getElementById("expiringMembers");
+const premiumMembers = document.getElementById("premiumMembers");
+
+/* ==========================================
+        MEMBER MODAL
+========================================== */
+
+const memberModal = document.getElementById("memberModal");
+
+const closeModal = document.getElementById("closeModal");
+
+const existingTab = document.getElementById("existingTab");
+
+const newTab = document.getElementById("newTab");
+
+const existingMemberSection = document.getElementById("existingMemberSection");
+
+const newMemberSection = document.getElementById("newMemberSection");
+
+
+
+addMemberBtn.addEventListener("click", () => {
+
+    memberModal.classList.add("active");
+
+});
+
+closeModal.addEventListener("click", () => {
+
+    memberModal.classList.remove("active");
+
+});
+
+memberModal.addEventListener("click", (e) => {
+
+    if(e.target === memberModal){
+
+        memberModal.classList.remove("active");
+
+    }
+
+});
+
+existingTab.addEventListener("click", () => {
+
+    existingTab.classList.add("active");
+    newTab.classList.remove("active");
+
+    existingMemberSection.classList.remove("hidden");
+    newMemberSection.classList.add("hidden");
+
+});
+
+newTab.addEventListener("click", () => {
+
+    newTab.classList.add("active");
+    existingTab.classList.remove("active");
+
+    newMemberSection.classList.remove("hidden");
+    existingMemberSection.classList.add("hidden");
+
+});
+
+
+// Update Overview Cards
+function updateOverviewCards() {
+
+    totalMembers.textContent = members.length;
+
+    activeMembers.textContent = members.length;
+
+    expiringMembers.textContent = 0;
+
+    premiumMembers.textContent = members.filter(
+        member => member.plan === "Premium"
+    ).length;
+
+}
+
 
 // Display Members
 function displayMembers() {
@@ -49,6 +130,8 @@ function displayMembers() {
         `;
 
     });
+
+    updateOverviewCards();
 
 }
 

@@ -3,144 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Profile | FITZONE</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Gym Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<div class="dashboard">
+    <!-- ========================= -->
+    <!-- Dashboard Layout -->
+    <!-- ========================= -->
 
-    <div class="overlay" id="overlay"></div>
+    <div class="dashboard-container">
 
-    <!-- Sidebar -->
+        <!-- ========================= -->
+        <!-- Sidebar -->
+        <!-- ========================= -->
 
-    <div class="sidebar">
+        <aside class="sidebar">
 
-        <div class="sidebar-header">
-
-            <h2 class="gym-name">FITZONE</h2>
-
-        </div>
-
-        <div class="owner-profile">
-
-            <div class="owner-avatar">
-                👤
+            <div class="logo">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>FITZONE</h2>
             </div>
 
-            <h3 class="owner-name">
-                Gym Owner
-            </h3>
+            <nav class="sidebar-menu">
 
-            <p class="owner-role">
-                Administrator
-            </p>
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
 
-            <p class="owner-email" id="ownerEmail">
-                owner@fitzone.com
-            </p>
+                <a href="members.html">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
 
-        </div>
 
-        <ul>
+                <a href="attendance.html">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
 
-            <li><a class="dash-btn" href="dashboard.html">🏠 Dashboard</a></li>
+                <a href="payments.html">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
 
-            <li><a class="dash-btn" href="members.html">👥 Members</a></li>
+                <a href="membership-plans.html">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Membership Plans</span>
+                </a>
 
-            <li><a class="dash-btn" href="attendance.html">📅 Attendance</a></li>
+                <a href="trainers.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Trainers</span>
+                </a>
 
-            <li><a class="dash-btn" href="payments.html">💳 Payments</a></li>
+                <a href="reports.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
 
-            <li><a class="dash-btn active" href="settings.html">⚙ Gym Profile</a></li>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Gym Settings</span>
+                </a>
 
-        </ul>
+            </nav>
 
-        <a class="log-btn" href="#" id="logoutBtn">
-            🚪 Logout
-        </a>
+        </aside>
 
-        <div class="sidebar-footer">
+        <!-- ========================= -->
+        <!-- Main Content -->
+        <!-- ========================= -->
 
-            FITZONE v2.0
+        <main class="main-content">
 
-        </div>
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div class="gym-info">
+
+                    <h2>Iron Temple Fitness</h2>
+
+                    <p>Owner ID : GYM0001</p>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="notification-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                    </button>
+
+                    <div class="owner-profile">
+
+                        <img src="images/default-user.png" alt="Owner">
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Dynamic Content -->
+
+            <section id="content-area">
+
+                <!-- ==========================================
+                                PAGE HEADER
+                ========================================== -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h1>Settings</h1>
+
+                        <p>Manage your gym information, profile, security and preferences.</p>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                                SETTINGS GRID
+                ========================================== -->
+
+                <div class="settings-grid">
+
+                    <!-- ==========================================
+                                GYM INFORMATION
+                    ========================================== -->
+
+                    <div class="settings-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                                Gym Information
+
+                            </h2>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+
+                                <label>Gym Name</label>
+
+                                <input
+                                    type="text"
+                                    id="gymName"
+                                    placeholder="FitZone Gym">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Gym Address</label>
+
+                                <textarea
+                                    id="gymAddress"
+                                    rows="3"
+                                    placeholder="Enter Gym Address"></textarea>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Phone Number</label>
+
+                                <input
+                                    type="tel"
+                                    id="gymPhone"
+                                    placeholder="+91 XXXXX XXXXX">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Email Address</label>
+
+                                <input
+                                    type="email"
+                                    id="gymEmail"
+                                    placeholder="gym@email.com">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Gym Logo</label>
+
+                                <input
+                                    type="file"
+                                    id="gymLogo"
+                                    accept="image/*">
+
+                            </div>
+
+                            <button class="save-btn">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Save Gym Information
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ==========================================
+                                OWNER PROFILE
+                    ========================================== -->
+
+                    <div class="settings-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-user"></i>
+
+                                Owner Profile
+
+                            </h2>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+
+                                <label>Owner Name</label>
+
+                                <input
+                                    type="text"
+                                    id="ownerName"
+                                    placeholder="Owner Name">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Username</label>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    placeholder="Username">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Email Address</label>
+
+                                <input
+                                    type="email"
+                                    id="ownerEmail"
+                                    placeholder="owner@email.com">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Profile Photo</label>
+
+                                <input
+                                    type="file"
+                                    id="ownerPhoto"
+                                    accept="image/*">
+
+                            </div>
+
+                            <button class="save-btn">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Save Profile
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ==========================================
+                                SECURITY
+                    ========================================== -->
+
+                    <div class="settings-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                Security
+
+                            </h2>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+
+                                <label>Current Password</label>
+
+                                <input
+                                    type="password"
+                                    id="currentPassword">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>New Password</label>
+
+                                <input
+                                    type="password"
+                                    id="newPassword">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Confirm Password</label>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword">
+
+                            </div>
+
+                            <button class="save-btn">
+
+                                <i class="fa-solid fa-key"></i>
+
+                                Update Password
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ==========================================
+                                NOTIFICATIONS
+                    ========================================== -->
+
+                    <div class="settings-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                <i class="fa-solid fa-bell"></i>
+
+                                Notifications
+
+                            </h2>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="toggle-item">
+
+                                <span>Membership Expiry Alerts</span>
+
+                                <input type="checkbox" checked>
+
+                            </div>
+
+                            <div class="toggle-item">
+
+                                <span>Payment Reminders</span>
+
+                                <input type="checkbox" checked>
+
+                            </div>
+
+                            <div class="toggle-item">
+
+                                <span>Email Notifications</span>
+
+                                <input type="checkbox">
+
+                            </div>
+
+                            <button class="save-btn">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Save Preferences
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                
+                
+
+            </section>
+
+        </main>
 
     </div>
 
-    <!-- Main Content -->
-
-    <div class="main-content">
-
-        <div class="topbar">
-
-            <button id="menuBtn" class="menu-btn">
-                ☰
-            </button>
-
-            <div class="topbar-right">
-
-                <span id="todayDate"></span>
-
-            </div>
-
-        </div>
-
-        <h1>Gym Profile</h1>
-
-        <p>
-            Manage your gym information. These details will be shown throughout the system.
-        </p>
-
-        <div class="member-form">
-
-            <input
-                type="text"
-                id="gymName"
-                placeholder="Gym Name">
-
-            <input
-                type="text"
-                id="ownerName"
-                placeholder="Owner Name">
-
-            <input
-                type="text"
-                id="phone"
-                placeholder="Phone Number">
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Email Address">
-
-            <input
-                type="text"
-                id="address"
-                placeholder="Gym Address">
-
-            <input
-                type="time"
-                id="openingTime">
-
-            <input
-                type="time"
-                id="closingTime">
-
-            <button id="saveSettings">
-                💾 Save Gym Profile
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="js/settings.js"></script>
-<script src="js/global.js"></script>
-<script src="js/toast.js"></script>
-<script src="js/responsive.js"></script>
+    <script src="../js/settings.js"></script>
 
 </body>
 </html>
