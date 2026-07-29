@@ -9,7 +9,10 @@ app.use(express.json());
 
 // Test Route
 app.get("/", (req, res) => {
-    res.send("🚀 Welcome to FITZONE Backend API");
+    res.json({
+        success: true,
+        message: "Welcome to FITZONE Backend API 🚀"
+    });
 });
 
 module.exports = app;
