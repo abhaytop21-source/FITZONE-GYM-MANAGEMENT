@@ -1,18 +1,17 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
 
-// Middleware
-app.use(cors());
 app.use(express.json());
 
-// Test Route
 app.get("/", (req, res) => {
-    res.json({
-        success: true,
-        message: "Welcome to FITZONE Backend API 🚀"
-    });
+  res.json({
+    success: true,
+    message: "Welcome to FITZONE Backend API 🚀",
+  });
 });
 
-module.exports = app;
+app.use("/api/auth", authRoutes);
+
+export default app;

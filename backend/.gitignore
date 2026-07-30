@@ -19,3 +19,9 @@ Thumbs.db
 
 # VS Code
 .vscode/
+/src/generated/prisma
+
+# AI Editors
+.claude/
+.windsurf/
+.agents/

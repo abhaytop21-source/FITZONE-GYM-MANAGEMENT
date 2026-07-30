@@ -1,0 +1,38 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Gym {
+  id             Int      @id @default(autoincrement())
+
+  gymCode        String   @unique
+  gymName        String
+  gymType        String
+
+  ownerFirstName String
+  ownerLastName  String
+  ownerEmail     String   @unique
+  ownerPhone     String
+  ownerPassword  String
+
+  gymEmail       String
+  gymPhone       String
+
+  address        String
+  city           String
+  state          String
+  country        String
+
+  openingTime    String
+  closingTime    String
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

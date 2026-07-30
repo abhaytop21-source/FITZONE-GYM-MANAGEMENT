@@ -1,10 +1,10 @@
-const dotenv = require("dotenv");
-dotenv.config();
+import dotenv from "dotenv";
+import app from "./app.js";
 
-const app = require("./app");
+dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`🚀 FITZONE Backend is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
