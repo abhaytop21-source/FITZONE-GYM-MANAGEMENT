@@ -1,9 +1,30 @@
-// Session Check
-const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-if (isLoggedIn !== "true") {
+// Logged In Gym
+const gym = JSON.parse(localStorage.getItem("gym"));
+
+if (!gym) {
+    window.location.href = "../owner-login.html";
+}
+
+const gymName = document.getElementById("gymName");
+const gymCode = document.getElementById("gymCode");
+
+if (gymName) {
+    gymName.textContent = gym.gymName;
+}
+
+if (gymCode) {
+    gymCode.textContent = `Gym Code : ${gym.gymCode}`;
+}
+
+
+
+// Session Check
+const token = localStorage.getItem("token");
+
+if (!token) {
     alert("Please login first!");
-    window.location.href = "login.html";
+    window.location.href = "../owner-login.html";
 }
 
 // Logout
@@ -13,7 +34,8 @@ logoutBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
+    localStorage.removeItem("gym");
 
     window.location.href = "index.html";
 
@@ -25,12 +47,19 @@ const attendance = JSON.parse(localStorage.getItem("attendance")) || {};
 const payments = JSON.parse(localStorage.getItem("payments")) || {};
 
 // Dashboard Elements
-const dashboardMembers = document.getElementById("dashboardMembers");
-const dashboardPresent = document.getElementById("dashboardPresent");
-const dashboardRevenue = document.getElementById("dashboardRevenue");
-const dashboardPending = document.getElementById("dashboardPending");
-const recentMembers = document.getElementById("recentMembers");
+const dashboardMembers =
+    document.getElementById("dashboardMembers");
 
+const dashboardPresent =
+    document.getElementById("dashboardPresent");
+
+const dashboardRevenue =
+    document.getElementById("dashboardRevenue");
+
+const dashboardActiveMemberships =
+    document.getElementById("dashboardActiveMemberships");
+
+    
 // Membership Prices
 const planPrice = {
 

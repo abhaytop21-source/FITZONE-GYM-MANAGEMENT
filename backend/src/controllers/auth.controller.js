@@ -7,8 +7,10 @@ export const registerGym = async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "Gym registered successfully",
-      data: result,
+      token: result.token,
+      gym: result.gym,
     });
+    
   } catch (error) {
     return res.status(500).json({
       success: false,

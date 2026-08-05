@@ -3,6 +3,7 @@
 // Part 1 - Navigation
 // ==========================================
 
+import { post } from "./api.js";
 
 // ---------- Welcome Screen ----------
 
@@ -545,16 +546,48 @@ step4Back.addEventListener("click",()=>{
 // Launch Gym
 // ==========================================
 
-launchGym.addEventListener("click",()=>{
+launchGym.addEventListener("click", async () => {
 
-    alert(
+    try {
 
-        `🎉 Congratulations!
+        const formData = {
 
-        Your gym has been created successfully!
+            gymName: document.getElementById("gymName").value,
+            gymType: document.getElementById("gymType").value,
 
-        Next we will connect it with Flask and Database.`
+            ownerFirstName: document.getElementById("firstName").value,
+            ownerLastName: document.getElementById("lastName").value,
+            ownerEmail: document.getElementById("ownerEmail").value,
+            ownerPhone: document.getElementById("ownerPhone").value,
+            ownerPassword: document.getElementById("ownerPassword").value,
 
-    );
+            gymEmail: document.getElementById("gymEmail").value,
+            gymPhone: document.getElementById("gymPhone").value,
+
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            country: document.getElementById("country").value,
+
+            openingTime: document.getElementById("openingTime").value,
+            closingTime: document.getElementById("closingTime").value
+
+        };
+        
+
+        const result = await post("/auth/register-gym", formData);
+
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("gym", JSON.stringify(result.gym));
+
+        alert("🎉 Gym Created Successfully!");
+
+        window.location.href = "pages/dashboard.html";
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
 
 });
