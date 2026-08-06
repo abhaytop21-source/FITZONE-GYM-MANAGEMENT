@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Login | FITZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/owner-login.css">
+    
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>FITZONE</span>
+
+        </div>
+
+        <a href="index.html" class="back-home">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Home
+
+        </a>
+
+    </nav>
+
+    <!-- ================= LOGIN ================= -->
+
+    <section class="login-page">
+
+        <div class="login-card">
+
+            <div class="login-header">
+
+                <h2>Welcome Back 👋</h2>
+
+                <p>
+                    Login to manage your gym from one powerful dashboard.
+                </p>
+
+            </div>
+
+            <form id="ownerLoginForm">
+
+                <div class="input-box">
+
+                    <label for="ownerEmail">
+                        Owner Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="ownerEmail"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label for="ownerPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="ownerPassword"
+                        placeholder="Enter your password"
+                        required>
+
+                </div>
+
+                <div class="login-options">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Login to Dashboard
+
+                </button>
+
+            </form>
+
+            <div class="register-link">
+
+                <p>
+
+                    Don't have a gym?
+
+                    <a href="register-gym.html">
+
+                        Register Now
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="js/api.js"></script>
+
+    <script type="module" src="js/owner-login.js"></script>
+
+</body>
+
+</html>

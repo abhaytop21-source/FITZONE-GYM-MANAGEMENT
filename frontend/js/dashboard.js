@@ -1,10 +1,18 @@
-
+// ==============================
 // Logged In Gym
+// ==============================
+
+const token = localStorage.getItem("token");
 const gym = JSON.parse(localStorage.getItem("gym"));
 
-if (!gym) {
+if (!token || !gym) {
+    alert("Please login first!");
     window.location.href = "../owner-login.html";
 }
+
+// ==============================
+// Display Gym Information
+// ==============================
 
 const gymName = document.getElementById("gymName");
 const gymCode = document.getElementById("gymCode");
@@ -17,141 +25,42 @@ if (gymCode) {
     gymCode.textContent = `Gym Code : ${gym.gymCode}`;
 }
 
+// ==============================
+// Dashboard Cards
+// ==============================
+
+const dashboardMembers = document.getElementById("dashboardMembers");
+const dashboardPresent = document.getElementById("dashboardPresent");
+const dashboardRevenue = document.getElementById("dashboardRevenue");
+const dashboardActiveMemberships = document.getElementById("dashboardActiveMemberships");
+
+// Default values until backend API is connected
+
+dashboardMembers.textContent = "0";
+dashboardPresent.textContent = "0";
+dashboardRevenue.textContent = "₹0";
+dashboardActiveMemberships.textContent = "0";
 
 
-// Session Check
-const token = localStorage.getItem("token");
-
-if (!token) {
-    alert("Please login first!");
-    window.location.href = "../owner-login.html";
-}
-
+// ==============================
 // Logout
-const logoutBtn = document.querySelector(".log-btn");
+// ==============================
 
-logoutBtn.addEventListener("click", function (e) {
+const logoutBtn = document.getElementById("logoutBtn");
 
-    e.preventDefault();
+if (logoutBtn) {
 
-    localStorage.removeItem("token");
-    localStorage.removeItem("gym");
+    logoutBtn.addEventListener("click", () => {
 
-    window.location.href = "index.html";
+        const confirmLogout = confirm("Are you sure you want to logout?");
 
-});
+        if (!confirmLogout) return;
 
-// Load Data
-const members = JSON.parse(localStorage.getItem("members")) || [];
-const attendance = JSON.parse(localStorage.getItem("attendance")) || {};
-const payments = JSON.parse(localStorage.getItem("payments")) || {};
+        localStorage.removeItem("token");
+        localStorage.removeItem("gym");
 
-// Dashboard Elements
-const dashboardMembers =
-    document.getElementById("dashboardMembers");
+        window.location.href = "../owner-login.html";
 
-const dashboardPresent =
-    document.getElementById("dashboardPresent");
-
-const dashboardRevenue =
-    document.getElementById("dashboardRevenue");
-
-const dashboardActiveMemberships =
-    document.getElementById("dashboardActiveMemberships");
-
-    
-// Membership Prices
-const planPrice = {
-
-    Basic: 999,
-    Premium: 1999,
-    VIP: 3999
-
-};
-
-// Statistics
-let present = 0;
-let revenue = 0;
-let pending = 0;
-
-members.forEach((member, index) => {
-
-    // Attendance
-    if (attendance[index] === "Present") {
-        present++;
-    }
-
-    // Payments
-    if (payments[index] === "Paid") {
-
-        revenue += planPrice[member.plan] || 0;
-
-    } else {
-
-        pending++;
-
-    }
-
-});
-
-// Update Dashboard Cards
-dashboardMembers.innerText = members.length;
-dashboardPresent.innerText = present;
-dashboardRevenue.innerText = "₹" + revenue;
-dashboardPending.innerText = pending;
-
-// Recent Members
-
-    const memberCards =
-    document.getElementById("memberCards");
-
-    memberCards.innerHTML="";
-
-    members.slice(-6).reverse().forEach((member,index)=>{
-
-    memberCards.innerHTML +=`
-
-    <div class="member-card">
-
-    <div class="member-avatar">
-
-    👤
-
-    </div>
-
-    <h3>${member.name}</h3>
-
-    <p>📞 ${member.phone}</p>
-
-    <p class="member-plan">🏋 ${member.plan} Member</p>
-
-    <div class="status-badge">
-
-        🟢 Active
-
-    </div>
-
-
-    <button onclick="viewMember(${members.length-1-index})">
-
-    Member Profile
-
-    </button>
-
-    </div>
-
-    `;
-
-});
-
- function viewMember(index){
-
-    toast("🚧 Member Control Center - Coming in Phase 3");
-
-}   
-
-function closeMemberModal(){
-
-    document.getElementById("memberModal").style.display="none";
+    });
 
 }

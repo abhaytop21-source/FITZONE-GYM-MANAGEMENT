@@ -80,3 +80,51 @@ export const registerGymService = async (data) => {
     },
   };
 };
+
+export const loginGymService = async (data) => {
+
+    const { ownerEmail, ownerPassword } = data;
+
+    // Check if owner exists
+    const gym = await prisma.gym.findUnique({
+        where: {
+            ownerEmail
+        }
+    });
+
+    if (!gym) {
+        throw new Error("Owner account not found.");
+    }
+
+    // Compare password
+    const isPasswordCorrect = await bcrypt.compare(
+        ownerPassword,
+        gym.ownerPassword
+    );
+
+    if (!isPasswordCorrect) {
+        throw new Error("Invalid email or password.");
+    }
+
+    // Generate JWT
+    const token = generateToken(gym);
+
+    return {
+
+        token,
+
+        gym: {
+
+            id: gym.id,
+            gymCode: gym.gymCode,
+            gymName: gym.gymName,
+
+            ownerFirstName: gym.ownerFirstName,
+            ownerLastName: gym.ownerLastName,
+            ownerEmail: gym.ownerEmail
+
+        }
+
+    };
+
+};
