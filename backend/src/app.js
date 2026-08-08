@@ -1,8 +1,10 @@
 
+
 import cors from "cors";
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
 import dashboardRoutes from "./dashboard/dashboard.routes.js";
+import gymRoutes from "./routes/gym.routes.js";
 
 
 const app = express();
@@ -20,5 +22,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/gym", gymRoutes);
 
 export default app;
