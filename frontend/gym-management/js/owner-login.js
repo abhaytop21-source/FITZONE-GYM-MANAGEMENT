@@ -64,7 +64,7 @@ loginForm.addEventListener("submit", async (e) => {
 
         alert("Login Successful!");
 
-        window.location.href = "pages/dashboard.html";
+        window.location.href = "../pages/dashboard.html";
 
     } catch (error) {
 

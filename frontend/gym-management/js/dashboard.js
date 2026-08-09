@@ -7,7 +7,7 @@ const gym = JSON.parse(localStorage.getItem("gym"));
 
 if (!token || !gym) {
     alert("Please login first!");
-    window.location.href = "../owner-login.html";
+    window.location.href = "../auth/owner-login.html";
 }
 
 // ==============================
@@ -59,7 +59,7 @@ if (logoutBtn) {
         localStorage.removeItem("token");
         localStorage.removeItem("gym");
 
-        window.location.href = "../owner-login.html";
+        window.location.href = "../auth/owner-login.html";
 
     });
 

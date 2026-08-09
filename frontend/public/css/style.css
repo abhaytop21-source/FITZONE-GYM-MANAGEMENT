@@ -1,16 +1,10 @@
-@import url("global.css");
+@import url("../../shared/css/global.css");
 
 @import url("navbar.css");
 
 @import url("landing.css");
 
-@import url("footer.css");
-
-@import url("auth.css");
-
-@import url("animations.css");
-
-@import url("responsive.css");
+@import url("../../shared/css/responsive.css");
 
 
 

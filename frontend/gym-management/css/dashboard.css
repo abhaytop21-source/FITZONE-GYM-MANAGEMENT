@@ -1,8 +1,8 @@
-@import url("global.css");
+@import url("../../shared/css/global.css");
+
+@import url("../../shared/css/responsive.css");
 
 @import url("dashboard-layout.css");
-
-@import url("responsive.css");
 
 @import url("dashboard-home.css");
 

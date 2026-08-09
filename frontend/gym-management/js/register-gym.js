@@ -3,7 +3,8 @@
 // Part 1 - Navigation
 // ==========================================
 
-import { post } from "./api.js";
+import { post } from "../../shared/js/api.js";
+
 
 // ---------- Welcome Screen ----------
 
