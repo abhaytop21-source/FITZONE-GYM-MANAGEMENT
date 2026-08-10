@@ -2,18 +2,18 @@
         NAVBAR
 ========================== */
 
-.navbar{
+.navbar {
+    width: 100%;
+    
+    padding: 22px 6%;
 
-    width:100%;
+    display: flex;
 
-    padding:25px 8%;
+    align-items: center;
 
-    display:flex;
+    justify-content: space-between;
 
-    justify-content:space-between;
-
-    align-items:center;
-
+    background: transparent;
 }
 
 .logo{

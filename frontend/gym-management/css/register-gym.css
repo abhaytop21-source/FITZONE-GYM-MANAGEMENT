@@ -200,26 +200,66 @@
 
 }
 
-/* NAVBAR */
+/* ==========================================
+   NAVBAR
+========================================== */
 
-.back-home{
+.navbar {
+    width: 100%;
+    padding: 22px 6%;
 
-    display:flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    align-items:center;
-
-    gap:10px;
-
-    color:white;
-
-    transition:.3s;
-
+    background: transparent;
 }
 
-.back-home:hover{
 
-    color:var(--primary);
+/* FITZONE LOGO */
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo i {
+    color: #00e5ff;
+    font-size: 20px;
+}
+
+
+/* BACK TO HOME */
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #a1a1aa;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+.back-home i {
+    color: #ff7b00;
+}
+
+.back-home:hover {
+    color: #ff7b00;
+    transform: translateX(-3px);
 }
 
 body{

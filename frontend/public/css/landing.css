@@ -1,249 +1,476 @@
-/* ==========================
-            HERO
-========================== */
+/* =====================================================
+   FITZONE LANDING PAGE
+   Desktop First
+===================================================== */
 
-.hero{
-
-    min-height:85vh;
-
-    width:90%;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:80px;
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #080b10;
 }
 
-.hero-content{
-
-    flex:1;
-
+* {
+    box-sizing: border-box;
 }
 
-.hero-tag{
-
-    color:var(--primary);
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
-
-    font-weight:600;
-
-}
-
-.hero h1{
-
-    font-size:72px;
-
-    font-weight:800;
-
-    line-height:1.08;
-
-    letter-spacing:-2px;
-
-}
-
-.hero-description{
-
-    color:#bdbdbd;
-
-    max-width:550px;
-
-    font-size:18px;
-
-    margin-bottom:35px;
-
-}
-
-.hero-buttons{
-
-    display:flex;
-
-    gap:20px;
-
-}
-
-.primary-btn{
-
-    background:var(--primary);
-
-    color:#fff;
-
-    padding:16px 36px;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-}
-
-.join-btn{
-
-    border:2px solid #444;
-
-    padding:16px 36px;
-
-    border-radius:50px;
-
-}
-
-.dashboard-preview{
-
-    flex:1;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-
-}
-
-.preview-card{
-
-    background:#181818;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:18px;
-
-    padding:35px;
-
-    transition:.35s;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-
-}
-
-.preview-card:hover{
-
-    transform:translateY(-12px);
-
-    border-color:var(--primary);
-
-    box-shadow:0 25px 50px rgba(255,123,0,.18);
-
-}
-
-.preview-card h3{
-
-    color:#888;
-
-    margin-bottom:15px;
-
-}
-
-.preview-card span{
-
-    font-size:38px;
-
-    font-weight:700;
-
-}
-
-.primary-btn{
-
-    transition:.3s;
-
-}
-
-.primary-btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 12px 30px rgba(255,123,0,.35);
-
-}
-
-/* ==========================
-    RESPONSIVE animations
-========================== */
-
-.hero{
-
+.landing-page {
+    min-height: calc(100vh - 72px);
     position: relative;
-
     overflow: hidden;
 
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(0, 229, 255, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #080b10 0%,
+            #0b1017 50%,
+            #070a0f 100%
+        );
 }
 
-.hero::before{
 
-    content:"";
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-    position:absolute;
+.landing-navbar {
+    height: 72px;
+    padding: 0 7%;
 
-    width:500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    height:500px;
+    background: rgba(8, 11, 16, 0.92);
 
-    background:rgba(255,123,0,.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-    border-radius:50%;
+    position: relative;
+    z-index: 10;
+}
 
-    filter:blur(120px);
+.landing-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
 
-    top:-200px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
 
-    left:-150px;
+    color: #ffffff;
+}
 
-    z-index:-1;
+.landing-logo i {
+    color: #00e5ff;
+    font-size: 18px;
+}
+
+.landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.landing-nav a {
+    color: #a1a1aa;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.landing-nav a:hover {
+    color: #00e5ff;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.landing-hero {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 55px 30px 70px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-brand {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    color: #00e5ff;
+
+    font-size: 30px;
+
+    background: rgba(0, 229, 255, 0.06);
+
+    border: 1px solid rgba(0, 229, 255, 0.18);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 35px rgba(0, 229, 255, 0.08);
+}
+
+.hero-content h1 {
+    margin: 0;
+
+    font-size: 52px;
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    color: #ffffff;
+}
+
+.hero-content h1 span {
+    color: #00e5ff;
+
+    text-shadow:
+        0 0 25px rgba(0, 229, 255, 0.18);
+}
+
+.hero-content p {
+    margin-top: 18px;
+
+    color: #a1a1aa;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hero-line {
+    width: 55px;
+    height: 2px;
+
+    margin-top: 22px;
+
+    background: #00e5ff;
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.45);
+}
+
+
+/* =====================================================
+   GET STARTED
+===================================================== */
+
+.get-started {
+    margin-top: 42px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.section-heading span {
+    width: 42px;
+    height: 1px;
+
+    background: rgba(0, 229, 255, 0.35);
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #d4d4d8;
+}
+
+
+/* =====================================================
+   ENTRY CARDS
+===================================================== */
+
+.entry-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+}
+
+.entry-card {
+    padding: 27px 28px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 27, 34, 0.96),
+            rgba(13, 18, 24, 0.96)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.entry-card:hover {
+    transform: translateY(-5px);
+}
+
+.gym-card:hover {
+     border-color: rgba(255, 122, 0, 0.45);
+
+    box-shadow:
+        0 15px 45px rgba(255, 122, 0, 0.10);
+}
+
+.member-card:hover {
+    border-color: rgba(0, 229, 255, 0.45);
+
+    box-shadow:
+        0 15px 45px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =====================================================
+   ENTRY ICON
+===================================================== */
+
+.entry-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 17px;
+}
+
+.gym-card .entry-icon {
+    color: #ff8a00;
+
+    background: rgba(255, 122, 0, 0.10);
+
+    border: 1px solid rgba(255, 122, 0, 0.25);
+}
+
+.member-card .entry-icon {
+    color: #00e5ff;
+
+    background: rgba(0, 229, 255, 0.08);
+
+    border: 1px solid rgba(0, 229, 255, 0.20);
+}
+
+
+/* =====================================================
+   ENTRY TEXT
+===================================================== */
+
+.entry-card h3 {
+    margin: 0;
+
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 700;
+
+    color: #f4f4f5;
+}
+
+.entry-card p {
+    max-width: 250px;
+
+    margin: 9px auto 20px;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: #8f939b;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.entry-buttons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.entry-btn {
+    width: 100%;
+    min-height: 43px;
+
+    padding: 0 14px;
+
+    display: grid;
+
+    grid-template-columns: 20px 1fr 16px;
+
+    align-items: center;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    transition: 0.25s ease;
+}
+
+.entry-btn span {
+    text-align: left;
+}
+
+.entry-btn > i:last-child {
+    font-size: 9px;
+}
+
+
+/* Gym buttons */
+
+.primary-gym-btn {
+    color: #ffffff;
+
+    background: 
+        linear-gradient(135deg, #ff6a00, #ff8a00);
+
+    box-shadow: 0 7px 20px rgba(255, 122, 0, 0.18);
+}
+
+.primary-gym-btn:hover {
+
+    transform: translateY(-2px);
+    box-shadow: 
+        0 10px 25px rgba(255, 122, 0, 0.30);
 
 }
 
-.hero::after{
+.outline-gym-btn {
+    color: #ff8a00;
 
-    content:"";
+    background: rgba(255, 122, 0, 0.03);
 
-    position:absolute;
+    border: 1px solid rgba(255, 122, 0, 0.35);
+}
 
-    width:450px;
-
-    height:450px;
-
-    background:rgba(0,170,255,.08);
-
-    border-radius:50%;
-
-    filter:blur(120px);
-
-    bottom:-180px;
-
-    right:-120px;
-
-    z-index:-1;
+.outline-gym-btn:hover {
+    background: 
+        rgba(255, 122, 0, 0.09);
 
 }
 
-.logo i{
 
-    transition:.3s;
+/* Member buttons */
 
+.primary-member-btn {
+    color: #041014;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9f5,
+            #00e5ff
+        );
+
+    box-shadow:
+        0 7px 20px rgba(0, 229, 255, 0.15);
 }
 
-.logo:hover i{
+.primary-member-btn:hover {
+    transform: translateY(-2px);
 
-    transform:rotate(-15deg);
-
+    box-shadow:
+        0 10px 25px rgba(0, 229, 255, 0.28);
 }
 
-.preview-card:nth-child(2){
+.outline-member-btn {
+    color: #00e5ff;
 
-    margin-top:40px;
+    background: rgba(0, 229, 255, 0.03);
 
+    border: 1px solid rgba(0, 229, 255, 0.30);
 }
 
-.preview-card:nth-child(3){
+.outline-member-btn:hover {
+    background: rgba(0, 229, 255, 0.08);
+}
 
-    margin-left:60px;
 
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.landing-footer {
+    padding: 20px;
+
+    text-align: center;
+
+    background: #070a0f;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.landing-footer p {
+    margin: 0;
+
+    font-size: 11px;
+
+    color: #62666e;
 }

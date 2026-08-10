@@ -2,141 +2,185 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FITZONE | Gym Management Platform</title>
+    <title>FITZONE | Your Fitness. Your Gym. One Platform.</title>
 
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/landing.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
-    <!--================ NAVBAR ================-->
+    <!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar">
+    <header class="landing-navbar">
 
-        <div class="logo">
-
+        <div class="landing-logo">
+            <!-- KEEP OUR EXISTING FITZONE LOGO HERE -->
             <i class="fa-solid fa-bolt"></i>
-
             <span>FITZONE</span>
-
         </div>
 
-        <div class="nav-buttons">
+        <nav class="landing-nav">
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </nav>
 
-            <a href="member-portal/auth/member-login.html" class="member-btn">
-
-                <i class="fa-regular fa-user"></i>
-
-                Member Login
-
-            </a>
-
-            <a href="gym-management/auth/owner-login.html" class="owner-btn">
-
-                <i class="fa-solid fa-building"></i>
-
-                Gym Management Login
-
-            </a>
-
-        </div>
-
-    </nav>
+    </header>
 
 
+    <!-- ================= HERO ================= -->
 
+    <main class="landing-page">
 
+        <section class="landing-hero">
 
-    <!--================ HERO ================-->
+            <div class="hero-content">
 
-    <section class="hero">
+                <div class="hero-brand">
+                    <!-- KEEP OUR ACTUAL FITZONE LOGO / BRAND MARK HERE -->
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
 
-        <div class="hero-content">
+                <h1>
+                    YOUR FITNESS.<br>
+                    YOUR GYM.<br>
+                    <span>ONE PLATFORM.</span>
+                </h1>
 
-            <p class="hero-tag">
+                <p>
+                    Connecting members and gyms<br>
+                    for a better fitness journey.
+                </p>
 
-                THE COMPLETE GYM MANAGEMENT PLATFORM
-
-            </p>
-
-            <h1>
-
-                Run Your Gym.<br>
-
-                Transform Every Journey.
-
-            </h1>
-
-            <p class="hero-description">
-
-                Manage members, trainers, attendance, payments and fitness journeys
-                from one beautiful platform.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="gym-management/auth/register-gym.html" class="primary-btn">
-
-                    Create Your Gym
-
-                </a>
-
-                <a href="member-portal/auth/member-register.html" class="join-btn">
-
-                    become a member
-
-                </a>
+                <div class="hero-line"></div>
 
             </div>
 
-        </div>
+
+            <!-- ================= GET STARTED ================= -->
+
+            <section class="get-started">
+
+                <div class="section-heading">
+                    <span></span>
+                    <h2>GET STARTED</h2>
+                    <span></span>
+                </div>
 
 
-        <div class="dashboard-preview">
+                <div class="entry-grid">
 
-            <div class="preview-card">
+                    <!-- GYM OWNERS -->
 
-                <h3>Members</h3>
+                    <div class="entry-card gym-card">
 
-                <span>542</span>
+                        <div class="entry-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
 
-            </div>
+                        <h3>FOR GYM OWNERS</h3>
 
-            <div class="preview-card">
+                        <p>
+                            Manage your gym and grow your business.
+                        </p>
 
-                <h3>Revenue</h3>
+                        <div class="entry-buttons">
 
-                <span>₹1.8L</span>
+                            <a
+                                href="gym-management/auth/register-gym.html"
+                                class="entry-btn primary-gym-btn">
 
-            </div>
+                                <i class="fa-solid fa-building-circle-check"></i>
+                                <span>REGISTER YOUR GYM</span>
+                                <i class="fa-solid fa-chevron-right"></i>
 
-            <div class="preview-card">
+                            </a>
 
-                <h3>Attendance</h3>
+                            <a
+                                href="gym-management/auth/owner-login.html"
+                                class="entry-btn outline-gym-btn">
 
-                <span>94%</span>
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <span>GYM LOGIN</span>
+                                <i class="fa-solid fa-chevron-right"></i>
 
-            </div>
+                            </a>
 
-        </div>
+                        </div>
 
-    </section>
+                    </div>
+
+
+                    <!-- MEMBERS -->
+
+                    <div class="entry-card member-card">
+
+                        <div class="entry-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <h3>FOR MEMBERS</h3>
+
+                        <p>
+                            Start your fitness journey and achieve your goals.
+                        </p>
+
+                        <div class="entry-buttons">
+
+                            <a
+                                href="member-portal/auth/member-register.html"
+                                class="entry-btn primary-member-btn">
+
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>JOIN FITZONE</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+
+                            </a>
+
+                            <a
+                                href="member-portal/auth/member-login.html"
+                                class="entry-btn outline-member-btn">
+
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <span>MEMBER LOGIN</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="landing-footer">
+
+        <p>© 2026 FITZONE. All rights reserved.</p>
+
+    </footer>
 
 </body>
 
