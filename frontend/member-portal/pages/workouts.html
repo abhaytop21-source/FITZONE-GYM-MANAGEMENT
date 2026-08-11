@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Workouts | FITZONE</title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Global Member Styles -->
+    <link
+        rel="stylesheet"
+        href="../css/member-global.css"
+    >
+
+    <!-- Workout Page Styles -->
+    <link
+        rel="stylesheet"
+        href="../css/workouts.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- FITZONE LOGO -->
+
+            <a
+                href="dashboard.html"
+                class="sidebar-logo"
+            >
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>FITZONE</span>
+
+            </a>
+
+
+            <!-- SIDEBAR NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="nav-item active"
+                >
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>Workouts</span>
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Progress</span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a
+                    href="goals.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>Goals</span>
+
+                </a>
+
+
+                <a
+                    href="achievements.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>Achievements</span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a
+                    href="find-gyms.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Find Gyms</span>
+
+                </a>
+
+
+                <a
+                    href="my-gym.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>My Gym</span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="profile.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>Logout</span>
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <!-- Mobile Menu -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- Notifications -->
+
+                    <button
+                        class="icon-btn notification-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <!-- User Profile -->
+
+                    <a
+                        href="profile.html"
+                        class="user-profile"
+                    >
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+
+                        <div class="user-info">
+
+                            <strong>
+                                Abhay
+                            </strong>
+
+                            <span>
+                                Member
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 WORKOUT PAGE
+            ================================================== -->
+
+            <section class="workout-content">
+
+
+                <!-- =================================================
+                     PAGE HEADER
+                ================================================== -->
+
+                <div class="workout-page-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR FITNESS
+                        </span>
+
+                        <h1>
+                            Workouts
+                        </h1>
+
+                        <p>
+                            Train your way. Build consistency.
+                            Keep getting stronger.
+                        </p>
+
+                    </div>
+
+
+                    <div class="workout-header-actions">
+
+                        <button
+                            class="secondary-action"
+                            id="editWorkoutBtn"
+                        >
+
+                            <i class="fa-solid fa-pen"></i>
+
+                            <span>
+                                Edit Workout
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CURRENT WORKOUT
+                ================================================== -->
+
+                <section class="current-workout-section">
+
+
+                    <div class="workout-main-card member-card">
+
+
+                        <!-- Workout Header -->
+
+                        <div class="current-workout-header">
+
+
+                            <div>
+
+                                <span class="workout-label">
+                                    CURRENT WORKOUT
+                                </span>
+
+                                <h2 id="currentWorkoutName">
+                                    Chest + Triceps
+                                </h2>
+
+                                <p>
+                                    Your personalized training
+                                    session for today.
+                                </p>
+
+                            </div>
+
+
+                            <span class="workout-level">
+                                INTERMEDIATE
+                            </span>
+
+
+                        </div>
+
+
+
+                        <!-- Workout Information -->
+
+                        <div class="workout-info-row">
+
+
+                            <div class="workout-info-item">
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                <div>
+
+                                    <span>
+                                        DURATION
+                                    </span>
+
+                                    <strong>
+                                        55 min
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="workout-info-item">
+
+                                <i class="fa-solid fa-list-check"></i>
+
+                                <div>
+
+                                    <span>
+                                        EXERCISES
+                                    </span>
+
+                                    <strong id="exerciseCount">
+                                        6 Exercises
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="workout-info-item">
+
+                                <i class="fa-solid fa-fire"></i>
+
+                                <div>
+
+                                    <span>
+                                        INTENSITY
+                                    </span>
+
+                                    <strong>
+                                        Moderate
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- Workout Actions -->
+
+                        <div class="current-workout-actions">
+
+
+                            <button
+                                class="primary-action"
+                                id="startWorkoutBtn"
+                            >
+
+                                <span>
+                                    Start Workout
+                                </span>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="outline-action"
+                                id="viewWorkoutBtn"
+                            >
+
+                                <i class="fa-regular fa-eye"></i>
+
+                                <span>
+                                    View Details
+                                </span>
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     TODAY'S EXERCISES
+                ================================================== -->
+
+                <section class="exercises-section">
+
+
+                    <div class="section-heading-row">
+
+
+                        <div>
+
+                            <span class="section-label">
+                                TODAY'S SESSION
+                            </span>
+
+                            <h2>
+                                Your Exercises
+                            </h2>
+
+                        </div>
+
+
+                        <span
+                            class="exercise-total"
+                            id="exerciseTotal"
+                        >
+                            6 Exercises
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- Exercise List -->
+
+                    <div
+                        class="exercise-list"
+                        id="exerciseList"
+                    >
+
+
+                        <!-- Exercise 01 -->
+
+                        <article
+                            class="exercise-card"
+                            data-exercise-id="1"
+                        >
+
+                            <div class="exercise-number">
+                                01
+                            </div>
+
+
+                            <div class="exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="exercise-details">
+
+                                <h3>
+                                    Bench Press
+                                </h3>
+
+                                <p>
+                                    Chest • Barbell
+                                </p>
+
+                            </div>
+
+
+                            <div class="exercise-prescription">
+
+                                <strong>
+                                    4 × 10
+                                </strong>
+
+                                <span>
+                                    Sets × Reps
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="exercise-menu"
+                                aria-label="Exercise options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis"></i>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- Exercise 02 -->
+
+                        <article
+                            class="exercise-card"
+                            data-exercise-id="2"
+                        >
+
+                            <div class="exercise-number">
+                                02
+                            </div>
+
+
+                            <div class="exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="exercise-details">
+
+                                <h3>
+                                    Incline Dumbbell Press
+                                </h3>
+
+                                <p>
+                                    Upper Chest • Dumbbell
+                                </p>
+
+                            </div>
+
+
+                            <div class="exercise-prescription">
+
+                                <strong>
+                                    3 × 12
+                                </strong>
+
+                                <span>
+                                    Sets × Reps
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="exercise-menu"
+                                aria-label="Exercise options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis"></i>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- Exercise 03 -->
+
+                        <article
+                            class="exercise-card"
+                            data-exercise-id="3"
+                        >
+
+                            <div class="exercise-number">
+                                03
+                            </div>
+
+
+                            <div class="exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="exercise-details">
+
+                                <h3>
+                                    Cable Fly
+                                </h3>
+
+                                <p>
+                                    Chest • Cable
+                                </p>
+
+                            </div>
+
+
+                            <div class="exercise-prescription">
+
+                                <strong>
+                                    3 × 12
+                                </strong>
+
+                                <span>
+                                    Sets × Reps
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="exercise-menu"
+                                aria-label="Exercise options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis"></i>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- Exercise 04 -->
+
+                        <article
+                            class="exercise-card"
+                            data-exercise-id="4"
+                        >
+
+                            <div class="exercise-number">
+                                04
+                            </div>
+
+
+                            <div class="exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="exercise-details">
+
+                                <h3>
+                                    Tricep Pushdown
+                                </h3>
+
+                                <p>
+                                    Triceps • Cable
+                                </p>
+
+                            </div>
+
+
+                            <div class="exercise-prescription">
+
+                                <strong>
+                                    3 × 12
+                                </strong>
+
+                                <span>
+                                    Sets × Reps
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="exercise-menu"
+                                aria-label="Exercise options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis"></i>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     EXERCISE LIBRARY
+                     Hidden until Edit Workout / Add Exercise
+                ================================================== -->
+
+                <section
+                    class="exercise-library"
+                    id="exerciseLibrary"
+                    hidden
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="workoutLibraryTitle"
+                >
+
+
+                    <div class="library-header">
+
+
+                        <div>
+
+                            <span class="section-label">
+                                FITZONE LIBRARY
+                            </span>
+
+                            <h2 id="workoutLibraryTitle">
+                                Edit Your Workout
+                            </h2>
+
+                            <p>
+                               Choose the exercises you want in your workout.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="close-library-btn"
+                            id="closeLibraryBtn"
+                            aria-label="Close exercise library"
+                        >
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- Search -->
+
+                    <div class="exercise-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="exerciseSearch"
+                            placeholder="Search exercises..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Muscle Filters -->
+
+                    <div
+                        class="exercise-filters"
+                        id="exerciseFilters"
+                    >
+
+                        <button
+                            class="filter-btn active"
+                            data-filter="all"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="chest"
+                        >
+                            Chest
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="back"
+                        >
+                            Back
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="shoulders"
+                        >
+                            Shoulders
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="legs"
+                        >
+                            Legs
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="arms"
+                        >
+                            Arms
+                        </button>
+
+                        <button
+                            class="filter-btn"
+                            data-filter="core"
+                        >
+                            Core
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Library Grid -->
+
+                    <div
+                        class="library-grid"
+                        id="libraryGrid"
+                    >
+
+
+                        <!-- Demo Exercise -->
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="chest"
+                            data-name="Bench Press"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Bench Press
+                                </h3>
+
+                                <p>
+                                    Chest • Barbell
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Bench Press"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="chest"
+                            data-name="Incline Dumbbell Press"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Incline Dumbbell Press
+                                </h3>
+
+                                <p>
+                                    Chest • Dumbbell
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Incline Dumbbell Press"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="chest"
+                            data-name="Cable Fly"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-link"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Cable Fly
+                                </h3>
+
+                                <p>
+                                    Chest • Cable
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Cable Fly"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="back"
+                            data-name="Lat Pulldown"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Lat Pulldown
+                                </h3>
+
+                                <p>
+                                    Back • Cable
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Lat Pulldown"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="legs"
+                            data-name="Barbell Squat"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Barbell Squat
+                                </h3>
+
+                                <p>
+                                    Legs • Barbell
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Barbell Squat"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="shoulders"
+                            data-name="Shoulder Press"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Shoulder Press
+                                </h3>
+
+                                <p>
+                                    Shoulders • Dumbbell
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Shoulder Press"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="arms"
+                            data-name="Bicep Curl"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Bicep Curl
+                                </h3>
+
+                                <p>
+                                    Biceps • Dumbbell
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Bicep Curl"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+
+                        <article
+                            class="library-exercise"
+                            data-muscle="core"
+                            data-name="Plank"
+                        >
+
+                            <div class="library-exercise-icon">
+
+                                <i class="fa-solid fa-person"></i>
+
+                            </div>
+
+
+                            <div class="library-exercise-info">
+
+                                <h3>
+                                    Plank
+                                </h3>
+
+                                <p>
+                                    Core • Bodyweight
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="add-exercise-btn"
+                                data-exercise="Plank"
+                            >
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                <span>
+                                    Add
+                                </span>
+
+                            </button>
+
+                        </article>
+
+
+                    </div>
+
+
+
+                    <!-- Library Footer -->
+
+                    <div class="library-footer">
+
+                        <span id="selectedExerciseCount">
+                            0 exercises selected
+                        </span>
+
+
+                        <button
+                            class="primary-action"
+                            id="saveWorkoutBtn"
+                        >
+
+                            <span>
+                                Save Workout
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WORKOUT JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/workouts.js"></script>
+
+
+</body>
+
+</html>

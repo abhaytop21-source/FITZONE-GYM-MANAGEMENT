@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Progress | FITZONE</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         MEMBER GLOBAL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/member-global.css"
+    >
+
+
+    <!-- =====================================================
+         PROGRESS PAGE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/progress.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- =================================================
+                 LOGO
+            ================================================== -->
+
+            <a
+                href="dashboard.html"
+                class="sidebar-logo"
+            >
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>FITZONE</span>
+
+            </a>
+
+
+            <!-- =================================================
+                 NAVIGATION
+            ================================================== -->
+
+            <nav class="sidebar-nav">
+
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>
+                        Workouts
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item active"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a
+                    href="goals.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>
+                        Goals
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="achievements.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>
+                        Achievements
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a
+                    href="find-gyms.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Find Gyms
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="my-gym.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>
+                        My Gym
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- =================================================
+                 SIDEBAR BOTTOM
+            ================================================== -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="profile.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <!-- Mobile Menu -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- Notification -->
+
+                    <button
+                        class="icon-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <a
+                        href="profile.html"
+                        class="user-profile"
+                    >
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+
+                        <div class="user-info">
+
+                            <strong>
+                                Abhay
+                            </strong>
+
+                            <span>
+                                Member
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 PROGRESS CONTENT
+            ================================================== -->
+
+            <section class="progress-content">
+
+
+                <!-- =================================================
+                     01. PAGE HEADER
+                ================================================== -->
+
+                <div class="progress-page-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR TRANSFORMATION
+                        </span>
+
+                        <h1>
+                            Progress
+                        </h1>
+
+                        <p>
+                            Track your progress, measure your
+                            results, and keep moving forward.
+                        </p>
+
+                    </div>
+
+
+                    <div class="progress-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span id="progressDate">
+                            This Week
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     02. PROGRESS OVERVIEW
+                ================================================== -->
+
+                <section class="progress-overview">
+
+
+                    <!-- Weight -->
+
+                    <article class="progress-stat-card">
+
+                        <div class="progress-stat-icon">
+
+                            <i class="fa-solid fa-weight-scale"></i>
+
+                        </div>
+
+
+                        <div class="progress-stat-info">
+
+                            <span>
+                                CURRENT WEIGHT
+                            </span>
+
+                            <strong id="currentWeight">
+                                68.5
+                                <small>kg</small>
+                            </strong>
+
+                            <p id="weightChange">
+                                -1.5 kg this month
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Workouts -->
+
+                    <article class="progress-stat-card">
+
+                        <div class="progress-stat-icon">
+
+                            <i class="fa-solid fa-dumbbell"></i>
+
+                        </div>
+
+
+                        <div class="progress-stat-info">
+
+                            <span>
+                                WORKOUTS
+                            </span>
+
+                            <strong id="totalWorkouts">
+                                18
+                            </strong>
+
+                            <p>
+                                This month
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Streak -->
+
+                    <article class="progress-stat-card">
+
+                        <div class="progress-stat-icon streak-icon">
+
+                            <i class="fa-solid fa-fire"></i>
+
+                        </div>
+
+
+                        <div class="progress-stat-info">
+
+                            <span>
+                                CURRENT STREAK
+                            </span>
+
+                            <strong id="currentStreak">
+                                7
+                                <small>days</small>
+                            </strong>
+
+                            <p>
+                                Keep it going
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Attendance -->
+
+                    <article class="progress-stat-card">
+
+                        <div class="progress-stat-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+
+                        <div class="progress-stat-info">
+
+                            <span>
+                                ATTENDANCE
+                            </span>
+
+                            <strong id="attendanceDays">
+                                18
+                                <small>days</small>
+                            </strong>
+
+                            <p>
+                                This month
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     03. WEIGHT PROGRESS
+                ================================================== -->
+
+                <section class="weight-progress-card member-card">
+
+
+                    <div class="progress-section-header">
+
+
+                        <div>
+
+                            <span class="section-label">
+                                WEIGHT TRACKING
+                            </span>
+
+                            <h2>
+                                Weight Progress
+                            </h2>
+
+                            <p>
+                                See how your weight has changed
+                                over time.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Time Range -->
+
+                        <div
+                            class="time-range"
+                            id="timeRange"
+                        >
+
+                            <button
+                                class="time-range-btn active"
+                                data-range="1m"
+                            >
+                                1M
+                            </button>
+
+                            <button
+                                class="time-range-btn"
+                                data-range="3m"
+                            >
+                                3M
+                            </button>
+
+                            <button
+                                class="time-range-btn"
+                                data-range="6m"
+                            >
+                                6M
+                            </button>
+
+                            <button
+                                class="time-range-btn"
+                                data-range="1y"
+                            >
+                                1Y
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         WEIGHT VISUALIZATION
+                    ================================================== -->
+
+                    <div
+                        class="weight-chart"
+                        id="weightChart"
+                    >
+
+                        <!-- Y Axis -->
+
+                        <div class="chart-y-axis">
+
+                            <span>
+                                72 kg
+                            </span>
+
+                            <span>
+                                70 kg
+                            </span>
+
+                            <span>
+                                68 kg
+                            </span>
+
+                            <span>
+                                66 kg
+                            </span>
+
+                            <span>
+                                64 kg
+                            </span>
+
+                        </div>
+
+
+                        <!-- Chart -->
+
+                        <div class="chart-area">
+
+
+                            <div class="chart-grid">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <div
+                                class="chart-line"
+                                id="weightChartLine"
+                            >
+
+                                <div
+                                    class="chart-point"
+                                    data-value="71"
+                                ></div>
+
+                                <div
+                                    class="chart-point"
+                                    data-value="70.5"
+                                ></div>
+
+                                <div
+                                    class="chart-point"
+                                    data-value="70"
+                                ></div>
+
+                                <div
+                                    class="chart-point"
+                                    data-value="69.4"
+                                ></div>
+
+                                <div
+                                    class="chart-point"
+                                    data-value="68.5"
+                                ></div>
+
+                            </div>
+
+
+                            <!-- X Axis -->
+
+                            <div
+                                class="chart-x-axis"
+                                id="chartXAxis"
+                            >
+
+                                <span>
+                                    Week 1
+                                </span>
+
+                                <span>
+                                    Week 2
+                                </span>
+
+                                <span>
+                                    Week 3
+                                </span>
+
+                                <span>
+                                    Week 4
+                                </span>
+
+                                <span>
+                                    Now
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Chart Summary -->
+
+                    <div class="chart-summary">
+
+
+                        <div>
+
+                            <span>
+                                STARTING WEIGHT
+                            </span>
+
+                            <strong>
+                                70.0 kg
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                CURRENT WEIGHT
+                            </span>
+
+                            <strong>
+                                68.5 kg
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                TOTAL CHANGE
+                            </span>
+
+                            <strong class="positive">
+                                -1.5 kg
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     04. LOWER PROGRESS GRID
+                ================================================== -->
+
+                <div class="progress-grid">
+
+
+                    <!-- =================================================
+                         BODY MEASUREMENTS
+                    ================================================== -->
+
+                    <section class="measurements-card member-card">
+
+
+                        <div class="progress-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    BODY TRACKING
+                                </span>
+
+                                <h2>
+                                    Body Measurements
+                                </h2>
+
+                            </div>
+
+
+                            <button
+                                class="small-action"
+                                id="editMeasurementsBtn"
+                            >
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                        </div>
+
+
+
+                        <div class="measurement-list">
+
+
+                            <div class="measurement-row">
+
+                                <div class="measurement-name">
+
+                                    <i class="fa-solid fa-ruler-horizontal"></i>
+
+                                    <span>
+                                        Chest
+                                    </span>
+
+                                </div>
+
+
+                                <strong>
+                                    38
+                                    <small>in</small>
+                                </strong>
+
+                            </div>
+
+
+                            <div class="measurement-row">
+
+                                <div class="measurement-name">
+
+                                    <i class="fa-solid fa-ruler-horizontal"></i>
+
+                                    <span>
+                                        Waist
+                                    </span>
+
+                                </div>
+
+
+                                <strong>
+                                    31
+                                    <small>in</small>
+                                </strong>
+
+                            </div>
+
+
+                            <div class="measurement-row">
+
+                                <div class="measurement-name">
+
+                                    <i class="fa-solid fa-ruler-horizontal"></i>
+
+                                    <span>
+                                        Arms
+                                    </span>
+
+                                </div>
+
+
+                                <strong>
+                                    14
+                                    <small>in</small>
+                                </strong>
+
+                            </div>
+
+
+                            <div class="measurement-row">
+
+                                <div class="measurement-name">
+
+                                    <i class="fa-solid fa-ruler-horizontal"></i>
+
+                                    <span>
+                                        Thighs
+                                    </span>
+
+                                </div>
+
+
+                                <strong>
+                                    22
+                                    <small>in</small>
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         STRENGTH PROGRESS
+                    ================================================== -->
+
+                    <section class="strength-card member-card">
+
+
+                        <div class="progress-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    PERFORMANCE
+                                </span>
+
+                                <h2>
+                                    Strength Progress
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="strength-list">
+
+
+                            <!-- Bench Press -->
+
+                            <div class="strength-row">
+
+
+                                <div class="strength-info">
+
+                                    <div class="strength-icon">
+
+                                        <i class="fa-solid fa-dumbbell"></i>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Bench Press
+                                        </strong>
+
+                                        <span>
+                                            Chest
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="strength-value">
+
+                                    <strong>
+                                        60 kg
+                                    </strong>
+
+                                    <span class="positive">
+                                        +5 kg
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- Squat -->
+
+                            <div class="strength-row">
+
+
+                                <div class="strength-info">
+
+                                    <div class="strength-icon">
+
+                                        <i class="fa-solid fa-dumbbell"></i>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Squat
+                                        </strong>
+
+                                        <span>
+                                            Legs
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="strength-value">
+
+                                    <strong>
+                                        80 kg
+                                    </strong>
+
+                                    <span class="positive">
+                                        +10 kg
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- Deadlift -->
+
+                            <div class="strength-row">
+
+
+                                <div class="strength-info">
+
+                                    <div class="strength-icon">
+
+                                        <i class="fa-solid fa-dumbbell"></i>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Deadlift
+                                        </strong>
+
+                                        <span>
+                                            Back
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="strength-value">
+
+                                    <strong>
+                                        90 kg
+                                    </strong>
+
+                                    <span class="positive">
+                                        +10 kg
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     05. PROGRESS INSIGHT
+                ================================================== -->
+
+                <section class="progress-insight member-card">
+
+
+                    <div class="insight-icon">
+
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                    </div>
+
+
+                    <div class="insight-content">
+
+                        <span>
+                            YOUR PROGRESS
+                        </span>
+
+                        <h3>
+                            You're moving in the right direction.
+                        </h3>
+
+                        <p>
+                            You've reduced your weight while
+                            improving your strength. Keep your
+                            workouts consistent and stay focused
+                            on your goal.
+                        </p>
+
+                    </div>
+
+
+                    <div class="insight-arrow">
+
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- =====================================================
+        EDIT MEASUREMENTS MODAL
+    ====================================================== -->
+
+    <div
+        class="measurement-modal"
+        id="measurementModal"
+        hidden
+    >
+
+        <div
+            class="measurement-modal-overlay"
+            id="measurementModalOverlay"
+        ></div>
+
+
+        <div class="measurement-modal-card">
+
+
+            <!-- =================================================
+                MODAL HEADER
+            ================================================== -->
+
+            <div class="measurement-modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        BODY TRACKING
+                    </span>
+
+                    <h2>
+                        Edit Measurements
+                    </h2>
+
+                    <p>
+                        Update your latest body measurements.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-measurement-modal"
+                    id="closeMeasurementModal"
+                    aria-label="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                MEASUREMENT FORM
+            ================================================== -->
+
+            <form id="measurementForm">
+
+
+                <div class="measurement-form-grid">
+
+
+                    <!-- Chest -->
+
+                    <div class="measurement-form-group">
+
+                        <label for="measurementChest">
+                            Chest
+                        </label>
+
+                        <div class="measurement-input-wrap">
+
+                            <input
+                                type="number"
+                                id="measurementChest"
+                                min="0"
+                                step="0.1"
+                                placeholder="38"
+                                required
+                            >
+
+                            <span>
+                                in
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Waist -->
+
+                    <div class="measurement-form-group">
+
+                        <label for="measurementWaist">
+                            Waist
+                        </label>
+
+                        <div class="measurement-input-wrap">
+
+                            <input
+                                type="number"
+                                id="measurementWaist"
+                                min="0"
+                                step="0.1"
+                                placeholder="31"
+                                required
+                            >
+
+                            <span>
+                                in
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Arms -->
+
+                    <div class="measurement-form-group">
+
+                        <label for="measurementArms">
+                            Arms
+                        </label>
+
+                        <div class="measurement-input-wrap">
+
+                            <input
+                                type="number"
+                                id="measurementArms"
+                                min="0"
+                                step="0.1"
+                                placeholder="14"
+                                required
+                            >
+
+                            <span>
+                                in
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Thighs -->
+
+                    <div class="measurement-form-group">
+
+                        <label for="measurementThighs">
+                            Thighs
+                        </label>
+
+                        <div class="measurement-input-wrap">
+
+                            <input
+                                type="number"
+                                id="measurementThighs"
+                                min="0"
+                                step="0.1"
+                                placeholder="22"
+                                required
+                            >
+
+                            <span>
+                                in
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                    MODAL ACTIONS
+                ================================================== -->
+
+                <div class="measurement-modal-actions">
+
+                    <button
+                        type="button"
+                        class="outline-action"
+                        id="cancelMeasurementBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-action"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PROGRESS JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/progress.js"></script>
+
+
+</body>
+
+</html>

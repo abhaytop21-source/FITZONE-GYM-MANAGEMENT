@@ -1,0 +1,1143 @@
+/* =========================================================
+   FITZONE — PROFILE
+========================================================= */
+
+
+/* =========================================================
+   01. PROFILE CONTENT
+========================================================= */
+
+.profile-content {
+    padding: 42px 38px 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   02. PROFILE HERO
+========================================================= */
+
+.profile-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 26px;
+
+    margin-bottom: 18px;
+}
+
+.profile-identity {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* =========================================================
+   03. PROFILE AVATAR
+========================================================= */
+
+.profile-avatar {
+    position: relative;
+
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: var(--cyan);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 229, 255, 0.14),
+            rgba(0, 229, 255, 0.035)
+        );
+
+    border: 1px solid var(--cyan-border);
+
+    box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.06);
+}
+
+.profile-avatar > span {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.avatar-edit-btn {
+    position: absolute;
+
+    right: -2px;
+    bottom: -2px;
+
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #061014;
+
+    background: var(--cyan);
+
+    border: 3px solid #0c1117;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.avatar-edit-btn:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   04. PROFILE IDENTITY
+========================================================= */
+
+.profile-identity-info h1 {
+    margin: 0;
+
+    color: #f1f3f5;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.profile-identity-info > p {
+    margin: 4px 0 12px;
+
+    color: #707781;
+
+    font-size: 10px;
+}
+
+.profile-member-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.profile-member-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #5f666f;
+
+    font-size: 8px;
+}
+
+.profile-member-meta i {
+    color: var(--cyan);
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   05. PROFILE COMPLETION
+========================================================= */
+
+.profile-completion {
+    padding: 21px 23px;
+
+    margin-bottom: 18px;
+}
+
+.completion-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.completion-header h2 {
+    margin: 0;
+
+    color: #e9ebed;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.completion-header strong {
+    color: var(--cyan);
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.completion-track {
+    width: 100%;
+    height: 6px;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #20252c;
+}
+
+.completion-fill {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+.profile-completion > p {
+    margin: 8px 0 0;
+
+    color: #626973;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   06. PROFILE GRID
+========================================================= */
+
+.profile-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   07. PROFILE SECTION
+========================================================= */
+
+.profile-section {
+    padding: 22px;
+}
+
+.profile-section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-section-header h2 {
+    margin: 0;
+
+    color: #e9ebed;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   08. SECTION EDIT BUTTON
+========================================================= */
+
+.section-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 9px;
+
+    color: #666d76;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 7px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.section-edit-btn:hover {
+    color: var(--cyan);
+
+    border-color: var(--cyan-border);
+
+    background: var(--cyan-soft);
+}
+
+.section-edit-btn i {
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   09. PROFILE INFO GRID
+========================================================= */
+
+.profile-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 0;
+}
+
+.profile-info-item {
+    min-height: 72px;
+
+    padding: 16px 12px 14px 0;
+}
+
+.profile-info-item:nth-child(even) {
+    padding-left: 15px;
+
+    border-left: 1px solid var(--border);
+}
+
+.profile-info-item:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+}
+
+.profile-info-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #555c65;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.profile-info-item strong {
+    display: block;
+
+    color: #cfd3d7;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   10. PREFERENCES
+========================================================= */
+
+.preference-list {
+    padding-top: 4px;
+}
+
+.preference-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.preference-item:last-child {
+    border-bottom: 0;
+}
+
+.preference-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border: 1px solid var(--cyan-border);
+
+    border-radius: 9px;
+
+    font-size: 11px;
+}
+
+.preference-item span {
+    display: block;
+
+    color: #555c65;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+.preference-item strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #cfd3d7;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   11. ACCOUNT & SECURITY
+========================================================= */
+
+.account-actions {
+    padding-top: 5px;
+}
+
+.account-action {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    color: inherit;
+
+    background: transparent;
+
+    border: 0;
+
+    border-bottom: 1px solid var(--border);
+
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.account-action:last-child {
+    border-bottom: 0;
+}
+
+.account-action-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #777e87;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    transition: 0.2s ease;
+}
+
+.account-action:hover .account-action-icon {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-color: var(--cyan-border);
+}
+
+.account-action > div:nth-child(2) {
+    flex: 1;
+}
+
+.account-action strong {
+    display: block;
+
+    color: #cfd3d7;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.account-action span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #555c65;
+
+    font-size: 7px;
+}
+
+.account-action > i {
+    color: #4d545d;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   12. FITNESS SUMMARY
+========================================================= */
+
+.profile-summary {
+    padding: 22px;
+}
+
+.profile-summary-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+.profile-summary-header h2 {
+    margin: 0;
+
+    color: #e9ebed;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.secondary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #737a83;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.secondary-action:hover {
+    color: var(--cyan);
+}
+
+.secondary-action i {
+    font-size: 8px;
+}
+
+.profile-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    overflow: hidden;
+}
+
+.summary-stat {
+    min-height: 112px;
+
+    padding: 17px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.008);
+}
+
+.summary-stat + .summary-stat {
+    border-left: 1px solid var(--border);
+}
+
+.summary-stat-icon {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 11px;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border: 1px solid var(--cyan-border);
+
+    border-radius: 8px;
+
+    font-size: 9px;
+}
+
+.summary-stat span {
+    color: #555c65;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+.summary-stat strong {
+    margin-top: 3px;
+
+    color: #e4e7e9;
+
+    font-size: 16px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   13. PROFILE MODAL
+========================================================= */
+
+.profile-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.profile-modal[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   14. MODAL OVERLAY
+========================================================= */
+
+.profile-modal-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(3, 7, 10, 0.78);
+
+    backdrop-filter: blur(6px);
+}
+
+
+/* =========================================================
+   15. MODAL CARD
+========================================================= */
+
+.profile-modal-card {
+    position: relative;
+    z-index: 1;
+
+    width: min(100%, 570px);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151b22,
+            #0f151b
+        );
+
+    border: 1px solid rgba(0, 229, 255, 0.12);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55);
+
+    animation: profileModalIn 0.22s ease;
+}
+
+@keyframes profileModalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   16. MODAL HEADER
+========================================================= */
+
+.profile-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-modal-header h2 {
+    margin: 3px 0 0;
+
+    color: #e9eaec;
+
+    font-size: 18px;
+    font-weight: 650;
+}
+
+.profile-modal-header p {
+    margin: 5px 0 0;
+
+    color: #686e77;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   17. CLOSE MODAL
+========================================================= */
+
+.close-profile-modal {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #666c75;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.close-profile-modal:hover {
+    color: #f0f1f2;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   18. PROFILE FORM
+========================================================= */
+
+#profileForm {
+    padding-top: 20px;
+}
+
+.profile-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.profile-form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.profile-form-group label {
+    color: #858a93;
+
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.profile-form-group input,
+.profile-form-group select {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 12px;
+
+    color: #d8dadd;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-form-group input::placeholder {
+    color: #4f555e;
+}
+
+.profile-form-group input:focus,
+.profile-form-group select:focus {
+    border-color: var(--cyan-border);
+
+    background: rgba(0, 229, 255, 0.025);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 229, 255, 0.045);
+}
+
+.profile-form-group select {
+    appearance: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   19. MODAL ACTIONS
+========================================================= */
+
+.profile-modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    padding-top: 20px;
+}
+
+
+/* =========================================================
+   20. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-summary-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .summary-stat:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .summary-stat:nth-child(4) {
+        border-top: 1px solid var(--border);
+    }
+
+}
+
+
+/* =========================================================
+   21. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .profile-content {
+        padding: 32px 22px 50px;
+    }
+
+    .profile-hero {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-hero > .primary-action {
+        width: 100%;
+    }
+
+    .profile-identity {
+        align-items: flex-start;
+    }
+
+    .profile-avatar {
+        width: 68px;
+        height: 68px;
+    }
+
+    .profile-avatar > span {
+        font-size: 22px;
+    }
+
+    .profile-identity-info h1 {
+        font-size: 23px;
+    }
+
+    .profile-member-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-info-item,
+    .profile-info-item:nth-child(even) {
+        padding: 13px 0;
+        border-left: 0;
+    }
+
+    .profile-info-item:nth-child(n + 2) {
+        border-top: 1px solid var(--border);
+    }
+
+    .profile-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .summary-stat:nth-child(2) {
+        border-left: 1px solid var(--border);
+    }
+
+    .summary-stat:nth-child(3) {
+        border-left: 0;
+    }
+
+    .summary-stat:nth-child(4) {
+        border-left: 1px solid var(--border);
+    }
+
+}
+
+
+/* =========================================================
+   22. RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .profile-content {
+        padding: 25px 15px 40px;
+    }
+
+    .profile-hero,
+    .profile-completion,
+    .profile-section,
+    .profile-summary {
+        padding: 18px;
+    }
+
+    .profile-identity {
+        gap: 14px;
+    }
+
+    .profile-identity-info h1 {
+        font-size: 21px;
+    }
+
+    .profile-summary-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-stat + .summary-stat,
+    .summary-stat:nth-child(3),
+    .summary-stat:nth-child(4) {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .profile-modal {
+        padding: 12px;
+    }
+
+    .profile-modal-card {
+        padding: 19px;
+        max-height: calc(100vh - 24px);
+    }
+
+    .profile-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .profile-modal-actions button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   23. PROFILE EDIT SECTIONS
+========================================================= */
+
+.profile-edit-section[hidden] {
+    display: none;
+}
+
+.input-with-unit {
+    position: relative;
+}
+
+.input-with-unit input {
+    padding-right: 42px;
+}
+
+.input-with-unit span {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #555c65;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   24. PROFILE — OUTLINE ACTION
+========================================================= */
+
+.outline-action {
+    height: 40px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #737a83;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.outline-action:hover {
+    color: #dfe3e6;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border-color: #3a4149;
+}

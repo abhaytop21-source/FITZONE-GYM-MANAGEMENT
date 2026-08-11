@@ -1,0 +1,1345 @@
+/* =========================================================
+   FITZONE PROGRESS PAGE
+   Progress-specific styles only
+========================================================= */
+
+
+/* =========================================================
+   01. PROGRESS CONTENT
+========================================================= */
+
+.progress-content {
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 42px 38px 60px;
+}
+
+
+/* =========================================================
+   02. PAGE HEADER
+========================================================= */
+
+.progress-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.progress-page-header h1 {
+    color: #f4f4f5;
+
+    font-size: 28px;
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+.progress-page-header p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.progress-date {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    min-height: 36px;
+
+    padding: 0 12px;
+
+    color: #858a93;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-size: 8px;
+}
+
+.progress-date i {
+    color: var(--cyan);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   03. PROGRESS OVERVIEW
+========================================================= */
+
+.progress-overview {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   04. PROGRESS STAT CARD
+========================================================= */
+
+.progress-stat-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    min-height: 120px;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 27, 34, 0.94),
+            rgba(14, 19, 25, 0.96)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.progress-stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(0, 229, 255, 0.14);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.progress-stat-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border: 1px solid var(--cyan-border);
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+.progress-stat-icon.streak-icon {
+    color: #ff9d4d;
+
+    background: rgba(255, 157, 77, 0.08);
+
+    border-color: rgba(255, 157, 77, 0.14);
+}
+
+.progress-stat-info {
+    min-width: 0;
+}
+
+.progress-stat-info > span {
+    display: block;
+
+    color: #626873;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.progress-stat-info strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #f4f4f5;
+
+    font-size: 25px;
+
+    line-height: 1.1;
+}
+
+.progress-stat-info strong small {
+    color: #777d86;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.progress-stat-info p {
+    margin-top: 6px;
+
+    color: #686e77;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   05. WEIGHT PROGRESS CARD
+========================================================= */
+
+.weight-progress-card {
+    padding: 22px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   06. PROGRESS SECTION HEADER
+========================================================= */
+
+.progress-section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.progress-section-header h2 {
+    color: #e8e9eb;
+
+    font-size: 16px;
+
+    font-weight: 650;
+}
+
+.progress-section-header p {
+    margin-top: 6px;
+
+    color: #686e77;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   07. TIME RANGE
+========================================================= */
+
+.time-range {
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+
+    padding: 3px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+}
+
+.time-range-btn {
+    min-width: 34px;
+    min-height: 27px;
+
+    padding: 0 7px;
+
+    color: #626873;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.time-range-btn:hover {
+    color: #b8bbc0;
+}
+
+.time-range-btn.active {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   08. WEIGHT CHART
+========================================================= */
+
+.weight-chart {
+    display: flex;
+
+    height: 245px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   09. CHART Y AXIS
+========================================================= */
+
+.chart-y-axis {
+    width: 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 4px 8px 22px 0;
+
+    color: #555b64;
+
+    font-size: 7px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   10. CHART AREA
+========================================================= */
+
+.chart-area {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding-bottom: 25px;
+}
+
+
+/* =========================================================
+   11. CHART GRID
+========================================================= */
+
+.chart-grid {
+    position: absolute;
+
+    inset: 0 0 25px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-grid span {
+    width: 100%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================================
+   12. CHART LINE
+========================================================= */
+
+.chart-line {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 25px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.chart-line::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0%,
+            rgba(0, 229, 255, 0.025) 100%
+        );
+
+    clip-path: polygon(
+        0 20%,
+        25% 30%,
+        50% 40%,
+        75% 55%,
+        100% 72%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.chart-point {
+    position: relative;
+
+    width: 9px;
+    height: 9px;
+
+    margin-top: var(--point-position, 50%);
+
+    flex-shrink: 0;
+
+    background: var(--cyan);
+
+    border: 2px solid #10161d;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 229, 255, 0.08),
+        0 0 12px rgba(0, 229, 255, 0.28);
+
+    transform: translateY(-50%);
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   13. CHART CONNECTOR
+========================================================= */
+
+.chart-line::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 50%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.2),
+            rgba(0, 229, 255, 0.7),
+            rgba(0, 229, 255, 0.2)
+        );
+
+    transform: rotate(0deg);
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   14. CHART X AXIS
+========================================================= */
+
+.chart-x-axis {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #555b64;
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   15. CHART SUMMARY
+========================================================= */
+
+.chart-summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 5px;
+
+    padding-top: 16px;
+
+    border-top: 1px solid var(--border);
+}
+
+.chart-summary > div {
+    text-align: center;
+}
+
+.chart-summary > div + div {
+    border-left: 1px solid var(--border);
+}
+
+.chart-summary span {
+    display: block;
+
+    color: #555b64;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.chart-summary strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #d8dadd;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.positive {
+    color: var(--success) !important;
+}
+
+
+/* =========================================================
+   16. LOWER PROGRESS GRID
+========================================================= */
+
+.progress-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   17. MEASUREMENTS CARD
+========================================================= */
+
+.measurements-card,
+.strength-card {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   18. SMALL ACTION
+========================================================= */
+
+.small-action {
+    min-height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 0 10px;
+
+    color: #777d86;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 7px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.small-action:hover {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-color: var(--cyan-border);
+}
+
+
+/* =========================================================
+   19. MEASUREMENT LIST
+========================================================= */
+
+.measurement-list {
+    margin-top: 19px;
+}
+
+.measurement-row {
+    min-height: 49px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.measurement-row:last-child {
+    border-bottom: none;
+}
+
+.measurement-name {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #898e96;
+
+    font-size: 9px;
+}
+
+.measurement-name i {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-radius: 7px;
+
+    font-size: 9px;
+}
+
+.measurement-row > strong {
+    color: #d8dadd;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.measurement-row > strong small {
+    color: #626873;
+
+    font-size: 8px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   20. STRENGTH LIST
+========================================================= */
+
+.strength-list {
+    margin-top: 19px;
+}
+
+.strength-row {
+    min-height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.strength-row:last-child {
+    border-bottom: none;
+}
+
+.strength-info {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.strength-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+}
+
+.strength-info > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.strength-info strong {
+    overflow: hidden;
+
+    color: #d4d6d9;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.strength-info span {
+    color: #626873;
+
+    font-size: 7px;
+}
+
+.strength-value {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex-shrink: 0;
+}
+
+.strength-value strong {
+    color: #d8dadd;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.strength-value span {
+    font-size: 7px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   21. PROGRESS INSIGHT
+========================================================= */
+
+.progress-insight {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+}
+
+.insight-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border: 1px solid var(--cyan-border);
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+.insight-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.insight-content > span {
+    color: var(--cyan);
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.insight-content h3 {
+    margin-top: 4px;
+
+    color: #d9dbde;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.insight-content p {
+    max-width: 750px;
+
+    margin-top: 4px;
+
+    color: #686e77;
+
+    font-size: 8px;
+
+    line-height: 1.6;
+}
+
+.insight-arrow {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--success);
+
+    background: rgba(66, 232, 161, 0.06);
+
+    border: 1px solid rgba(66, 232, 161, 0.12);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   22. PROGRESS RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .progress-content {
+        padding: 38px 30px 55px;
+    }
+
+    .progress-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .progress-content {
+        padding: 32px 22px 50px;
+    }
+
+    .progress-page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .progress-date {
+        display: none;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .progress-content {
+        padding: 28px 18px 45px;
+    }
+
+    .progress-page-header h1 {
+        font-size: 24px;
+    }
+
+    .progress-page-header p {
+        font-size: 10px;
+    }
+
+    .progress-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .weight-progress-card,
+    .measurements-card,
+    .strength-card {
+        padding: 18px;
+    }
+
+    .progress-section-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .time-range {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .time-range-btn {
+        flex: 1;
+    }
+
+    .weight-chart {
+        height: 210px;
+    }
+
+    .chart-y-axis {
+        width: 42px;
+    }
+
+    .chart-summary {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+    .chart-summary > div + div {
+        padding-top: 13px;
+
+        border-left: none;
+
+        border-top: 1px solid var(--border);
+    }
+
+    .progress-insight {
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .progress-content {
+        padding: 24px 15px 40px;
+    }
+
+    .progress-stat-card {
+        min-height: 110px;
+
+        padding: 16px;
+    }
+
+    .progress-stat-info strong {
+        font-size: 22px;
+    }
+
+    .progress-section-header h2 {
+        font-size: 15px;
+    }
+
+    .weight-chart {
+        height: 190px;
+
+        margin-top: 20px;
+    }
+
+    .chart-y-axis {
+        width: 38px;
+
+        font-size: 6px;
+    }
+
+    .chart-x-axis {
+        font-size: 6px;
+    }
+
+    .measurement-row {
+        min-height: 46px;
+    }
+
+    .progress-insight {
+        padding: 16px;
+    }
+
+    .insight-arrow {
+        display: none;
+    }
+}
+
+/* =========================================================
+   23. MEASUREMENT MODAL
+========================================================= */
+
+.measurement-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.measurement-modal[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   24. MODAL OVERLAY
+========================================================= */
+
+.measurement-modal-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(3, 7, 10, 0.78);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   25. MODAL CARD
+========================================================= */
+
+.measurement-modal-card {
+    position: relative;
+
+    width: min(100%, 480px);
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151b22,
+            #0f151b
+        );
+
+    border: 1px solid rgba(0, 229, 255, 0.12);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5);
+
+    animation:
+        measurementModalIn 0.22s ease;
+}
+
+
+@keyframes measurementModalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   26. MODAL HEADER
+========================================================= */
+
+.measurement-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.measurement-modal-header h2 {
+    margin-top: 3px;
+
+    color: #e9eaec;
+
+    font-size: 18px;
+
+    font-weight: 650;
+}
+
+.measurement-modal-header p {
+    margin-top: 5px;
+
+    color: #686e77;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   27. CLOSE BUTTON
+========================================================= */
+
+.close-measurement-modal {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #666c75;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.close-measurement-modal:hover {
+    color: #f0f1f2;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   28. MEASUREMENT FORM
+========================================================= */
+
+#measurementForm {
+    padding-top: 20px;
+}
+
+.measurement-form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+.measurement-form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.measurement-form-group label {
+    color: #858a93;
+
+    font-size: 8px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   29. MEASUREMENT INPUT
+========================================================= */
+
+.measurement-input-wrap {
+    position: relative;
+}
+
+.measurement-input-wrap input {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 42px 0 12px;
+
+    color: #d8dadd;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.measurement-input-wrap input::placeholder {
+    color: #4f555e;
+}
+
+.measurement-input-wrap input:focus {
+    border-color: var(--cyan-border);
+
+    background: rgba(0, 229, 255, 0.025);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 229, 255, 0.045);
+}
+
+.measurement-input-wrap span {
+    position: absolute;
+
+    top: 50%;
+    right: 12px;
+
+    color: #626873;
+
+    font-size: 8px;
+
+    transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   30. MODAL ACTIONS
+========================================================= */
+
+.measurement-modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    padding-top: 20px;
+}
+
+
+/* =========================================================
+   31. MEASUREMENT MODAL RESPONSIVE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .measurement-modal {
+        padding: 15px;
+    }
+
+    .measurement-modal-card {
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .measurement-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .measurement-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .measurement-modal-actions button {
+        width: 100%;
+    }
+
+}

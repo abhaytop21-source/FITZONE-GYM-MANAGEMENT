@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Achievements | FITZONE</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         GLOBAL MEMBER CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/member-global.css"
+    >
+
+
+    <!-- =====================================================
+         ACHIEVEMENTS CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/achievements.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- FITZONE LOGO -->
+
+            <a
+                href="dashboard.html"
+                class="sidebar-logo"
+            >
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>
+                    FITZONE
+                </span>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>
+                        Workouts
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a
+                    href="goals.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>
+                        Goals
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="achievements.html"
+                    class="nav-item active"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>
+                        Achievements
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a
+                    href="find-gyms.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Find Gyms
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="my-gym.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>
+                        My Gym
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="profile.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- Notification -->
+
+                    <button
+                        class="icon-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <!-- User -->
+
+                    <a
+                        href="profile.html"
+                        class="user-profile"
+                    >
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+
+                        <div class="user-info">
+
+                            <strong>
+                                Abhay
+                            </strong>
+
+                            <span>
+                                Member
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 ACHIEVEMENTS CONTENT
+            ================================================== -->
+
+            <section class="achievements-content">
+
+
+                <!-- =================================================
+                     01. PAGE HEADER
+                ================================================== -->
+
+                <div class="achievements-page-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR MILESTONES
+                        </span>
+
+                        <h1>
+                            Achievements
+                        </h1>
+
+                        <p>
+                            Every workout counts. Every milestone
+                            tells your story.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement-level">
+
+                        <span>
+                            CURRENT LEVEL
+                        </span>
+
+                        <strong>
+                            Level 4
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     02. ACHIEVEMENT STATS
+                ================================================== -->
+
+                <section class="achievement-stats">
+
+
+                    <!-- Unlocked -->
+
+                    <article class="achievement-stat-card">
+
+                        <div class="achievement-stat-icon">
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                UNLOCKED
+                            </span>
+
+                            <strong id="unlockedCount">
+                                4
+                            </strong>
+
+                            <p>
+                                Achievements earned
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Total -->
+
+                    <article class="achievement-stat-card">
+
+                        <div class="achievement-stat-icon">
+
+                            <i class="fa-solid fa-medal"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                TOTAL
+                            </span>
+
+                            <strong id="totalCount">
+                                12
+                            </strong>
+
+                            <p>
+                                Available milestones
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Completion -->
+
+                    <article class="achievement-stat-card">
+
+                        <div class="achievement-stat-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                COMPLETION
+                            </span>
+
+                            <strong id="completionPercent">
+                                33%
+                            </strong>
+
+                            <p>
+                                Journey completed
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     03. FEATURED ACHIEVEMENT
+                ================================================== -->
+
+                <section class="featured-achievement member-card">
+
+
+                    <div class="featured-achievement-icon">
+
+                        <i class="fa-solid fa-fire"></i>
+
+                    </div>
+
+
+                    <div class="featured-achievement-content">
+
+
+                        <span class="section-label">
+                            NEXT MILESTONE
+                        </span>
+
+
+                        <h2>
+                            14 Day Streak
+                        </h2>
+
+
+                        <p>
+                            Keep your workout consistency alive
+                            and reach a 14-day streak.
+                        </p>
+
+
+                        <div class="featured-progress">
+
+                            <div class="featured-progress-track">
+
+                                <div
+                                    class="featured-progress-fill"
+                                    style="width: 57%;"
+                                ></div>
+
+                            </div>
+
+
+                            <div class="featured-progress-info">
+
+                                <span>
+                                    8 / 14 days
+                                </span>
+
+                                <strong>
+                                    57%
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="featured-badge">
+
+                        <i class="fa-solid fa-lock-open"></i>
+
+                        <span>
+                            IN PROGRESS
+                        </span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     04. CATEGORY FILTERS
+                ================================================== -->
+
+                <div
+                    class="achievement-filters"
+                    id="achievementFilters"
+                >
+
+                    <button
+                        class="achievement-filter active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="achievement-filter"
+                        data-filter="workout"
+                    >
+                        <i class="fa-solid fa-dumbbell"></i>
+                        Workout
+                    </button>
+
+                    <button
+                        class="achievement-filter"
+                        data-filter="consistency"
+                    >
+                        <i class="fa-solid fa-fire"></i>
+                        Consistency
+                    </button>
+
+                    <button
+                        class="achievement-filter"
+                        data-filter="progress"
+                    >
+                        <i class="fa-solid fa-chart-line"></i>
+                        Progress
+                    </button>
+
+                    <button
+                        class="achievement-filter"
+                        data-filter="goals"
+                    >
+                        <i class="fa-solid fa-bullseye"></i>
+                        Goals
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     05. ACHIEVEMENTS HEADER
+                ================================================== -->
+
+                <div class="achievements-section-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            MILESTONE COLLECTION
+                        </span>
+
+                        <h2>
+                            Your Achievements
+                        </h2>
+
+                    </div>
+
+
+                    <span id="achievementResultCount">
+                        12 achievements
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     06. ACHIEVEMENT GRID
+                ================================================== -->
+
+                <section
+                    class="achievement-grid"
+                    id="achievementGrid"
+                >
+
+
+                    <!-- =================================================
+                         01. FIRST WORKOUT
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card unlocked"
+                        data-category="workout"
+                        data-achievement="first-workout"
+                    >
+
+                        <div class="achievement-card-icon">
+
+                            <i class="fa-solid fa-dumbbell"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status">
+                            UNLOCKED
+                        </span>
+
+
+                        <h3>
+                            First Workout
+                        </h3>
+
+
+                        <p>
+                            Complete your first workout.
+                        </p>
+
+
+                        <div class="achievement-card-footer">
+
+                            <span>
+                                Jul 28, 2026
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         02. 7 DAY STREAK
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card unlocked"
+                        data-category="consistency"
+                        data-achievement="seven-day-streak"
+                    >
+
+                        <div class="achievement-card-icon streak-icon">
+
+                            <i class="fa-solid fa-fire"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status">
+                            UNLOCKED
+                        </span>
+
+
+                        <h3>
+                            7 Day Streak
+                        </h3>
+
+
+                        <p>
+                            Work out for 7 consecutive days.
+                        </p>
+
+
+                        <div class="achievement-card-footer">
+
+                            <span>
+                                Aug 04, 2026
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         03. 10 WORKOUTS
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="workout"
+                        data-achievement="ten-workouts"
+                    >
+
+                        <div class="achievement-card-icon">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status progress-status">
+                            IN PROGRESS
+                        </span>
+
+
+                        <h3>
+                            10 Workouts
+                        </h3>
+
+
+                        <p>
+                            Complete 10 total workouts.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 70%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                7 / 10
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         04. GOAL CRUSHER
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="goals"
+                        data-achievement="goal-crusher"
+                    >
+
+                        <div class="achievement-card-icon goal-icon">
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Goal Crusher
+                        </h3>
+
+
+                        <p>
+                            Complete 5 fitness goals.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 40%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                2 / 5
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         05. 14 DAY STREAK
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="consistency"
+                        data-achievement="fourteen-day-streak"
+                    >
+
+                        <div class="achievement-card-icon streak-icon">
+
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status progress-status">
+                            IN PROGRESS
+                        </span>
+
+
+                        <h3>
+                            14 Day Streak
+                        </h3>
+
+
+                        <p>
+                            Maintain a 14-day workout streak.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 57%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                8 / 14
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         06. WEIGHT MILESTONE
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="progress"
+                        data-achievement="weight-milestone"
+                    >
+
+                        <div class="achievement-card-icon progress-icon">
+
+                            <i class="fa-solid fa-weight-scale"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Weight Milestone
+                        </h3>
+
+
+                        <p>
+                            Reach your first weight milestone.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 72%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                72%
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         07. CONSISTENT
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="consistency"
+                        data-achievement="consistent"
+                    >
+
+                        <div class="achievement-card-icon consistency-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Consistent
+                        </h3>
+
+
+                        <p>
+                            Complete 20 workouts in one month.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 55%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                11 / 20
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         08. STRONGER
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="progress"
+                        data-achievement="stronger"
+                    >
+
+                        <div class="achievement-card-icon strength-icon">
+
+                            <i class="fa-solid fa-dumbbell"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Getting Stronger
+                        </h3>
+
+
+                        <p>
+                            Improve your tracked strength.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 45%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                45%
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         09. EARLY BIRD
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="consistency"
+                        data-achievement="early-bird"
+                    >
+
+                        <div class="achievement-card-icon">
+
+                            <i class="fa-solid fa-sun"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Early Bird
+                        </h3>
+
+
+                        <p>
+                            Complete 10 morning workouts.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 30%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                3 / 10
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         10. GOAL SETTER
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="goals"
+                        data-achievement="goal-setter"
+                    >
+
+                        <div class="achievement-card-icon goal-icon">
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status unlocked-status">
+                            UNLOCKED
+                        </span>
+
+
+                        <h3>
+                            Goal Setter
+                        </h3>
+
+
+                        <p>
+                            Create your first fitness goal.
+                        </p>
+
+
+                        <div class="achievement-card-footer">
+
+                            <span>
+                                Aug 09, 2026
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         11. PROGRESS TRACKER
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="progress"
+                        data-achievement="progress-tracker"
+                    >
+
+                        <div class="achievement-card-icon progress-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status unlocked-status">
+                            UNLOCKED
+                        </span>
+
+
+                        <h3>
+                            Progress Tracker
+                        </h3>
+
+
+                        <p>
+                            Record your first body measurement.
+                        </p>
+
+
+                        <div class="achievement-card-footer">
+
+                            <span>
+                                Aug 10, 2026
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         12. UNSTOPPABLE
+                    ================================================== -->
+
+                    <article
+                        class="achievement-card"
+                        data-category="workout"
+                        data-achievement="unstoppable"
+                    >
+
+                        <div class="achievement-card-icon special-icon">
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                        </div>
+
+
+                        <span class="achievement-status locked-status">
+                            LOCKED
+                        </span>
+
+
+                        <h3>
+                            Unstoppable
+                        </h3>
+
+
+                        <p>
+                            Complete 50 workouts.
+                        </p>
+
+
+                        <div class="mini-progress">
+
+                            <div class="mini-progress-track">
+
+                                <div
+                                    class="mini-progress-fill"
+                                    style="width: 14%;"
+                                ></div>
+
+                            </div>
+
+                            <span>
+                                7 / 50
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     07. MOTIVATION
+                ================================================== -->
+
+                <section class="achievement-motivation member-card">
+
+
+                    <div class="achievement-motivation-icon">
+
+                        <i class="fa-solid fa-trophy"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            KEEP GOING
+                        </span>
+
+                        <h3>
+                            Your next achievement is closer than you think.
+                        </h3>
+
+                        <p>
+                            Stay consistent and keep building
+                            your fitness journey one workout at a time.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACHIEVEMENT DETAIL MODAL
+    ====================================================== -->
+
+    <div
+        class="achievement-modal"
+        id="achievementModal"
+        hidden
+    >
+
+        <div
+            class="achievement-modal-overlay"
+            id="achievementModalOverlay"
+        ></div>
+
+
+        <div class="achievement-modal-card">
+
+
+            <div class="achievement-modal-header">
+
+                <div class="achievement-modal-icon">
+                    <i
+                        class="fa-solid fa-trophy"
+                        id="modalAchievementIcon"
+                    ></i>
+                </div>
+
+
+                <button
+                    class="close-achievement-modal"
+                    id="closeAchievementModal"
+                    aria-label="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div class="achievement-modal-content">
+
+                <span id="modalAchievementStatus">
+                    ACHIEVEMENT
+                </span>
+
+                <h2 id="modalAchievementTitle">
+                    Achievement
+                </h2>
+
+                <p id="modalAchievementDescription">
+                    Achievement description.
+                </p>
+
+
+                <div
+                    class="modal-achievement-progress"
+                    id="modalAchievementProgress"
+                >
+
+                    <div class="modal-progress-track">
+
+                        <div
+                            class="modal-progress-fill"
+                            id="modalProgressFill"
+                        ></div>
+
+                    </div>
+
+                    <div class="modal-progress-info">
+
+                        <span id="modalProgressText">
+                            Progress
+                        </span>
+
+                        <strong id="modalProgressPercent">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="modal-achievement-date"
+                    id="modalAchievementDate"
+                >
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACHIEVEMENTS JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/achievements.js"></script>
+
+
+</body>
+
+</html>

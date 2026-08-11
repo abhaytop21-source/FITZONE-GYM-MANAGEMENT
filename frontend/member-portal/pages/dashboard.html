@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | FITZONE</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Member Styles -->
+    <link rel="stylesheet" href="../css/member-global.css">
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <!-- Logo -->
+
+            <a href="dashboard.html" class="sidebar-logo">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>FITZONE</span>
+
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+                <a href="dashboard.html" class="nav-item active">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a href="workouts.html" class="nav-item">
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>Workouts</span>
+
+                </a>
+
+
+                <a href="progress.html" class="nav-item">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Progress</span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a href="goals.html" class="nav-item">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>Goals</span>
+
+                </a>
+
+
+                <a href="achievements.html" class="nav-item">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>Achievements</span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a href="find-gyms.html" class="nav-item">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Find Gyms</span>
+
+                </a>
+
+
+                <a href="my-gym.html" class="nav-item">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>My Gym</span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- Bottom Navigation -->
+
+            <div class="sidebar-bottom">
+
+                <a href="profile.html" class="nav-item">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+
+                <button class="logout-btn" id="logoutBtn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>Logout</span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOP BAR
+            ================================================== -->
+
+            <header class="topbar">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- Notifications -->
+
+                    <button
+                        class="icon-btn notification-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <a href="profile.html" class="user-profile">
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+                        <div class="user-info">
+
+                            <strong>Abhay</strong>
+
+                            <span>Member</span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 DASHBOARD CONTENT
+            ================================================== -->
+
+            <section class="dashboard-content">
+
+
+                <!-- Welcome -->
+
+                <div class="welcome-section">
+
+                    <div>
+
+                        <p class="welcome-label">
+                            MEMBER DASHBOARD
+                        </p>
+
+                        <h1>
+                            Good Morning, <span>Abhay</span> 👋
+                        </h1>
+
+                        <p class="welcome-text">
+                            Ready to keep your streak alive?
+                            Let's make today count.
+                        </p>
+
+                    </div>
+
+
+                    <div class="dashboard-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span id="currentDate">
+                            Monday, August 10
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     STAT CARDS
+                ================================================== -->
+
+                <div class="stats-grid">
+
+
+                    <!-- Streak -->
+
+                    <article class="stat-card streak-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-fire"></i>
+
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-label">
+                                CURRENT STREAK
+                            </span>
+
+                            <strong>
+                                7
+                                <small>days</small>
+                            </strong>
+
+                            <p>
+                                Keep it going! 🔥
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Weight -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-weight-scale"></i>
+
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-label">
+                                CURRENT WEIGHT
+                            </span>
+
+                            <strong>
+                                68.5
+                                <small>kg</small>
+                            </strong>
+
+                            <p>
+                                Updated recently
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Weekly Workout -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-dumbbell"></i>
+
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-label">
+                                WEEKLY WORKOUTS
+                            </span>
+
+                            <strong>
+                                4
+                                <small>/ 5</small>
+                            </strong>
+
+                            <p>
+                                One more to go
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Attendance -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-label">
+                                ATTENDANCE
+                            </span>
+
+                            <strong>
+                                18
+                                <small>days</small>
+                            </strong>
+
+                            <p>
+                                This month
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     DASHBOARD GRID
+                ================================================== -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- =================================================
+                         TODAY'S WORKOUT
+                    ================================================== -->
+
+                    <article class="member-card workout-card">
+
+                        <div class="card-top">
+
+                            <div>
+
+                                <span class="section-label">
+                                    TODAY'S WORKOUT
+                                </span>
+
+                                <h2>
+                                    Chest + Triceps
+                                </h2>
+
+                            </div>
+
+                            <span class="workout-status">
+                                READY
+                            </span>
+
+                        </div>
+
+
+                        <div class="workout-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                55 min
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-list-check"></i>
+                                6 Exercises
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-fire"></i>
+                                Intermediate
+                            </span>
+
+                        </div>
+
+
+                        <div class="exercise-preview">
+
+                            <div class="exercise-item">
+
+                                <span class="exercise-number">
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Bench Press
+                                    </strong>
+
+                                    <span>
+                                        4 sets × 10 reps
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="exercise-item">
+
+                                <span class="exercise-number">
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Incline Dumbbell Press
+                                    </strong>
+
+                                    <span>
+                                        3 sets × 12 reps
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="exercise-item">
+
+                                <span class="exercise-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Tricep Pushdown
+                                    </strong>
+
+                                    <span>
+                                        3 sets × 12 reps
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <a href="workouts.html" class="primary-action">
+
+                            <span>
+                                Start Workout
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         WEEKLY GOAL
+                    ================================================== -->
+
+                    <article class="dashboard-card goal-card">
+
+                        <div class="card-top">
+
+                            <div>
+
+                                <span class="section-label">
+                                    WEEKLY GOAL
+                                </span>
+
+                                <h2>
+                                    Workout Consistency
+                                </h2>
+
+                            </div>
+
+                            <i class="fa-solid fa-bullseye card-heading-icon"></i>
+
+                        </div>
+
+
+                        <div class="goal-progress">
+
+                            <div class="progress-circle">
+
+                                <div class="progress-value">
+                                    80%
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal-info">
+
+                            <strong>
+                                4 of 5 workouts completed
+                            </strong>
+
+                            <p>
+                                Complete one more workout
+                                to reach your weekly goal.
+                            </p>
+
+                        </div>
+
+
+                        <div class="goal-stats">
+
+                            <div>
+
+                                <span>
+                                    COMPLETED
+                                </span>
+
+                                <strong>
+                                    4
+                                </strong>
+
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    TARGET
+                                </span>
+
+                                <strong>
+                                    5
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     STREAK
+                ================================================== -->
+
+                <article class="dashboard-card streak-section">
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <span class="section-label">
+                                CONSISTENCY
+                            </span>
+
+                            <h2>
+                                Keep Your Streak Alive 🔥
+                            </h2>
+
+                        </div>
+
+                        <span class="streak-count">
+                            7 DAY STREAK
+                        </span>
+
+                    </div>
+
+
+                    <div class="streak-days">
+
+                        <div class="day completed">
+
+                            <span>
+                                MON
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day completed">
+
+                            <span>
+                                TUE
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day completed">
+
+                            <span>
+                                WED
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day completed">
+
+                            <span>
+                                THU
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day completed">
+
+                            <span>
+                                FRI
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day completed">
+
+                            <span>
+                                SAT
+                            </span>
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="day today">
+
+                            <span>
+                                SUN
+                            </span>
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     QUICK ACTIONS
+                ================================================== -->
+
+                <section class="quick-actions">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                QUICK ACCESS
+                            </span>
+
+                            <h2>
+                                Keep Moving
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-grid">
+
+
+                        <a href="progress.html" class="quick-card">
+
+                            <div class="quick-icon">
+
+                                <i class="fa-solid fa-chart-line"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Track Progress
+                                </strong>
+
+                                <span>
+                                    View your fitness journey
+                                </span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+
+                        <a href="goals.html" class="quick-card">
+
+                            <div class="quick-icon">
+
+                                <i class="fa-solid fa-bullseye"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Manage Goals
+                                </strong>
+
+                                <span>
+                                    Stay focused on your targets
+                                </span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+
+                        <a href="find-gyms.html" class="quick-card">
+
+                            <div class="quick-icon">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Find a Gym
+                                </strong>
+
+                                <span>
+                                    Discover FITZONE gyms nearby
+                                </span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+
+                        <a href="achievements.html" class="quick-card">
+
+                            <div class="quick-icon">
+
+                                <i class="fa-solid fa-trophy"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Achievements
+                                </strong>
+
+                                <span>
+                                    See what you've unlocked
+                                </span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Dashboard JavaScript -->
+
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

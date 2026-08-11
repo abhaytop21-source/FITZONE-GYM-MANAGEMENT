@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Goals | FITZONE</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         MEMBER GLOBAL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/member-global.css"
+    >
+
+
+    <!-- =====================================================
+         GOALS CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/goals.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- Logo -->
+
+            <a
+                href="dashboard.html"
+                class="sidebar-logo"
+            >
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>FITZONE</span>
+
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>
+                        Workouts
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a
+                    href="goals.html"
+                    class="nav-item active"
+                >
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>
+                        Goals
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="achievements.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>
+                        Achievements
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a
+                    href="find-gyms.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Find Gyms
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="my-gym.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>
+                        My Gym
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="profile.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- Notification -->
+
+                    <button
+                        class="icon-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <a
+                        href="profile.html"
+                        class="user-profile"
+                    >
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+
+                        <div class="user-info">
+
+                            <strong>
+                                Abhay
+                            </strong>
+
+                            <span>
+                                Member
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 GOALS CONTENT
+            ================================================== -->
+
+            <section class="goals-content">
+
+
+                <!-- =================================================
+                     01. PAGE HEADER
+                ================================================== -->
+
+                <div class="goals-page-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR FITNESS JOURNEY
+                        </span>
+
+                        <h1>
+                            Goals
+                        </h1>
+
+                        <p>
+                            Set targets, stay consistent,
+                            and keep moving forward.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="primary-action"
+                        id="addGoalBtn"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Goal
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     02. GOAL OVERVIEW
+                ================================================== -->
+
+                <section class="goals-overview">
+
+
+                    <!-- Active Goals -->
+
+                    <article class="goal-stat-card">
+
+                        <div class="goal-stat-icon">
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                        </div>
+
+
+                        <div class="goal-stat-info">
+
+                            <span>
+                                ACTIVE GOALS
+                            </span>
+
+                            <strong id="activeGoals">
+                                3
+                            </strong>
+
+                            <p>
+                                Currently in progress
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Completed -->
+
+                    <article class="goal-stat-card">
+
+                        <div class="goal-stat-icon completed-icon">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+
+                        <div class="goal-stat-info">
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                            <strong id="completedGoals">
+                                1
+                            </strong>
+
+                            <p>
+                                Goals achieved
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Monthly Progress -->
+
+                    <article class="goal-stat-card">
+
+                        <div class="goal-stat-icon progress-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <div class="goal-stat-info">
+
+                            <span>
+                                THIS MONTH
+                            </span>
+
+                            <strong id="monthlyProgress">
+                                72%
+                            </strong>
+
+                            <p>
+                                Overall goal progress
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     03. ACTIVE GOALS HEADER
+                ================================================== -->
+
+                <div class="goals-section-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            IN PROGRESS
+                        </span>
+
+                        <h2>
+                            Your Active Goals
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        class="goal-count"
+                        id="goalCount"
+                    >
+                        3 Active Goals
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     04. GOALS LIST
+                ================================================== -->
+
+                <section
+                    class="goals-list"
+                    id="goalsList"
+                >
+
+
+                    <!-- =================================================
+                         WEIGHT LOSS GOAL
+                    ================================================== -->
+
+                    <article
+                        class="goal-card"
+                        data-goal-id="weight"
+                    >
+
+
+                        <div class="goal-card-icon">
+
+                            <i class="fa-solid fa-weight-scale"></i>
+
+                        </div>
+
+
+                        <div class="goal-card-content">
+
+
+                            <div class="goal-card-top">
+
+
+                                <div>
+
+                                    <span class="goal-type">
+                                        WEIGHT
+                                    </span>
+
+                                    <h3>
+                                        Weight Loss
+                                    </h3>
+
+                                    <p>
+                                        Reach 65 kg from your
+                                        current weight.
+                                    </p>
+
+                                </div>
+
+
+                                <strong class="goal-percentage">
+                                    72%
+                                </strong>
+
+
+                            </div>
+
+
+                            <!-- Progress -->
+
+                            <div class="goal-progress">
+
+                                <div class="goal-progress-track">
+
+                                    <div
+                                        class="goal-progress-fill"
+                                        style="width: 72%;"
+                                    ></div>
+
+                                </div>
+
+
+                                <div class="goal-progress-info">
+
+                                    <span>
+                                        3.5 kg remaining
+                                    </span>
+
+                                    <span>
+                                        Dec 31, 2026
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- Menu -->
+
+                        <button
+                            class="goal-menu"
+                            aria-label="Goal options"
+                            data-goal-menu="weight"
+                        >
+
+                            <i class="fa-solid fa-ellipsis"></i>
+
+                        </button>
+
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         WORKOUT GOAL
+                    ================================================== -->
+
+                    <article
+                        class="goal-card"
+                        data-goal-id="workout"
+                    >
+
+
+                        <div class="goal-card-icon workout-goal-icon">
+
+                            <i class="fa-solid fa-dumbbell"></i>
+
+                        </div>
+
+
+                        <div class="goal-card-content">
+
+
+                            <div class="goal-card-top">
+
+
+                                <div>
+
+                                    <span class="goal-type">
+                                        WORKOUT
+                                    </span>
+
+                                    <h3>
+                                        Weekly Workout
+                                    </h3>
+
+                                    <p>
+                                        Complete 5 workouts
+                                        every week.
+                                    </p>
+
+                                </div>
+
+
+                                <strong class="goal-percentage">
+                                    80%
+                                </strong>
+
+
+                            </div>
+
+
+                            <div class="goal-progress">
+
+                                <div class="goal-progress-track">
+
+                                    <div
+                                        class="goal-progress-fill"
+                                        style="width: 80%;"
+                                    ></div>
+
+                                </div>
+
+
+                                <div class="goal-progress-info">
+
+                                    <span>
+                                        4 / 5 workouts
+                                    </span>
+
+                                    <span>
+                                        This week
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <button
+                            class="goal-menu"
+                            aria-label="Goal options"
+                            data-goal-menu="workout"
+                        >
+
+                            <i class="fa-solid fa-ellipsis"></i>
+
+                        </button>
+
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         STREAK GOAL
+                    ================================================== -->
+
+                    <article
+                        class="goal-card"
+                        data-goal-id="streak"
+                    >
+
+
+                        <div class="goal-card-icon streak-goal-icon">
+
+                            <i class="fa-solid fa-fire"></i>
+
+                        </div>
+
+
+                        <div class="goal-card-content">
+
+
+                            <div class="goal-card-top">
+
+
+                                <div>
+
+                                    <span class="goal-type">
+                                        CONSISTENCY
+                                    </span>
+
+                                    <h3>
+                                        Build Consistency
+                                    </h3>
+
+                                    <p>
+                                        Reach a 14-day workout
+                                        streak.
+                                    </p>
+
+                                </div>
+
+
+                                <strong class="goal-percentage">
+                                    60%
+                                </strong>
+
+
+                            </div>
+
+
+                            <div class="goal-progress">
+
+                                <div class="goal-progress-track">
+
+                                    <div
+                                        class="goal-progress-fill"
+                                        style="width: 60%;"
+                                    ></div>
+
+                                </div>
+
+
+                                <div class="goal-progress-info">
+
+                                    <span>
+                                        8 / 14 days
+                                    </span>
+
+                                    <span>
+                                        In progress
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <button
+                            class="goal-menu"
+                            aria-label="Goal options"
+                            data-goal-menu="streak"
+                        >
+
+                            <i class="fa-solid fa-ellipsis"></i>
+
+                        </button>
+
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     05. COMPLETED GOALS
+                ================================================== -->
+
+                <section
+                    class="completed-goals-section"
+                    id="completedGoalsSection"
+                >
+
+
+                    <div class="goals-section-header">
+
+
+                        <div>
+
+                            <span class="section-label">
+                                ACHIEVED
+                            </span>
+
+                            <h2>
+                                Completed Goals
+                            </h2>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <article
+                        class="completed-goal-card"
+                        data-goal-id="first-workout"
+                    >
+
+
+                        <div class="completed-goal-icon">
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                        </div>
+
+
+                        <div class="completed-goal-content">
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                            <h3>
+                                Complete Your First Workout
+                            </h3>
+
+                            <p>
+                                You completed your first
+                                FITZONE workout.
+                            </p>
+
+                        </div>
+
+
+                        <div class="completed-goal-date">
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                            <strong>
+                                Jul 28, 2026
+                            </strong>
+
+                        </div>
+
+
+                    </article>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     06. MOTIVATION
+                ================================================== -->
+
+                <section class="goals-motivation member-card">
+
+
+                    <div class="motivation-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+
+                    <div class="motivation-content">
+
+                        <span>
+                            KEEP GOING
+                        </span>
+
+                        <h3>
+                            Small progress is still progress.
+                        </h3>
+
+                        <p>
+                            Stay consistent with your workouts
+                            and your goals will follow.
+                        </p>
+
+                    </div>
+
+
+                    <div class="motivation-mark">
+
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD GOAL MODAL
+    ====================================================== -->
+
+    <div
+        class="goal-modal"
+        id="goalModal"
+        hidden
+    >
+
+        <div
+            class="goal-modal-overlay"
+            id="goalModalOverlay"
+        ></div>
+
+
+        <div class="goal-modal-card">
+
+
+            <div class="goal-modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        NEW TARGET
+                    </span>
+
+                    <h2>
+                        Create Goal
+                    </h2>
+
+                    <p>
+                        Set a target and start working
+                        towards it.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-goal-modal"
+                    id="closeGoalModal"
+                    aria-label="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Goal Form -->
+
+            <form id="goalForm">
+
+
+                <!-- Goal Type -->
+
+                <div class="form-group">
+
+                    <label for="goalType">
+                        Goal Type
+                    </label>
+
+                    <select
+                        id="goalType"
+                        required
+                    >
+
+                        <option value="weight">
+                            Weight
+                        </option>
+
+                        <option value="workout">
+                            Workout Frequency
+                        </option>
+
+                        <option value="streak">
+                            Workout Streak
+                        </option>
+
+                        <option value="strength">
+                            Strength
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Goal Name -->
+
+                <div class="form-group">
+
+                    <label for="goalName">
+                        Goal Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="goalName"
+                        placeholder="e.g. Reach 65 kg"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Target -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="goalTarget">
+                            Target
+                        </label>
+
+                        <input
+                            type="number"
+                            id="goalTarget"
+                            placeholder="65"
+                            step="0.1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="goalUnit">
+                            Unit
+                        </label>
+
+                        <select
+                            id="goalUnit"
+                        >
+
+                            <option value="kg">
+                                kg
+                            </option>
+
+                            <option value="workouts">
+                                workouts
+                            </option>
+
+                            <option value="days">
+                                days
+                            </option>
+
+                            <option value="kg">
+                                kg
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Deadline -->
+
+                <div class="form-group">
+
+                    <label for="goalDeadline">
+                        Deadline
+                    </label>
+
+                    <input
+                        type="date"
+                        id="goalDeadline"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Actions -->
+
+                <div class="goal-form-actions">
+
+                    <button
+                        type="button"
+                        class="outline-action"
+                        id="cancelGoalBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-action"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Create Goal
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         GOALS JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/goals.js"></script>
+
+
+</body>
+
+</html>

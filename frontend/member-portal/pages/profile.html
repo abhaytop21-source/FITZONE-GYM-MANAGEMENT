@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile | FITZONE</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         MEMBER GLOBAL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/member-global.css"
+    >
+
+
+    <!-- =====================================================
+         PROFILE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/profile.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MEMBER APP
+    ====================================================== -->
+
+    <div class="member-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="dashboard.html"
+                class="sidebar-logo"
+            >
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>
+                    FITZONE
+                </span>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+
+                <p class="nav-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-dumbbell"></i>
+
+                    <span>
+                        Workouts
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    FITNESS
+                </p>
+
+
+                <a
+                    href="goals.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>
+                        Goals
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="achievements.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>
+                        Achievements
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COMMUNITY
+                </p>
+
+
+                <a
+                    href="find-gyms.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Find Gyms
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="my-gym.html"
+                    class="nav-item"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>
+                        My Gym
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="profile.html"
+                    class="nav-item active"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-spacer"></div>
+
+
+                <div class="topbar-actions">
+
+
+                    <button
+                        class="icon-btn"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <a
+                        href="profile.html"
+                        class="user-profile"
+                    >
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+
+                        <div class="user-info">
+
+                            <strong>
+                                Abhay
+                            </strong>
+
+                            <span>
+                                Member
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 PROFILE CONTENT
+            ================================================== -->
+
+            <section class="profile-content">
+
+
+                <!-- =================================================
+                     01. PROFILE HEADER
+                ================================================== -->
+
+                <section class="profile-hero member-card">
+
+
+                    <div class="profile-identity">
+
+
+                        <div class="profile-avatar">
+
+                            <span>
+                                A
+                            </span>
+
+                            <button
+                                class="avatar-edit-btn"
+                                id="avatarEditBtn"
+                                aria-label="Change profile photo"
+                            >
+
+                                <i class="fa-solid fa-camera"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="profile-identity-info">
+
+                            <span class="section-label">
+                                MEMBER PROFILE
+                            </span>
+
+                            <h1>
+                                Abhay
+                            </h1>
+
+                            <p>
+                                abhay@example.com
+                            </p>
+
+                            <div class="profile-member-meta">
+
+                                <span>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    Member since Aug 2026
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    Active Member
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-action"
+                        id="editProfileBtn"
+                    >
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Edit Profile
+
+                    </button>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     02. PROFILE COMPLETION
+                ================================================== -->
+
+                <section class="profile-completion member-card">
+
+
+                    <div class="completion-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                PROFILE STATUS
+                            </span>
+
+                            <h2>
+                                Complete Your Profile
+                            </h2>
+
+                        </div>
+
+
+                        <strong id="profileCompletionPercent">
+                            80%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="completion-track">
+
+                        <div
+                            class="completion-fill"
+                            id="profileCompletionFill"
+                            style="width: 80%;"
+                        ></div>
+
+                    </div>
+
+
+                    <p>
+                        Add your remaining information to
+                        get the most out of FITZONE.
+                    </p>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     03. PROFILE GRID
+                ================================================== -->
+
+                <div class="profile-grid">
+
+
+                    <!-- =================================================
+                         PERSONAL INFORMATION
+                    ================================================== -->
+
+                    <section class="profile-section member-card">
+
+
+                        <div class="profile-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    PERSONAL
+                                </span>
+
+                                <h2>
+                                    Personal Information
+                                </h2>
+
+                            </div>
+
+
+                            <button
+                                class="section-edit-btn"
+                                data-section="personal"
+                            >
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="profile-info-grid">
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    FULL NAME
+                                </span>
+
+                                <strong id="profileFullName">
+                                    Abhay
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    EMAIL
+                                </span>
+
+                                <strong id="profileEmail">
+                                    abhay@example.com
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    PHONE
+                                </span>
+
+                                <strong id="profilePhone">
+                                    +91 XXXXX XXXXX
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    DATE OF BIRTH
+                                </span>
+
+                                <strong id="profileDob">
+                                    Not added
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    GENDER
+                                </span>
+
+                                <strong id="profileGender">
+                                    Not added
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    LOCATION
+                                </span>
+
+                                <strong id="profileLocation">
+                                    Maharashtra, India
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         FITNESS INFORMATION
+                    ================================================== -->
+
+                    <section class="profile-section member-card">
+
+
+                        <div class="profile-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    FITNESS
+                                </span>
+
+                                <h2>
+                                    Fitness Information
+                                </h2>
+
+                            </div>
+
+
+                            <button
+                                class="section-edit-btn"
+                                data-section="fitness"
+                            >
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="profile-info-grid">
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    HEIGHT
+                                </span>
+
+                                <strong id="profileHeight">
+                                    178 cm
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    WEIGHT
+                                </span>
+
+                                <strong id="profileWeight">
+                                    68 kg
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    FITNESS GOAL
+                                </span>
+
+                                <strong id="profileFitnessGoal">
+                                    Build Muscle
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    EXPERIENCE
+                                </span>
+
+                                <strong id="profileExperience">
+                                    Intermediate
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    ACTIVITY LEVEL
+                                </span>
+
+                                <strong id="profileActivity">
+                                    Active
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-info-item">
+
+                                <span>
+                                    TRAINING DAYS
+                                </span>
+
+                                <strong id="profileTrainingDays">
+                                    5 days / week
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         FITNESS PREFERENCES
+                    ================================================== -->
+
+                    <section class="profile-section member-card">
+
+
+                        <div class="profile-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    PREFERENCES
+                                </span>
+
+                                <h2>
+                                    Fitness Preferences
+                                </h2>
+
+                            </div>
+
+
+                            <button
+                                class="section-edit-btn"
+                                data-section="preferences"
+                            >
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="preference-list">
+
+
+                            <div class="preference-item">
+
+                                <div class="preference-icon">
+
+                                    <i class="fa-solid fa-dumbbell"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Preferred Workout
+                                    </span>
+
+                                    <strong id="preferredWorkout">
+                                        Strength Training
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="preference-item">
+
+                                <div class="preference-icon">
+
+                                    <i class="fa-solid fa-clock"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Preferred Time
+                                    </span>
+
+                                    <strong id="preferredTime">
+                                        Evening
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="preference-item">
+
+                                <div class="preference-icon">
+
+                                    <i class="fa-solid fa-calendar-days"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Training Frequency
+                                    </span>
+
+                                    <strong id="trainingFrequency">
+                                        5 sessions / week
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         ACCOUNT & SECURITY
+                    ================================================== -->
+
+                    <section class="profile-section member-card">
+
+
+                        <div class="profile-section-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    ACCOUNT
+                                </span>
+
+                                <h2>
+                                    Account & Security
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="account-actions">
+
+
+                            <button
+                                class="account-action"
+                                id="changePasswordBtn"
+                            >
+
+                                <div class="account-action-icon">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Change Password
+                                    </strong>
+
+                                    <span>
+                                        Update your account password
+                                    </span>
+
+                                </div>
+
+
+                                <i class="fa-solid fa-chevron-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="account-action"
+                                id="securityBtn"
+                            >
+
+                                <div class="account-action-icon">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Security
+                                    </strong>
+
+                                    <span>
+                                        Manage account security settings
+                                    </span>
+
+                                </div>
+
+
+                                <i class="fa-solid fa-chevron-right"></i>
+
+                            </button>
+
+
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     04. FITNESS SUMMARY
+                ================================================== -->
+
+                <section class="profile-summary member-card">
+
+
+                    <div class="profile-summary-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                YOUR JOURNEY
+                            </span>
+
+                            <h2>
+                                Fitness Summary
+                            </h2>
+
+                        </div>
+
+
+                        <a
+                            href="progress.html"
+                            class="secondary-action"
+                        >
+
+                            View Progress
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="profile-summary-grid">
+
+
+                        <div class="summary-stat">
+
+                            <div class="summary-stat-icon">
+
+                                <i class="fa-solid fa-dumbbell"></i>
+
+                            </div>
+
+                            <span>
+                                WORKOUTS
+                            </span>
+
+                            <strong>
+                                27
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-stat">
+
+                            <div class="summary-stat-icon">
+
+                                <i class="fa-solid fa-fire"></i>
+
+                            </div>
+
+                            <span>
+                                BEST STREAK
+                            </span>
+
+                            <strong>
+                                8 days
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-stat">
+
+                            <div class="summary-stat-icon">
+
+                                <i class="fa-solid fa-bullseye"></i>
+
+                            </div>
+
+                            <span>
+                                GOALS
+                            </span>
+
+                            <strong>
+                                4
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-stat">
+
+                            <div class="summary-stat-icon">
+
+                                <i class="fa-solid fa-trophy"></i>
+
+                            </div>
+
+                            <span>
+                                ACHIEVEMENTS
+                            </span>
+
+                            <strong>
+                                4
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 FITZONE. All rights reserved.
+                </p>
+
+                <span>
+                    Train. Track. Transform.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT PROFILE MODAL
+    ====================================================== -->
+
+    <div
+        class="profile-modal"
+        id="profileModal"
+        hidden
+    >
+
+        <div
+            class="profile-modal-overlay"
+            id="profileModalOverlay"
+        ></div>
+
+
+        <div class="profile-modal-card">
+
+
+            <div class="profile-modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PROFILE SETTINGS
+                    </span>
+
+                    <h2>
+                        Edit Profile
+                    </h2>
+
+                    <p>
+                        Update your personal information.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-profile-modal"
+                    id="closeProfileModal"
+                    aria-label="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="profileForm">
+
+                <!-- =================================================
+                    PERSONAL FORM
+                ================================================== -->
+
+                <div
+                    class="profile-edit-section"
+                    id="personalEditSection"
+                >
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-form-group">
+
+                            <label for="editFullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="editFullName"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="editEmail"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editPhone">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="editPhone"
+                                placeholder="+91 XXXXX XXXXX"
+                            >
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editDob">
+                                Date of Birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="editDob"
+                            >
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editGender">
+                                Gender
+                            </label>
+
+                            <select id="editGender">
+
+                                <option value="">
+                                    Select
+                                </option>
+
+                                <option value="male">
+                                    Male
+                                </option>
+
+                                <option value="female">
+                                    Female
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editLocation">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="editLocation"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                    FITNESS FORM
+                ================================================== -->
+
+                <div
+                    class="profile-edit-section"
+                    id="fitnessEditSection"
+                    hidden
+                >
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-form-group">
+
+                            <label for="editHeight">
+                                Height
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="editHeight"
+                                    min="1"
+                                    placeholder="178"
+                                >
+
+                                <span>
+                                    cm
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editWeight">
+                                Weight
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="editWeight"
+                                    min="1"
+                                    step="0.1"
+                                    placeholder="68"
+                                >
+
+                                <span>
+                                    kg
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editFitnessGoal">
+                                Fitness Goal
+                            </label>
+
+                            <select id="editFitnessGoal">
+
+                                <option value="">
+                                    Select goal
+                                </option>
+
+                                <option value="Build Muscle">
+                                    Build Muscle
+                                </option>
+
+                                <option value="Lose Weight">
+                                    Lose Weight
+                                </option>
+
+                                <option value="Get Stronger">
+                                    Get Stronger
+                                </option>
+
+                                <option value="Improve Fitness">
+                                    Improve Fitness
+                                </option>
+
+                                <option value="Stay Active">
+                                    Stay Active
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editExperience">
+                                Experience Level
+                            </label>
+
+                            <select id="editExperience">
+
+                                <option value="">
+                                    Select level
+                                </option>
+
+                                <option value="Beginner">
+                                    Beginner
+                                </option>
+
+                                <option value="Intermediate">
+                                    Intermediate
+                                </option>
+
+                                <option value="Advanced">
+                                    Advanced
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editActivity">
+                                Activity Level
+                            </label>
+
+                            <select id="editActivity">
+
+                                <option value="">
+                                    Select activity
+                                </option>
+
+                                <option value="Sedentary">
+                                    Sedentary
+                                </option>
+
+                                <option value="Lightly Active">
+                                    Lightly Active
+                                </option>
+
+                                <option value="Active">
+                                    Active
+                                </option>
+
+                                <option value="Very Active">
+                                    Very Active
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editTrainingDays">
+                                Training Days
+                            </label>
+
+                            <select id="editTrainingDays">
+
+                                <option value="">
+                                    Select days
+                                </option>
+
+                                <option value="2 days / week">
+                                    2 days / week
+                                </option>
+
+                                <option value="3 days / week">
+                                    3 days / week
+                                </option>
+
+                                <option value="4 days / week">
+                                    4 days / week
+                                </option>
+
+                                <option value="5 days / week">
+                                    5 days / week
+                                </option>
+
+                                <option value="6 days / week">
+                                    6 days / week
+                                </option>
+
+                                <option value="7 days / week">
+                                    7 days / week
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                    PREFERENCES FORM
+                ================================================== -->
+
+                <div
+                    class="profile-edit-section"
+                    id="preferencesEditSection"
+                    hidden
+                >
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-form-group">
+
+                            <label for="editPreferredWorkout">
+                                Preferred Workout
+                            </label>
+
+                            <select id="editPreferredWorkout">
+
+                                <option value="">
+                                    Select workout
+                                </option>
+
+                                <option value="Strength Training">
+                                    Strength Training
+                                </option>
+
+                                <option value="Cardio">
+                                    Cardio
+                                </option>
+
+                                <option value="HIIT">
+                                    HIIT
+                                </option>
+
+                                <option value="Yoga">
+                                    Yoga
+                                </option>
+
+                                <option value="Mixed Training">
+                                    Mixed Training
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editPreferredTime">
+                                Preferred Time
+                            </label>
+
+                            <select id="editPreferredTime">
+
+                                <option value="">
+                                    Select time
+                                </option>
+
+                                <option value="Morning">
+                                    Morning
+                                </option>
+
+                                <option value="Afternoon">
+                                    Afternoon
+                                </option>
+
+                                <option value="Evening">
+                                    Evening
+                                </option>
+
+                                <option value="Night">
+                                    Night
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-form-group">
+
+                            <label for="editTrainingFrequency">
+                                Training Frequency
+                            </label>
+
+                            <select id="editTrainingFrequency">
+
+                                <option value="">
+                                    Select frequency
+                                </option>
+
+                                <option value="2 sessions / week">
+                                    2 sessions / week
+                                </option>
+
+                                <option value="3 sessions / week">
+                                    3 sessions / week
+                                </option>
+
+                                <option value="4 sessions / week">
+                                    4 sessions / week
+                                </option>
+
+                                <option value="5 sessions / week">
+                                    5 sessions / week
+                                </option>
+
+                                <option value="6 sessions / week">
+                                    6 sessions / week
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                    MODAL ACTIONS
+                ================================================== -->
+
+                <div class="profile-modal-actions">
+
+                    <button
+                        type="button"
+                        class="outline-action"
+                        id="cancelProfileBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-action"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROFILE JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/profile.js"></script>
+
+
+</body>
+
+</html>

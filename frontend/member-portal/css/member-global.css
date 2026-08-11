@@ -1,0 +1,601 @@
+/* =========================================================
+   FITZONE MEMBER GLOBAL STYLES
+   Shared across all Member Portal pages
+========================================================= */
+
+
+/* =========================================================
+   01. GLOBAL RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   02. DESIGN VARIABLES
+========================================================= */
+
+:root {
+    --bg: #080b10;
+    --surface: #11161d;
+    --surface-light: #161c24;
+    --border: rgba(255, 255, 255, 0.07);
+
+    --cyan: #00e5ff;
+    --cyan-soft: rgba(0, 229, 255, 0.08);
+    --cyan-border: rgba(0, 229, 255, 0.18);
+
+    --text: #f4f4f5;
+    --muted: #8f939b;
+    --muted-dark: #626873;
+
+    --success: #42e8a1;
+    --warning: #ffb84d;
+}
+
+
+/* =========================================================
+   03. BASE HTML & BODY
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 70% 5%,
+            rgba(0, 229, 255, 0.055),
+            transparent 28%
+        ),
+        var(--bg);
+}
+
+
+/* =========================================================
+   04. MEMBER APP
+========================================================= */
+
+.member-app {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================================
+   05. SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 235px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 15px;
+
+    background: rgba(10, 14, 20, 0.96);
+
+    border-right: 1px solid var(--border);
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   06. SIDEBAR LOGO
+========================================================= */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 12px;
+    margin-bottom: 42px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+}
+
+.sidebar-logo i {
+    color: var(--cyan);
+
+    font-size: 19px;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(0, 229, 255, 0.3)
+        );
+}
+
+
+/* =========================================================
+   07. SIDEBAR NAVIGATION
+========================================================= */
+
+.sidebar-nav {
+    flex: 1;
+}
+
+.nav-title {
+    margin: 0 12px 9px;
+
+    color: #555b64;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.nav-title:not(:first-child) {
+    margin-top: 25px;
+}
+
+.nav-item,
+.logout-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+    margin-bottom: 4px;
+
+    color: #777d86;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-item i,
+.logout-btn i {
+    width: 17px;
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+.nav-item:hover,
+.logout-btn:hover {
+    color: #d8dadd;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    transform: translateX(2px);
+}
+
+.nav-item.active {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-color: rgba(0, 229, 255, 0.11);
+
+    box-shadow:
+        0 5px 20px rgba(0, 229, 255, 0.035);
+}
+
+.nav-item.active i {
+    color: var(--cyan);
+}
+
+
+/* =========================================================
+   08. SIDEBAR BOTTOM
+========================================================= */
+
+.sidebar-bottom {
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+.logout-btn {
+    color: #777d86;
+}
+
+.logout-btn:hover {
+    color: #ff6875;
+
+    background: rgba(255, 95, 109, 0.045);
+}
+
+
+/* =========================================================
+   09. MAIN CONTENT
+========================================================= */
+
+.main-content {
+    width: calc(100% - 235px);
+
+    min-height: 100vh;
+
+    margin-left: 235px;
+}
+
+
+/* =========================================================
+   10. TOPBAR
+========================================================= */
+
+.topbar {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 38px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(8, 11, 16, 0.7);
+
+    backdrop-filter: blur(14px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+}
+
+.topbar-spacer {
+    flex: 1;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   11. NOTIFICATION BUTTON
+========================================================= */
+
+.icon-btn {
+    position: relative;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #858a93;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.icon-btn:hover {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-color: var(--cyan-border);
+}
+
+.notification-dot {
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--cyan);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 7px rgba(0, 229, 255, 0.7);
+}
+
+
+/* =========================================================
+   12. USER PROFILE
+========================================================= */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #031014;
+
+    background: var(--cyan);
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.user-info strong {
+    color: #e6e7e9;
+
+    font-size: 10px;
+}
+
+.user-info span {
+    color: #626873;
+
+    font-size: 8px;
+}
+
+.user-profile > i {
+    margin-left: 4px;
+
+    color: #555b64;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   13. MOBILE MENU
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    width: 36px;
+    height: 36px;
+
+    color: #a1a1aa;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   14. SHARED MEMBER CARD
+========================================================= */
+
+.member-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 27, 34, 0.94),
+            rgba(14, 19, 25, 0.96)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   15. SHARED SECTION LABEL
+========================================================= */
+
+.section-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+
+/* =========================================================
+   16. SHARED PRIMARY ACTION
+========================================================= */
+
+.primary-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    min-height: 39px;
+
+    color: #031014;
+
+    background: var(--cyan);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-action:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 229, 255, 0.16);
+}
+
+.primary-action i {
+    font-size: 8px;
+}
+
+
+
+
+/* =========================================================
+   17. GLOBAL RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .sidebar {
+        width: 215px;
+    }
+
+    .main-content {
+        width: calc(100% - 215px);
+
+        margin-left: 215px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .topbar {
+        padding: 0 22px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .user-info,
+    .user-profile > i {
+        display: none;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .topbar {
+        height: 65px;
+
+        padding: 0 15px;
+    }
+}
+
+
+/* =========================================================
+   18. DASHBOARD FOOTER
+========================================================= */
+
+.dashboard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 38px 25px;
+
+    color: #4e545d;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 8px;
+}
+
+.dashboard-footer span {
+    color: #555b64;
+}

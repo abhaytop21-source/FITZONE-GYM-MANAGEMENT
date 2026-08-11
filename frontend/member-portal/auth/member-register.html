@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Registration | FITZONE</title>
+
+    <!-- Global Member Styles -->
+    <link rel="stylesheet" href="../css/member-global.css">
+
+    <!-- Registration Page Styles -->
+    <link rel="stylesheet" href="../css/member-register.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="member-navbar">
+
+        <a href="../../index.html" class="member-logo">
+            <i class="fa-solid fa-bolt"></i>
+            <span>FITZONE</span>
+        </a>
+
+        <a href="../../index.html" class="back-home">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="register-page">
+
+        <!-- Intro -->
+
+        <section class="register-intro">
+
+            <span class="intro-label">
+                <i class="fa-solid fa-dumbbell"></i>
+                MEMBER REGISTRATION
+            </span>
+
+            <h1>
+                Start Your
+                <span>Fitness Journey.</span>
+            </h1>
+
+            <p>
+                Create your FITZONE account and take the first
+                step toward a better version of yourself.
+            </p>
+
+        </section>
+
+
+        <!-- ================= REGISTER CARD ================= -->
+
+        <section class="register-card">
+
+            <div class="card-header">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <div>
+                    <h2>Create Account</h2>
+                    <p>Enter your details to get started.</p>
+                </div>
+
+            </div>
+
+
+            <!-- Registration Form -->
+
+            <form id="memberRegisterForm" novalidate>
+
+                <!-- Name -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Enter your first name"
+                                autocomplete="given-name"
+                                required>
+
+                        </div>
+
+                        <small class="error-message" id="firstNameError"></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Enter your last name"
+                                autocomplete="family-name"
+                                required>
+
+                        </div>
+
+                        <small class="error-message" id="lastNameError"></small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required>
+
+                    </div>
+
+                    <small class="error-message" id="emailError"></small>
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            autocomplete="tel"
+                            required>
+
+                    </div>
+
+                    <small class="error-message" id="phoneError"></small>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="password"
+                            aria-label="Show password">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                    <small class="error-message" id="passwordError"></small>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="confirmPassword"
+                            aria-label="Show password">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                    <small class="error-message" id="confirmPasswordError"></small>
+
+                </div>
+
+
+                <!-- Terms -->
+
+                <div class="terms-group">
+
+                    <label class="checkbox-label">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            name="terms"
+                            required>
+
+                        <span class="custom-checkbox"></span>
+
+                        <span class="terms-text">
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </span>
+
+                    </label>
+
+                    <small class="error-message" id="termsError"></small>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                    id="registerBtn">
+
+                    <span>Create Account</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- Login -->
+
+            <div class="login-link">
+
+                <span>Already have an account?</span>
+
+                <a href="member-login.html">
+                    Member Login
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="member-footer">
+
+        <p>
+            © 2026 FITZONE. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Member Authentication JS -->
+
+    <script src="../js/member-auth.js"></script>
+
+</body>
+
+</html>

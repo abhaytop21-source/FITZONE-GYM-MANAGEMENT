@@ -1,0 +1,684 @@
+/* =========================================================
+   FITZONE MEMBER REGISTRATION
+   Desktop First
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(0, 229, 255, 0.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #080b10 0%,
+            #0b1017 55%,
+            #070a0f 100%
+        );
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.member-navbar {
+    width: 100%;
+
+    padding: 22px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    background: rgba(8, 11, 16, 0.75);
+
+    backdrop-filter: blur(12px);
+}
+
+.member-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+.member-logo i {
+    color: #00e5ff;
+
+    font-size: 19px;
+
+    filter: drop-shadow(
+        0 0 8px rgba(0, 229, 255, 0.35)
+    );
+}
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #a1a1aa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.back-home i {
+    color: #00e5ff;
+
+    font-size: 12px;
+}
+
+.back-home:hover {
+    color: #00e5ff;
+
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.register-page {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    padding: 55px 30px 70px;
+
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.15fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.register-intro {
+    padding-bottom: 20px;
+}
+
+.intro-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    color: #00e5ff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.intro-label i {
+    font-size: 11px;
+}
+
+.register-intro h1 {
+    max-width: 420px;
+
+    color: #ffffff;
+
+    font-size: 47px;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 800;
+}
+
+.register-intro h1 span {
+    display: block;
+
+    color: #00e5ff;
+
+    text-shadow:
+        0 0 25px rgba(0, 229, 255, 0.12);
+}
+
+.register-intro p {
+    max-width: 390px;
+
+    margin-top: 20px;
+
+    color: #8f939b;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   REGISTRATION CARD
+========================================================= */
+
+.register-card {
+    width: 100%;
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 27, 34, 0.96),
+            rgba(12, 17, 23, 0.98)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+
+    animation: cardEnter 0.5s ease;
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 26px;
+}
+
+.card-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #00e5ff;
+
+    background: rgba(0, 229, 255, 0.08);
+
+    border: 1px solid rgba(0, 229, 255, 0.18);
+
+    border-radius: 12px;
+}
+
+.card-icon i {
+    font-size: 16px;
+}
+
+.card-header h2 {
+    color: #f4f4f5;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.card-header p {
+    margin-top: 3px;
+
+    color: #777c84;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #d4d4d8;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+.input-wrapper > i:first-child {
+    position: absolute;
+
+    left: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #646a73;
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+    transition: 0.25s ease;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 45px;
+
+    padding: 0 42px;
+
+    color: #f4f4f5;
+
+    background: rgba(7, 10, 15, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: #555b64;
+}
+
+.input-wrapper input:focus {
+    border-color: rgba(0, 229, 255, 0.55);
+
+    background: rgba(0, 229, 255, 0.025);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 229, 255, 0.06);
+}
+
+.input-wrapper:focus-within > i:first-child {
+    color: #00e5ff;
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #626873;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.password-toggle:hover {
+    color: #00e5ff;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+    display: block;
+
+    min-height: 0;
+
+    margin-top: 5px;
+
+    color: #ff5f6d;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-group {
+    margin: 2px 0 20px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    color: #8f939b;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.checkbox-label input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.custom-checkbox {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    border: 1px solid #454b54;
+
+    border-radius: 4px;
+
+    transition: 0.2s ease;
+}
+
+.checkbox-label input:checked + .custom-checkbox {
+    background: #00e5ff;
+
+    border-color: #00e5ff;
+
+    box-shadow:
+        0 0 10px rgba(0, 229, 255, 0.18);
+}
+
+.terms-text a {
+    color: #00e5ff;
+
+    text-decoration: none;
+}
+
+.terms-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+========================================================= */
+
+.register-btn {
+    width: 100%;
+
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #031014;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9f5,
+            #00e5ff
+        );
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 229, 255, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 229, 255, 0.22);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+.register-btn i {
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
+
+.login-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 20px;
+
+    font-size: 10px;
+
+    color: #6f747d;
+}
+
+.login-link a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #00e5ff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.login-link a:hover {
+    color: #ffffff;
+}
+
+.login-link a i {
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.member-footer {
+    padding: 18px 20px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.member-footer p {
+    color: #555b64;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE PREVIEW
+   Full mobile refinement comes later.
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .register-page {
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+
+        gap: 35px;
+    }
+
+    .register-intro {
+        text-align: center;
+    }
+
+    .register-intro h1,
+    .register-intro p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .member-navbar {
+        padding: 18px 20px;
+    }
+
+    .register-page {
+        padding: 40px 18px 50px;
+    }
+
+    .register-intro h1 {
+        font-size: 36px;
+    }
+
+    .register-card {
+        padding: 24px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-wrapper input.input-error {
+    border-color: rgba(255, 95, 109, 0.7);
+    box-shadow: 0 0 0 3px rgba(255, 95, 109, 0.06);
+}

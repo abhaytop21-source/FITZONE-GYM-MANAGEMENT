@@ -1,0 +1,771 @@
+/* =========================================================
+   FITZONE MEMBER DASHBOARD
+   Dashboard-specific styles only
+========================================================= */
+
+
+/* =========================================================
+   01. DASHBOARD CONTENT
+========================================================= */
+
+.dashboard-content {
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 42px 38px 60px;
+}
+
+
+/* =========================================================
+   02. WELCOME SECTION
+========================================================= */
+
+.welcome-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.welcome-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+.welcome-section h1 {
+    color: #f4f4f5;
+
+    font-size: 28px;
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+.welcome-section h1 span {
+    color: var(--cyan);
+}
+
+.welcome-text {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   03. DASHBOARD DATE
+========================================================= */
+
+.dashboard-date {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    color: #858a93;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-size: 9px;
+}
+
+.dashboard-date i {
+    color: var(--cyan);
+}
+
+
+/* =========================================================
+   04. STATISTICS GRID
+========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   05. STAT CARD
+========================================================= */
+
+.stat-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    min-height: 125px;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 27, 34, 0.94),
+            rgba(14, 19, 25, 0.96)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(0, 229, 255, 0.14);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border: 1px solid var(--cyan-border);
+
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+.streak-card .stat-icon {
+    color: #ff9d4d;
+
+    background: rgba(255, 157, 77, 0.08);
+
+    border-color: rgba(255, 157, 77, 0.14);
+}
+
+.stat-info {
+    min-width: 0;
+}
+
+.stat-label {
+    display: block;
+
+    color: #626873;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.stat-info strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #f4f4f5;
+
+    font-size: 25px;
+
+    line-height: 1.1;
+}
+
+.stat-info strong small {
+    color: #777d86;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.stat-info p {
+    margin-top: 6px;
+
+    color: #686e77;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   06. DASHBOARD GRID
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1.45fr 0.85fr;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   07. WORKOUT SUMMARY
+========================================================= */
+
+.workout-card,
+.goal-card,
+.streak-section {
+    padding: 22px;
+}
+
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.card-top h2,
+.section-heading h2 {
+    color: #e8e9eb;
+
+    font-size: 16px;
+
+    font-weight: 650;
+}
+
+.workout-status,
+.streak-count {
+    padding: 5px 8px;
+
+    color: var(--success);
+
+    background: rgba(66, 232, 161, 0.06);
+
+    border: 1px solid rgba(66, 232, 161, 0.12);
+
+    border-radius: 6px;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.card-heading-icon {
+    color: var(--cyan);
+
+    font-size: 16px;
+}
+
+.workout-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 14px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.workout-meta span {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #727781;
+
+    font-size: 8px;
+}
+
+.workout-meta i {
+    color: var(--cyan);
+}
+
+
+/* =========================================================
+   08. EXERCISE PREVIEW
+========================================================= */
+
+.exercise-preview {
+    margin: 5px 0 18px;
+}
+
+.exercise-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.exercise-item:last-child {
+    border-bottom: none;
+}
+
+.exercise-number {
+    width: 25px;
+
+    color: #4e545d;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.exercise-item div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.exercise-item strong {
+    color: #cfd1d4;
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+.exercise-item span {
+    color: #626873;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   09. WEEKLY GOAL
+========================================================= */
+
+.goal-progress {
+    display: flex;
+    justify-content: center;
+
+    margin: 24px 0 20px;
+}
+
+.progress-circle {
+    width: 125px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--surface) 57%,
+            transparent 58%
+        ),
+        conic-gradient(
+            var(--cyan) 0deg 288deg,
+            rgba(255, 255, 255, 0.06) 288deg 360deg
+        );
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.06);
+}
+
+.progress-value {
+    color: #f4f4f5;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.goal-info {
+    text-align: center;
+}
+
+.goal-info strong {
+    color: #d4d5d7;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.goal-info p {
+    max-width: 230px;
+
+    margin: 7px auto 0;
+
+    color: #686e77;
+
+    font-size: 8px;
+
+    line-height: 1.6;
+}
+
+.goal-stats {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+.goal-stats div {
+    text-align: center;
+}
+
+.goal-stats div + div {
+    border-left: 1px solid var(--border);
+}
+
+.goal-stats span {
+    display: block;
+
+    color: #555b64;
+
+    font-size: 7px;
+
+    letter-spacing: 0.8px;
+}
+
+.goal-stats strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #d8d9dc;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   10. STREAK TRACKER
+========================================================= */
+
+.streak-section {
+    margin-bottom: 18px;
+}
+
+.streak-days {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 9px;
+
+    margin-top: 22px;
+}
+
+.day {
+    min-height: 65px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    color: #555b64;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+}
+
+.day span {
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+.day i {
+    font-size: 11px;
+}
+
+.day.completed {
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-color: var(--cyan-border);
+}
+
+.day.today {
+    color: #031014;
+
+    background: var(--cyan);
+
+    border-color: var(--cyan);
+}
+
+.day.today i {
+    color: #031014;
+}
+
+
+/* =========================================================
+   11. QUICK ACTIONS
+========================================================= */
+
+.quick-actions {
+    margin-top: 28px;
+}
+
+.section-heading {
+    margin-bottom: 14px;
+}
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.quick-card {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 78px;
+
+    padding: 13px;
+
+    color: inherit;
+
+    background: rgba(22, 27, 34, 0.72);
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.quick-card:hover {
+    transform: translateY(-2px);
+
+    background: rgba(22, 27, 34, 0.95);
+
+    border-color: var(--cyan-border);
+}
+
+.quick-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background: var(--cyan-soft);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+}
+
+.quick-card > div:not(.quick-icon) {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.quick-card strong {
+    color: #d4d5d8;
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+.quick-card span {
+    overflow: hidden;
+
+    color: #626873;
+
+    font-size: 7px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.quick-card > i {
+    color: #555b64;
+
+    font-size: 8px;
+
+    transition: 0.2s ease;
+}
+
+.quick-card:hover > i {
+    color: var(--cyan);
+
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   12. DASHBOARD RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .dashboard-content {
+        padding: 32px 22px 50px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-date {
+        display: none;
+    }
+
+    .streak-days {
+        gap: 5px;
+    }
+
+    .day {
+        min-height: 58px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+
+        gap: 6px;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .dashboard-content {
+        padding: 25px 15px 40px;
+    }
+
+    .welcome-section h1 {
+        font-size: 23px;
+    }
+
+    .welcome-text {
+        font-size: 10px;
+    }
+
+    .workout-card,
+    .goal-card,
+    .streak-section {
+        padding: 17px;
+    }
+
+    .streak-days {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .day {
+        min-height: 52px;
+    }
+
+    .day span {
+        font-size: 6px;
+    }
+
+    .day i {
+        font-size: 9px;
+    }
+}
