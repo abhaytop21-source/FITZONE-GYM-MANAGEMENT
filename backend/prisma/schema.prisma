@@ -1,4 +1,7 @@
-// This is your Prisma schema file
+// =========================================================
+// FITZONE DATABASE SCHEMA
+// MySQL + Prisma
+// =========================================================
 
 generator client {
   provider = "prisma-client-js"
@@ -9,30 +12,316 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Gym {
-  id             Int      @id @default(autoincrement())
+// =========================================================
+// GYM
+// Existing Gym Management model
+// =========================================================
 
-  gymCode        String   @unique
-  gymName        String
-  gymType        String
+model Gym {
+  id Int @id @default(autoincrement())
+
+  gymCode String @unique
+  gymName String
+  gymType String
 
   ownerFirstName String
   ownerLastName  String
-  ownerEmail     String   @unique
+  ownerEmail     String @unique
   ownerPhone     String
   ownerPassword  String
 
-  gymEmail       String
-  gymPhone       String
+  gymEmail String
+  gymPhone String
 
-  address        String
-  city           String
-  state          String
-  country        String
+  address String
+  city    String
+  state   String
+  country String
 
-  openingTime    String
-  closingTime    String
+  openingTime String
+  closingTime String
 
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships GymMembership[]
+}
+
+// =========================================================
+// MEMBER
+// Member Portal account
+// =========================================================
+
+model Member {
+  id Int @id @default(autoincrement())
+
+  email    String @unique
+  password String
+  status   String @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile         MemberProfile?
+  memberships     GymMembership[]
+  workoutPlans    WorkoutPlan[]
+  workoutSessions WorkoutSession[]
+  goals           Goal[]
+  progressRecords ProgressRecord[]
+  measurements    BodyMeasurement[]
+  achievements    MemberAchievement[]
+}
+
+// =========================================================
+// MEMBER PROFILE
+// Personal + fitness information
+// =========================================================
+
+model MemberProfile {
+  id       Int @id @default(autoincrement())
+  memberId Int @unique
+
+  fullName    String
+  phone       String?
+  dateOfBirth DateTime?
+  gender      String?
+  location    String?
+
+  height Float?
+  weight Float?
+
+  fitnessGoal     String?
+  experienceLevel String?
+  activityLevel   String?
+  trainingDays    String?
+
+  preferredWorkout  String?
+  preferredTime     String?
+  trainingFrequency String?
+
+  profilePhoto String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+// =========================================================
+// EXERCISE
+// FITZONE exercise library
+// =========================================================
+
+model Exercise {
+  id Int @id @default(autoincrement())
+
+  name         String
+  description  String?
+  muscleGroup  String
+  equipment    String?
+  difficulty   String?
+  instructions String?
+  imageUrl     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workoutExercises WorkoutExercise[]
+}
+
+// =========================================================
+// WORKOUT PLAN
+// Member's workout
+// =========================================================
+
+model WorkoutPlan {
+  id       Int @id @default(autoincrement())
+  memberId Int
+
+  name        String
+  description String?
+  goal        String?
+  status      String  @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  member    Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  exercises WorkoutExercise[]
+  sessions  WorkoutSession[]
+}
+
+// =========================================================
+// WORKOUT EXERCISE
+// Connects workouts and exercises
+// =========================================================
+
+model WorkoutExercise {
+  id Int @id @default(autoincrement())
+
+  workoutId  Int
+  exerciseId Int
+
+  sets        Int?
+  reps        Int?
+  duration    Int?
+  restSeconds Int?
+  orderIndex  Int
+
+  workout  WorkoutPlan @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exercise Exercise    @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@unique([workoutId, exerciseId])
+}
+
+// =========================================================
+// WORKOUT SESSION
+// Actual workout activity
+// =========================================================
+
+model WorkoutSession {
+  id Int @id @default(autoincrement())
+
+  memberId  Int
+  workoutId Int
+
+  sessionDate     DateTime
+  status          String    @default("COMPLETED")
+  durationMinutes Int?
+  completedAt     DateTime?
+
+  createdAt DateTime @default(now())
+
+  member  Member      @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  workout WorkoutPlan @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+}
+
+// =========================================================
+// GOAL
+// Member fitness goals
+// =========================================================
+
+model Goal {
+  id       Int @id @default(autoincrement())
+  memberId Int
+
+  title        String
+  description  String?
+  goalType     String?
+  targetValue  Float?
+  currentValue Float?
+  unit         String?
+  deadline     DateTime?
+  status       String    @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+// =========================================================
+// PROGRESS RECORD
+// General progress tracking
+// =========================================================
+
+model ProgressRecord {
+  id       Int @id @default(autoincrement())
+  memberId Int
+
+  recordDate DateTime
+  weight     Float?
+  bodyFat    Float?
+  notes      String?
+
+  createdAt DateTime @default(now())
+
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+// =========================================================
+// BODY MEASUREMENT
+// Body measurement history
+// =========================================================
+
+model BodyMeasurement {
+  id       Int @id @default(autoincrement())
+  memberId Int
+
+  recordDate DateTime
+
+  chest  Float?
+  waist  Float?
+  arms   Float?
+  thighs Float?
+
+  createdAt DateTime @default(now())
+
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+// =========================================================
+// ACHIEVEMENT
+// FITZONE achievement library
+// =========================================================
+
+model Achievement {
+  id Int @id @default(autoincrement())
+
+  title            String
+  description      String?
+  category         String
+  requirementType  String
+  requirementValue Int?
+  icon             String?
+
+  createdAt DateTime @default(now())
+
+  members MemberAchievement[]
+}
+
+// =========================================================
+// MEMBER ACHIEVEMENT
+// Member-specific achievement progress
+// =========================================================
+
+model MemberAchievement {
+  id Int @id @default(autoincrement())
+
+  memberId      Int
+  achievementId Int
+
+  progress   Int       @default(0)
+  status     String    @default("LOCKED")
+  unlockedAt DateTime?
+
+  member      Member      @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([memberId, achievementId])
+}
+
+// =========================================================
+// GYM MEMBERSHIP
+// Connects Member <-> Gym
+// =========================================================
+
+model GymMembership {
+  id Int @id @default(autoincrement())
+
+  gymId    Int
+  memberId Int
+
+  planName  String?
+  startDate DateTime
+  endDate   DateTime?
+  status    String    @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  gym    Gym    @relation(fields: [gymId], references: [id], onDelete: Cascade)
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([gymId, memberId])
 }
