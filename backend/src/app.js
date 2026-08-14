@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.routes.js";
 import dashboardRoutes from "./dashboard/dashboard.routes.js";
 import gymRoutes from "./routes/gym.routes.js";
 import memberAuthRoutes from "./routes/memberAuth.routes.js";
+import profileRoutes from "./routes/profile.routes.js";
 
 
 const app = express();
@@ -25,5 +26,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/gym", gymRoutes);
 app.use("/api/member/auth", memberAuthRoutes);
+app.use("/api/member/profile", profileRoutes);
 
 export default app;

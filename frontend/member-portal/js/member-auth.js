@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (registerForm) {
 
-        registerForm.addEventListener("submit", (event) => {
+        registerForm.addEventListener("submit", async (event) => {
 
-            event.preventDefault();
+            event.preventDefault(); 
 
             let isValid = true;
 
@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            /* ---------- Demo submission ---------- */
+            /* ---------- Backend registration ---------- */
 
             const registerButton =
                 document.getElementById("registerBtn");
@@ -369,22 +369,56 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Creating Account..."
             );
 
+            try {
 
-            /*
-                BACKEND CONNECTION WILL BE ADDED LATER.
+                const response = await fetch(
+                    "http://localhost:5000/api/member/auth/register",
+                    {
+                        method: "POST",
 
-                For now we only simulate success.
-            */
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
 
-            setTimeout(() => {
+                        body: JSON.stringify({
+                            email,
+                            password,
+                            fullName: `${firstName} ${lastName}`,
+                            phone
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.message || "Registration failed."
+                    );
+                }
 
                 resetButton(registerButton);
 
                 alert(
-                    "Registration form is valid! Backend connection will be added next."
+                    "Account created successfully! You can now login."
                 );
 
-            }, 1200);
+                // Go to member login
+                window.location.href =
+                    "./member-login.html";
+
+            } catch (error) {
+
+                resetButton(registerButton);
+
+                alert(
+                    error.message ||
+                    "Unable to create account. Please try again."
+                );
+
+            }
+
+
 
         });
 
@@ -400,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (loginForm) {
 
-        loginForm.addEventListener("submit", (event) => {
+        loginForm.addEventListener("submit", async (event) => {
 
             event.preventDefault();
 
@@ -463,8 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-
-            /* ---------- Demo login ---------- */
+            /* ---------- login ---------- */
 
             const loginButton =
                 document.getElementById("loginBtn");
@@ -474,21 +507,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Signing In..."
             );
 
+            try {
 
-            /*
-                BACKEND LOGIN CONNECTION
-                WILL BE ADDED LATER.
-            */
+                const response = await fetch(
+                    "http://localhost:5000/api/member/auth/login",
+                    {
+                        method: "POST",
 
-            setTimeout(() => {
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.message || "Login failed."
+                    );
+                }
+
+                // Store member JWT
+                localStorage.setItem(
+                    "memberToken",
+                    data.token
+                );
+
+                // Store basic member information
+                localStorage.setItem(
+                    "memberData",
+                    JSON.stringify(data.member)
+                );
+
+                resetButton(loginButton);
+
+                // Go to member dashboard
+                window.location.href =
+                    "../pages/dashboard.html";
+
+            } catch (error) {
 
                 resetButton(loginButton);
 
                 alert(
-                    "Login form is valid! Backend connection will be added next."
+                    error.message ||
+                    "Unable to login. Please try again."
                 );
 
-            }, 1200);
+            }
+
 
         });
 

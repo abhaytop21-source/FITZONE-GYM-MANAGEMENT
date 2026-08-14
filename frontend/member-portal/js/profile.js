@@ -1,10 +1,12 @@
 /* =========================================================
    FITZONE — PROFILE
-   Frontend Demo Logic
+   Frontend  Logic
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+    const API_BASE_URL = "http://localhost:5000";
 
     /* =====================================================
        01. ELEMENTS
@@ -195,9 +197,126 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
+    /* =====================================================
+       load backend profile if available, otherwise use default profile
+    ===================================================== */
 
-    let profileData =
-        loadProfile();
+    let profileData = {
+        ...defaultProfile
+    };
+
+    loadBackendProfile();
+
+    async function loadBackendProfile() {
+
+        const backendProfile =
+            await fetchProfileFromBackend();
+
+        if (!backendProfile) {
+            return;
+        }
+
+        profileData = {
+            ...profileData,
+
+            fullName:
+                backendProfile.fullName || "",
+
+            email:
+                backendProfile.email || "",
+
+            phone:
+                backendProfile.phone || "",
+
+            dob:
+                backendProfile.dateOfBirth
+                    ? backendProfile.dateOfBirth.substring(0, 10)
+                    : "",
+
+            gender:
+                backendProfile.gender || "",
+
+            location:
+                backendProfile.location || "",
+
+            height:
+                backendProfile.height ?? "",
+
+            weight:
+                backendProfile.weight ?? "",
+
+            fitnessGoal:
+                backendProfile.fitnessGoal || "",
+
+            experience:
+                backendProfile.experienceLevel || "",
+
+            activity:
+                backendProfile.activityLevel || "",
+
+            trainingDays:
+                backendProfile.trainingDays || "",
+
+            preferredWorkout:
+                backendProfile.preferredWorkout || "",
+
+            preferredTime:
+                backendProfile.preferredTime || "",
+
+            trainingFrequency:
+                backendProfile.trainingFrequency || ""
+        };
+
+        renderProfile();
+    }
+
+
+    /* =====================================================
+       profile from the real backend if available
+    ===================================================== */
+
+    async function fetchProfileFromBackend() {
+
+    const token = localStorage.getItem("memberToken");
+
+    if (!token) {
+        console.error("Member token not found.");
+        return null;
+    }
+
+    try {
+
+        const response = await fetch(
+            `${API_BASE_URL}/api/member/profile`,
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.message || "Unable to load profile."
+            );
+        }
+
+        return data.profile;
+
+    } catch (error) {
+
+        console.error(
+            "Failed to fetch member profile:",
+            error
+        );
+
+        return null;
+    }
+}
 
 
     /* =====================================================
@@ -920,179 +1039,472 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       12. CLOSE PROFILE MODAL
-    ===================================================== */
+        /* =====================================================
+            12. CLOSE PROFILE MODAL
+        ===================================================== */
 
-    function closeProfileModalFn() {
+        function closeProfileModalFn() {
 
-        if (!profileModal) return;
+            if (!profileModal) return;
 
+            profileModal.hidden = true;
 
-        profileModal.hidden =
-            true;
-
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-
-    closeProfileModal?.addEventListener(
-        "click",
-        closeProfileModalFn
-    );
-
-
-    cancelProfileBtn?.addEventListener(
-        "click",
-        closeProfileModalFn
-    );
-
-
-    profileModalOverlay?.addEventListener(
-        "click",
-        closeProfileModalFn
-    );
-
-
-    /* =====================================================
-       13. ESCAPE KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                profileModal &&
-                !profileModal.hidden
-            ) {
-
-                closeProfileModalFn();
-
-            }
+            document.body.style.overflow = "";
 
         }
-    );
+
+
+        closeProfileModal?.addEventListener(
+            "click",
+            closeProfileModalFn
+        );
+
+
+        cancelProfileBtn?.addEventListener(
+            "click",
+            closeProfileModalFn
+        );
+
+
+        profileModalOverlay?.addEventListener(
+            "click",
+            closeProfileModalFn
+        );
 
 
     /* =====================================================
-       14. SAVE PROFILE FORM
+       13. SAVE PROFILE FORM
     ===================================================== */
 
     profileForm?.addEventListener(
         "submit",
-        event => {
+        async (event) => {
 
             event.preventDefault();
 
+            const token =
+                localStorage.getItem("memberToken");
 
-            const fullName =
-                editFullName?.value.trim() || "";
-
-
-            const email =
-                editEmail?.value.trim() || "";
-
-
-            if (!fullName) {
-
-                showToast(
-                    "Please enter your name."
-                );
-
-                editFullName?.focus();
-
+            if (!token) {
+                showToast("Please login again.");
                 return;
-
             }
 
 
-            if (!email) {
+            // =====================================================
+            // PERSONAL INFORMATION
+            // =====================================================
 
-                showToast(
-                    "Please enter your email."
+            if (
+                personalEditSection &&
+                !personalEditSection.hidden
+            ) {
+
+                const fullName =
+                    editFullName?.value.trim() || "";
+
+                const email =
+                    editEmail?.value.trim() || "";
+
+                if (!fullName) {
+                    showToast("Please enter your name.");
+                    editFullName?.focus();
+                    return;
+                }
+
+                if (!email) {
+                    showToast("Please enter your email.");
+                    editEmail?.focus();
+                    return;
+                }
+
+
+                const personalData = {
+
+                    fullName,
+
+                    email,
+
+                    phone:
+                        editPhone?.value.trim() || "",
+
+                    dateOfBirth:
+                        editDob?.value || null,
+
+                    gender:
+                        editGender?.value || "",
+
+                    location:
+                        editLocation?.value.trim() || ""
+
+                };
+
+
+                console.log(
+                    "Sending personal data:",
+                    personalData
                 );
 
-                editEmail?.focus();
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `${API_BASE_URL}/api/member/profile/personal`,
+                            {
+                                method: "PUT",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Authorization":
+                                        `Bearer ${token}`
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        personalData
+                                    )
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    console.log(
+                        "Personal update response:",
+                        data
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Unable to update personal information."
+                        );
+
+                    }
+
+
+                    profileData = {
+                        ...profileData,
+
+                        fullName:
+                            data.profile?.fullName ??
+                            personalData.fullName,
+
+                        email:
+                            data.profile?.email ??
+                            personalData.email,
+
+                        phone:
+                            data.profile?.phone ??
+                            personalData.phone,
+
+                        dob:
+                            data.profile?.dateOfBirth
+                                ? data.profile.dateOfBirth.substring(0, 10)
+                                : personalData.dateOfBirth || "",
+
+                        gender:
+                            data.profile?.gender ??
+                            personalData.gender,
+
+                        location:
+                            data.profile?.location ??
+                            personalData.location
+                    };
+
+
+                    renderProfile();
+
+                    closeProfileModalFn();
+
+                    showToast(
+                        "Personal information updated successfully."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Personal profile update failed:",
+                        error
+                    );
+
+                    showToast(
+                        error.message ||
+                        "Unable to update profile."
+                    );
+
+                }
 
                 return;
-
             }
 
 
-            profileData = {
 
-                ...profileData,
+            // =====================================================
+            // FITNESS INFORMATION
+            // =====================================================
 
+            if (
+                fitnessEditSection &&
+                !fitnessEditSection.hidden
+            ) {
 
-                /* Personal */
+                const fitnessData = {
 
-                fullName,
+                    height:
+                        editHeight?.value
+                            ? Number(editHeight.value)
+                            : null,
 
-                email,
+                    weight:
+                        editWeight?.value
+                            ? Number(editWeight.value)
+                            : null,
 
-                phone:
-                    editPhone?.value.trim() || "",
+                    fitnessGoal:
+                        editFitnessGoal?.value || "",
 
-                dob:
-                    editDob?.value || "",
+                    experienceLevel:
+                        editExperience?.value || "",
 
-                gender:
-                    editGender?.value || "",
+                    activityLevel:
+                        editActivity?.value || "",
 
-                location:
-                    editLocation?.value.trim() || "",
+                    trainingDays:
+                        editTrainingDays?.value || ""
 
-
-                /* Fitness */
-
-                height:
-                    editHeight?.value || "",
-
-                weight:
-                    editWeight?.value || "",
-
-                fitnessGoal:
-                    editFitnessGoal?.value || "",
-
-                experience:
-                    editExperience?.value || "",
-
-                activity:
-                    editActivity?.value || "",
-
-                trainingDays:
-                    editTrainingDays?.value || "",
+                };
 
 
-                /* Preferences */
-
-                preferredWorkout:
-                    editPreferredWorkout?.value || "",
-
-                preferredTime:
-                    editPreferredTime?.value || "",
-
-                trainingFrequency:
-                    editTrainingFrequency?.value || ""
-
-            };
+                console.log(
+                    "Sending fitness data:",
+                    fitnessData
+                );
 
 
-            saveProfile();
+                try {
 
-            renderProfile();
+                    const response =
+                        await fetch(
+                            `${API_BASE_URL}/api/member/profile/fitness`,
+                            {
+                                method: "PUT",
 
-            closeProfileModalFn();
+                                headers: {
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Authorization":
+                                        `Bearer ${token}`
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        fitnessData
+                                    )
+                            }
+                        );
 
 
-            showToast(
-                "Profile updated successfully."
-            );
+                    const data =
+                        await response.json();
+
+
+                    console.log(
+                        "Fitness update response:",
+                        data
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Unable to update fitness information."
+                        );
+
+                    }
+
+
+                    profileData = {
+                        ...profileData,
+
+                        height:
+                            data.profile?.height ??
+                            fitnessData.height,
+
+                        weight:
+                            data.profile?.weight ??
+                            fitnessData.weight,
+
+                        fitnessGoal:
+                            data.profile?.fitnessGoal ??
+                            fitnessData.fitnessGoal,
+
+                        experience:
+                            data.profile?.experienceLevel ??
+                            fitnessData.experienceLevel,
+
+                        activity:
+                            data.profile?.activityLevel ??
+                            fitnessData.activityLevel,
+
+                        trainingDays:
+                            data.profile?.trainingDays ??
+                            fitnessData.trainingDays
+                    };
+
+
+                    renderProfile();
+
+                    closeProfileModalFn();
+
+                    showToast(
+                        "Fitness information updated successfully."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Fitness profile update failed:",
+                        error
+                    );
+
+                    showToast(
+                        error.message ||
+                        "Unable to update fitness information."
+                    );
+
+                }
+
+                return;
+            }
+
+
+
+            // =====================================================
+            // PREFERENCES
+            // =====================================================
+
+            if (
+                preferencesEditSection &&
+                !preferencesEditSection.hidden
+            ) {
+
+                const preferenceData = {
+
+                    preferredWorkout:
+                        editPreferredWorkout?.value || "",
+
+                    preferredTime:
+                        editPreferredTime?.value || "",
+
+                    trainingFrequency:
+                        editTrainingFrequency?.value || ""
+
+                };
+
+
+                console.log(
+                    "Sending preference data:",
+                    preferenceData
+                );
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `${API_BASE_URL}/api/member/profile/fitness`,
+                            {
+                                method: "PUT",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Authorization":
+                                        `Bearer ${token}`
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        preferenceData
+                                    )
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    console.log(
+                        "Preference update response:",
+                        data
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Unable to update preferences."
+                        );
+
+                    }
+
+
+                    profileData = {
+                        ...profileData,
+
+                        preferredWorkout:
+                            data.profile?.preferredWorkout ??
+                            preferenceData.preferredWorkout,
+
+                        preferredTime:
+                            data.profile?.preferredTime ??
+                            preferenceData.preferredTime,
+
+                        trainingFrequency:
+                            data.profile?.trainingFrequency ??
+                            preferenceData.trainingFrequency
+                    };
+
+
+                    renderProfile();
+
+                    closeProfileModalFn();
+
+                    showToast(
+                        "Preferences updated successfully."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Preference update failed:",
+                        error
+                    );
+
+                    showToast(
+                        error.message ||
+                        "Unable to update preferences."
+                    );
+
+                }
+
+            }
 
         }
     );
