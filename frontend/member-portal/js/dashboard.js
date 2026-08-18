@@ -1,16 +1,22 @@
 /* =========================================================
    FITZONE MEMBER DASHBOARD
-   Frontend Demo Logic
+   REAL BACKEND DATA
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const API_BASE_URL = "http://localhost:5000";
+
 
     /* =====================================================
        01. ELEMENTS
     ===================================================== */
 
-    const welcomeHeading =
-        document.querySelector(".welcome-section h1");
+    const greetingText =
+        document.getElementById("greetingText");
+
+    const welcomeMemberName =
+        document.getElementById("welcomeMemberName");
 
     const welcomeText =
         document.querySelector(".welcome-text");
@@ -21,151 +27,358 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboardDateText =
         dashboardDate?.querySelector("span");
 
+
     const streakValue =
-        document.querySelector(".streak-card .stat-info strong");
+        document.querySelector(
+            ".streak-card .stat-info strong"
+        );
+
+
+    const statValues =
+        document.querySelectorAll(
+            ".stats-grid .stat-card .stat-info strong"
+        );
+
 
     const weeklyWorkoutValue =
-        document.querySelectorAll(
-            ".stat-card .stat-info strong"
-        )[2];
+        statValues[2];
+
 
     const attendanceValue =
-        document.querySelectorAll(
-            ".stat-card .stat-info strong"
-        )[3];
+        statValues[3];
+
 
     const progressValue =
-        document.querySelector(".progress-value");
+        document.querySelector(
+            ".progress-value"
+        );
+
 
     const goalInfo =
-        document.querySelector(".goal-info strong");
+        document.querySelector(
+            ".goal-info strong"
+        );
+
 
     const goalDescription =
-        document.querySelector(".goal-info p");
+        document.querySelector(
+            ".goal-info p"
+        );
+
 
     const goalStats =
-        document.querySelectorAll(".goal-stats strong");
+        document.querySelectorAll(
+            ".goal-stats strong"
+        );
+
 
     const streakCount =
-        document.querySelector(".streak-count");
+        document.querySelector(
+            ".streak-count"
+        );
+
 
     const streakDays =
-        document.querySelector(".streak-days");
+        document.querySelector(
+            ".streak-days"
+        );
+
+
+    const workoutCard =
+        document.querySelector(
+            ".workout-card"
+        );
+
+
+    const workoutTitle =
+        document.querySelector(
+            ".workout-card h2"
+        );
+
+
+    const workoutStatus =
+        document.querySelector(
+            ".workout-status"
+        );
+
+
+    const workoutMeta =
+        document.querySelector(
+            ".workout-meta"
+        );
+
+
+    const exercisePreview =
+        document.querySelector(
+            ".exercise-preview"
+        );
+
 
     const mobileMenuBtn =
-        document.getElementById("mobileMenuBtn");
+        document.getElementById(
+            "mobileMenuBtn"
+        );
+
 
     const sidebar =
-        document.querySelector(".sidebar");
+        document.querySelector(
+            ".sidebar"
+        );
+
 
     const notificationBtn =
-        document.getElementById("notificationBtn");
+        document.getElementById(
+            "notificationBtn"
+        );
+
 
     const logoutBtn =
-        document.getElementById("logoutBtn");
+        document.getElementById(
+            "logoutBtn"
+        );
+
+
+    const userName =
+        document.querySelector(
+            ".user-info strong"
+        );
+
+
+    const userAvatar =
+        document.querySelector(
+            ".user-avatar"
+        );
 
 
     /* =====================================================
-       02. MEMBER DATA
+       02. REAL MEMBER DATA
     ===================================================== */
 
-    const memberName =
-        localStorage.getItem("memberName") || "Abhay";
+    let dashboardData = null;
+
+    let memberName = "Member";
 
 
     /* =====================================================
-       03. DEMO FITNESS DATA
-       
-       This is temporary frontend data.
-       Later backend data will replace this.
+       03. LOAD MEMBER DASHBOARD
     ===================================================== */
 
-    const WEEKLY_TARGET = 5;
+    async function loadMemberDashboard() {
 
-    const defaultWorkoutHistory = {
-        workouts: []
-    };
-
-
-    let fitnessData =
-        JSON.parse(
+        const token =
             localStorage.getItem(
-                "fitzoneMemberFitness"
-            )
-        ) || defaultWorkoutHistory;
-
-
-    /* =====================================================
-       04. DEMO WORKOUT HISTORY
-       
-       If there is no saved data yet, create a small
-       realistic demo history.
-    ===================================================== */
-
-    if (
-        !Array.isArray(fitnessData.workouts) ||
-        fitnessData.workouts.length === 0
-    ) {
-
-        fitnessData.workouts =
-            createDemoWorkoutHistory();
-
-        saveFitnessData();
-
-    }
-
-
-    /* =====================================================
-       05. CREATE DEMO HISTORY
-    ===================================================== */
-
-    function createDemoWorkoutHistory() {
-
-        const today =
-            new Date();
-
-        const history = [];
-
-
-        /*
-         * Previous days are marked completed
-         * so the dashboard initially looks alive.
-         *
-         * Today is intentionally not automatically
-         * completed.
-         */
-
-        for (let i = 1; i <= 4; i++) {
-
-            const date =
-                new Date(today);
-
-            date.setDate(
-                today.getDate() - i
+                "memberToken"
             );
 
-            history.push(
-                formatDateKey(date)
+
+        if (!token) {
+
+            console.error(
+                "Member token not found."
             );
+
+            window.location.href =
+                "../auth/member-login.html";
+
+            return;
 
         }
 
 
-        return history;
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE_URL}/api/member/dashboard`,
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "Authorization":
+                                `Bearer ${token}`
+                        }
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Unable to load dashboard."
+                );
+
+            }
+
+
+            dashboardData =
+                result.data;
+
+
+            console.log(
+                "Real member dashboard data:",
+                dashboardData
+            );
+
+
+            renderDashboard();
+
+
+        } catch (error) {
+
+            console.error(
+                "Failed to load member dashboard:",
+                error
+            );
+
+
+            showToast(
+                "Unable to load dashboard data."
+            );
+
+        }
 
     }
 
 
     /* =====================================================
-       06. SAVE FITNESS DATA
+       04. RENDER EVERYTHING
     ===================================================== */
 
-    function saveFitnessData() {
+    function renderDashboard() {
 
-        localStorage.setItem(
-            "fitzoneMemberFitness",
-            JSON.stringify(fitnessData)
-        );
+        if (!dashboardData) {
+            return;
+        }
+
+
+        renderMember();
+
+
+        renderGreeting();
+
+
+        renderWeight();
+
+
+        renderWeeklyWorkouts();
+
+
+        renderStreak();
+
+
+        renderAttendance();
+
+
+        renderTodayWorkout();
+
+
+        renderWeeklyGoal();
+
+    }
+
+
+    /* =====================================================
+       05. MEMBER INFORMATION
+    ===================================================== */
+
+    function renderMember() {
+
+        const profile =
+            dashboardData.profile;
+
+
+        memberName =
+            profile?.fullName ||
+            "Member";
+
+
+        if (welcomeMemberName) {
+
+            welcomeMemberName.textContent =
+                memberName;
+
+        }
+
+
+        if (userName) {
+
+            userName.textContent =
+                memberName;
+
+        }
+
+
+        if (userAvatar) {
+
+            userAvatar.textContent =
+                memberName
+                    .trim()
+                    .charAt(0)
+                    .toUpperCase();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       06. GREETING
+    ===================================================== */
+
+    function renderGreeting() {
+
+        const hour =
+            new Date().getHours();
+
+
+        let greeting;
+
+
+        if (hour < 12) {
+
+            greeting =
+                "Good Morning";
+
+        } else if (hour < 17) {
+
+            greeting =
+                "Good Afternoon";
+
+        } else {
+
+            greeting =
+                "Good Evening";
+
+        }
+
+
+        if (greetingText) {
+
+            greetingText.textContent =
+                greeting;
+
+        }
+
+
+        if (welcomeMemberName) {
+
+            welcomeMemberName.textContent =
+                memberName;
+
+        }
+
+
+        if (welcomeText) {
+
+            welcomeText.textContent =
+                "Ready to keep your streak alive? Let's make today count.";
+
+        }
 
     }
 
@@ -198,76 +411,149 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       08. DYNAMIC GREETING
+       08. CURRENT WEIGHT
     ===================================================== */
 
-    function updateGreeting() {
+    function renderWeight() {
 
-        const hour =
-            new Date().getHours();
-
-
-        let greeting;
-
-        let emoji;
+        const weight =
+            dashboardData.profile?.weight;
 
 
-        if (hour < 12) {
+        const weightCard =
+            statValues[1];
 
-            greeting = "Good Morning";
 
-            emoji = "🌅";
-
-        } else if (hour < 17) {
-
-            greeting = "Good Afternoon";
-
-            emoji = "☀️";
-
-        } else {
-
-            greeting = "Good Evening";
-
-            emoji = "🌙";
-
+        if (!weightCard) {
+            return;
         }
 
 
-        if (welcomeHeading) {
+        if (
+            weight === null ||
+            weight === undefined ||
+            weight === ""
+        ) {
 
-            welcomeHeading.innerHTML = `
-                ${greeting},
-                <span>${escapeHTML(memberName)}</span>
-                ${emoji}
+            weightCard.innerHTML = `
+                -- <small>kg</small>
             `;
 
-        }
-
-
-        if (welcomeText) {
-
-            welcomeText.textContent =
-                "Ready to keep your streak alive? Let's make today count.";
+            return;
 
         }
+
+
+        weightCard.innerHTML = `
+            ${escapeHTML(weight)}
+            <small>kg</small>
+        `;
 
     }
 
 
     /* =====================================================
-       09. WEEK START
-       
-       Monday = first day
-       Sunday = last day
+       09. WORKOUT SESSION HELPERS
     ===================================================== */
+
+    function getSessions() {
+
+        const sessions =
+            dashboardData.recentSessions;
+
+
+        if (!Array.isArray(sessions)) {
+
+            return [];
+
+        }
+
+
+        return sessions;
+
+    }
+
+
+    function isCompletedSession(session) {
+
+        if (!session) {
+            return false;
+        }
+
+
+        if (!session.status) {
+
+            return true;
+
+        }
+
+
+        return String(
+            session.status
+        ).toUpperCase() === "COMPLETED";
+
+    }
+
+
+    function getSessionDate(session) {
+
+        const value =
+            session?.sessionDate;
+
+
+        if (!value) {
+            return null;
+        }
+
+
+        const date =
+            new Date(value);
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return null;
+
+        }
+
+
+        return date;
+
+    }
+
+
+    function isSameDay(
+        dateA,
+        dateB
+    ) {
+
+        return (
+            dateA.getFullYear() ===
+                dateB.getFullYear() &&
+
+            dateA.getMonth() ===
+                dateB.getMonth() &&
+
+            dateA.getDate() ===
+                dateB.getDate()
+        );
+
+    }
+
 
     function getMonday(date) {
 
         const result =
             new Date(date);
 
+
         const day =
             result.getDay();
+
 
         const difference =
             day === 0
@@ -276,7 +562,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         result.setDate(
-            result.getDate() + difference
+            result.getDate() +
+            difference
         );
 
 
@@ -294,288 +581,210 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       10. FORMAT DATE KEY
+       10. WEEKLY WORKOUTS
     ===================================================== */
 
-    function formatDateKey(date) {
-
-        const year =
-            date.getFullYear();
-
-        const month =
-            String(
-                date.getMonth() + 1
-            ).padStart(2, "0");
-
-        const day =
-            String(
-                date.getDate()
-            ).padStart(2, "0");
-
-
-        return `${year}-${month}-${day}`;
-
-    }
-
-
-    /* =====================================================
-       11. GET WEEK DAYS
-    ===================================================== */
-
-    function getCurrentWeek() {
+    function getWeeklyWorkoutCount() {
 
         const today =
             new Date();
+
 
         const monday =
             getMonday(today);
 
 
-        const days = [];
+        const sessions =
+            getSessions();
 
 
-        for (let i = 0; i < 7; i++) {
+        return sessions.filter(
+            session => {
 
-            const date =
-                new Date(monday);
-
-            date.setDate(
-                monday.getDate() + i
-            );
+                const sessionDate =
+                    getSessionDate(
+                        session
+                    );
 
 
-            days.push(date);
+                if (!sessionDate) {
+                    return false;
+                }
+
+
+                return (
+                    isCompletedSession(
+                        session
+                    ) &&
+
+                    sessionDate >=
+                        monday &&
+
+                    sessionDate <=
+                        today
+                );
+
+            }
+        ).length;
+
+    }
+
+
+    function getWeeklyTarget() {
+
+        const frequency =
+            dashboardData.profile
+                ?.trainingFrequency;
+
+
+        if (!frequency) {
+
+            return 0;
 
         }
 
 
-        return days;
+        const match =
+            String(frequency)
+                .match(/\d+/);
+
+
+        return match
+            ? Number(match[0])
+            : 0;
+
+    }
+
+
+    function renderWeeklyWorkouts() {
+
+        const completed =
+            getWeeklyWorkoutCount();
+
+
+        const target =
+            getWeeklyTarget();
+
+
+        if (weeklyWorkoutValue) {
+
+            if (target > 0) {
+
+                weeklyWorkoutValue.innerHTML = `
+                    ${completed}
+                    <small>/ ${target}</small>
+                `;
+
+            } else {
+
+                weeklyWorkoutValue.innerHTML = `
+                    ${completed}
+                    <small>this week</small>
+                `;
+
+            }
+
+        }
+
+
+        const weeklyCard =
+            weeklyWorkoutValue
+                ?.closest(".stat-card");
+
+
+        const description =
+            weeklyCard
+                ?.querySelector("p");
+
+
+        if (!description) {
+            return;
+        }
+
+
+        if (target <= 0) {
+
+            description.textContent =
+                "Training target not set.";
+
+            return;
+
+        }
+
+
+        const remaining =
+            Math.max(
+                target - completed,
+                0
+            );
+
+
+        if (remaining === 0) {
+
+            description.textContent =
+                "Weekly target completed! 🔥";
+
+        } else if (remaining === 1) {
+
+            description.textContent =
+                "One more to go";
+
+        } else {
+
+            description.textContent =
+                `${remaining} more to go`;
+
+        }
 
     }
 
 
     /* =====================================================
-       12. UPDATE STREAK DAYS
+       11. CURRENT STREAK
     ===================================================== */
 
-    function updateStreakDays() {
+    function calculateCurrentStreak() {
 
-        if (!streakDays) return;
-
-
-        const week =
-            getCurrentWeek();
-
-        const today =
-            new Date();
+        const sessions =
+            getSessions()
+                .filter(
+                    isCompletedSession
+                );
 
 
-        const todayKey =
-            formatDateKey(today);
+        const completedDates =
+            new Set();
 
 
-        const dayNames =
-            [
-                "MON",
-                "TUE",
-                "WED",
-                "THU",
-                "FRI",
-                "SAT",
-                "SUN"
-            ];
+        sessions.forEach(
+            session => {
 
-
-        streakDays.innerHTML = "";
-
-
-        week.forEach(
-            (date, index) => {
-
-                const dateKey =
-                    formatDateKey(date);
-
-
-                const completed =
-                    fitnessData.workouts.includes(
-                        dateKey
+                const date =
+                    getSessionDate(
+                        session
                     );
 
 
-                const isToday =
-                    dateKey === todayKey;
-
-
-                const day =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                day.className = "day";
-
-
-                if (completed) {
-
-                    day.classList.add(
-                        "completed"
-                    );
-
+                if (!date) {
+                    return;
                 }
 
 
-                if (isToday) {
-
-                    day.classList.add(
-                        "today"
-                    );
-
-                }
-
-
-                /*
-                 * If today is completed,
-                 * show the check instead of lightning.
-                 */
-
-                const icon =
-                    isToday && !completed
-                        ? "fa-bolt"
-                        : completed
-                            ? "fa-check"
-                            : "fa-minus";
-
-
-                day.innerHTML = `
-
-                    <span>
-                        ${dayNames[index]}
-                    </span>
-
-                    <i class="fa-solid ${icon}"></i>
-
-                `;
-
-
-                /*
-                 * Clicking today's day allows
-                 * us to demo a completed workout.
-                 */
-
-                if (isToday) {
-
-                    day.style.cursor =
-                        "pointer";
-
-                    day.title =
-                        completed
-                            ? "Workout completed today"
-                            : "Click to complete today's workout";
-
-
-                    day.addEventListener(
-                        "click",
-                        toggleTodayWorkout
-                    );
-
-                }
-
-
-                streakDays.appendChild(
-                    day
+                completedDates.add(
+                    date.toDateString()
                 );
 
             }
         );
 
 
-        updateStreakStats();
-
-    }
-
-
-    /* =====================================================
-       13. TOGGLE TODAY'S WORKOUT
-    ===================================================== */
-
-    function toggleTodayWorkout() {
-
-        const todayKey =
-            formatDateKey(
-                new Date()
-            );
-
-
-        const index =
-            fitnessData.workouts.indexOf(
-                todayKey
-            );
-
-
-        if (index === -1) {
-
-            fitnessData.workouts.push(
-                todayKey
-            );
-
-            showToast(
-                "Today's workout completed! 🔥"
-            );
-
-        } else {
-
-            fitnessData.workouts.splice(
-                index,
-                1
-            );
-
-            showToast(
-                "Today's workout marked incomplete."
-            );
-
-        }
-
-
-        saveFitnessData();
-
-        updateStreakDays();
-
-        updateWeeklyProgress();
-
-    }
-
-
-    /* =====================================================
-       14. CALCULATE CURRENT STREAK
-    ===================================================== */
-
-    function calculateCurrentStreak() {
-
-        const workouts =
-            new Set(
-                fitnessData.workouts
-            );
-
-
-        let streak = 0;
-
-
-        const today =
+        let currentDate =
             new Date();
 
 
-        /*
-         * If today isn't completed yet,
-         * start checking from yesterday.
-         */
-
-        let currentDate =
-            new Date(today);
-
-
         if (
-            !workouts.has(
-                formatDateKey(currentDate)
+            !completedDates.has(
+                currentDate.toDateString()
             )
         ) {
 
@@ -586,13 +795,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        let streak = 0;
+
+
         while (
-            workouts.has(
-                formatDateKey(currentDate)
+            completedDates.has(
+                currentDate.toDateString()
             )
         ) {
 
             streak++;
+
 
             currentDate.setDate(
                 currentDate.getDate() - 1
@@ -606,11 +819,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       15. UPDATE STREAK STAT
-    ===================================================== */
-
-    function updateStreakStats() {
+    function renderStreak() {
 
         const streak =
             calculateCurrentStreak();
@@ -630,8 +839,163 @@ document.addEventListener("DOMContentLoaded", () => {
 
             streakCount.textContent =
                 `${streak} DAY${
-                    streak === 1 ? "" : "S"
+                    streak === 1
+                        ? ""
+                        : "S"
                 } STREAK`;
+
+        }
+
+
+        renderStreakDays();
+
+    }
+
+
+    /* =====================================================
+       12. STREAK WEEK
+    ===================================================== */
+
+    function renderStreakDays() {
+
+        if (!streakDays) {
+            return;
+        }
+
+
+        const monday =
+            getMonday(
+                new Date()
+            );
+
+
+        const today =
+            new Date();
+
+
+        const sessions =
+            getSessions()
+                .filter(
+                    isCompletedSession
+                );
+
+
+        const completedDates =
+            new Set();
+
+
+        sessions.forEach(
+            session => {
+
+                const date =
+                    getSessionDate(
+                        session
+                    );
+
+
+                if (date) {
+
+                    completedDates.add(
+                        date.toDateString()
+                    );
+
+                }
+
+            }
+        );
+
+
+        const dayNames = [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+        ];
+
+
+        streakDays.innerHTML = "";
+
+
+        for (
+            let index = 0;
+            index < 7;
+            index++
+        ) {
+
+            const date =
+                new Date(monday);
+
+
+            date.setDate(
+                monday.getDate() +
+                index
+            );
+
+
+            const completed =
+                completedDates.has(
+                    date.toDateString()
+                );
+
+
+            const isToday =
+                isSameDay(
+                    date,
+                    today
+                );
+
+
+            const day =
+                document.createElement(
+                    "div"
+                );
+
+
+            day.className =
+                "day";
+
+
+            if (completed) {
+
+                day.classList.add(
+                    "completed"
+                );
+
+            }
+
+
+            if (isToday) {
+
+                day.classList.add(
+                    "today"
+                );
+
+            }
+
+
+            const icon =
+                completed
+                    ? "fa-check"
+                    : isToday
+                        ? "fa-bolt"
+                        : "fa-minus";
+
+
+            day.innerHTML = `
+                <span>
+                    ${dayNames[index]}
+                </span>
+
+                <i class="fa-solid ${icon}"></i>
+            `;
+
+
+            streakDays.appendChild(
+                day
+            );
 
         }
 
@@ -639,67 +1003,368 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       16. GET WEEKLY COMPLETED WORKOUTS
+       13. ATTENDANCE
     ===================================================== */
 
-    function getWeeklyWorkoutCount() {
+    function renderAttendance() {
 
-        const week =
-            getCurrentWeek();
+        /*
+         * We currently do not have a dedicated
+         * gym check-in Attendance model/API.
+         *
+         * Do NOT display fake data.
+         */
+
+        if (!attendanceValue) {
+            return;
+        }
 
 
-        const weekKeys =
-            week.map(
-                formatDateKey
+        attendanceValue.innerHTML = `
+            -- <small>days</small>
+        `;
+
+
+        const attendanceCard =
+            attendanceValue.closest(
+                ".stat-card"
             );
 
 
-        return fitnessData.workouts
-            .filter(
-                date =>
-                    weekKeys.includes(date)
-            )
-            .length;
+        const description =
+            attendanceCard
+                ?.querySelector("p");
+
+
+        if (description) {
+
+            description.textContent =
+                "Attendance data will appear here.";
+
+        }
 
     }
 
 
     /* =====================================================
-       17. UPDATE WEEKLY PROGRESS
+       14. TODAY'S WORKOUT
     ===================================================== */
 
-    function updateWeeklyProgress() {
+    function renderTodayWorkout() {
 
-        const completed =
-            Math.min(
-                getWeeklyWorkoutCount(),
-                WEEKLY_TARGET
-            );
+        const plan =
+            dashboardData.workoutPlan;
 
 
-        const percentage =
-            Math.round(
-                (completed / WEEKLY_TARGET) * 100
-            );
+        if (!workoutCard) {
+            return;
+        }
 
 
-        /* -------------------------------
-           Stat Card
-        -------------------------------- */
+        if (!plan) {
 
-        if (weeklyWorkoutValue) {
+            if (workoutTitle) {
 
-            weeklyWorkoutValue.innerHTML = `
-                ${completed}
-                <small>/ ${WEEKLY_TARGET}</small>
+                workoutTitle.textContent =
+                    "No workout assigned";
+
+            }
+
+
+            if (workoutStatus) {
+
+                workoutStatus.textContent =
+                    "NOT ASSIGNED";
+
+            }
+
+
+            if (workoutMeta) {
+
+                workoutMeta.innerHTML = `
+                    <span>
+                        <i class="fa-solid fa-circle-info"></i>
+                        No active workout plan
+                    </span>
+                `;
+
+            }
+
+
+            if (exercisePreview) {
+
+                exercisePreview.innerHTML = `
+                    <div class="exercise-item">
+                        <span class="exercise-number">
+                            —
+                        </span>
+
+                        <div>
+                            <strong>
+                                No exercises available
+                            </strong>
+
+                            <span>
+                                Your gym has not assigned a workout plan yet.
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+            }
+
+
+            return;
+
+        }
+
+
+        if (workoutTitle) {
+
+            workoutTitle.textContent =
+                plan.name ||
+                "Today's Workout";
+
+        }
+
+
+        if (workoutStatus) {
+
+            workoutStatus.textContent =
+                plan.status ||
+                "READY";
+
+        }
+
+
+        const exercises =
+            Array.isArray(
+                plan.exercises
+            )
+                ? plan.exercises
+                : [];
+
+
+        if (workoutMeta) {
+
+            workoutMeta.innerHTML = `
+                <span>
+                    <i class="fa-solid fa-list-check"></i>
+                    ${exercises.length} Exercises
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-dumbbell"></i>
+                    ${escapeHTML(
+                        plan.goal ||
+                        dashboardData.profile
+                            ?.fitnessGoal ||
+                        "General Fitness"
+                    )}
+                </span>
             `;
 
         }
 
 
-        /* -------------------------------
-           Circle Percentage
-        -------------------------------- */
+        if (!exercisePreview) {
+            return;
+        }
+
+
+        if (exercises.length === 0) {
+
+            exercisePreview.innerHTML = `
+                <div class="exercise-item">
+                    <span class="exercise-number">
+                        —
+                    </span>
+
+                    <div>
+                        <strong>
+                            No exercises assigned
+                        </strong>
+
+                        <span>
+                            Your workout plan has no exercises yet.
+                        </span>
+                    </div>
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        exercisePreview.innerHTML =
+            exercises
+                .slice(0, 3)
+                .map(
+                    (
+                        item,
+                        index
+                    ) => {
+
+                        const exercise =
+                            item.exercise ||
+                            {};
+
+
+                        const exerciseName =
+                            exercise.name ||
+                            item.name ||
+                            "Exercise";
+
+
+                        const sets =
+                            item.sets ??
+                            exercise.sets;
+
+
+                        const reps =
+                            item.reps ??
+                            exercise.reps;
+
+
+                        let details =
+                            "";
+
+
+                        if (
+                            sets !== undefined &&
+                            reps !== undefined
+                        ) {
+
+                            details =
+                                `${sets} sets × ${reps} reps`;
+
+                        } else if (
+                            sets !== undefined
+                        ) {
+
+                            details =
+                                `${sets} sets`;
+
+                        } else {
+
+                            details =
+                                "Exercise assigned";
+
+                        }
+
+
+                        return `
+                            <div class="exercise-item">
+
+                                <span class="exercise-number">
+                                    ${String(
+                                        index + 1
+                                    ).padStart(2, "0")}
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        ${escapeHTML(
+                                            exerciseName
+                                        )}
+                                    </strong>
+
+                                    <span>
+                                        ${escapeHTML(
+                                            details
+                                        )}
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        `;
+
+                    }
+                )
+                .join("");
+
+    }
+
+
+    /* =====================================================
+       15. WEEKLY GOAL
+    ===================================================== */
+
+    function renderWeeklyGoal() {
+
+        const completed =
+            getWeeklyWorkoutCount();
+
+
+        const target =
+            getWeeklyTarget();
+
+
+        if (target <= 0) {
+
+            if (progressValue) {
+
+                progressValue.textContent =
+                    "0%";
+
+            }
+
+
+            updateProgressCircle(
+                0
+            );
+
+
+            if (goalInfo) {
+
+                goalInfo.textContent =
+                    "Weekly target not set";
+
+            }
+
+
+            if (goalDescription) {
+
+                goalDescription.textContent =
+                    "Set your training frequency in your profile.";
+
+            }
+
+
+            if (goalStats.length >= 2) {
+
+                goalStats[0].textContent =
+                    completed;
+
+                goalStats[1].textContent =
+                    "--";
+
+            }
+
+
+            return;
+
+        }
+
+
+        const safeCompleted =
+            Math.min(
+                completed,
+                target
+            );
+
+
+        const percentage =
+            Math.round(
+                (
+                    safeCompleted /
+                    target
+                ) * 100
+            );
+
 
         if (progressValue) {
 
@@ -709,64 +1374,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* -------------------------------
-           Circle Progress
-        -------------------------------- */
+        updateProgressCircle(
+            percentage
+        );
 
-        const progressCircle =
-            document.querySelector(
-                ".progress-circle"
-            );
-
-
-        if (progressCircle) {
-
-            const degrees =
-                percentage * 3.6;
-
-
-            progressCircle.style.background = `
-                radial-gradient(
-                    circle,
-                    var(--surface) 57%,
-                    transparent 58%
-                ),
-                conic-gradient(
-                    var(--cyan) 0deg ${degrees}deg,
-                    rgba(255, 255, 255, 0.06)
-                    ${degrees}deg 360deg
-                )
-            `;
-
-        }
-
-
-        /* -------------------------------
-           Goal Text
-        -------------------------------- */
 
         if (goalInfo) {
 
             goalInfo.textContent =
-                `${completed} of ${WEEKLY_TARGET} workouts completed`;
+                `${safeCompleted} of ${target} workouts completed`;
 
         }
 
 
         if (goalDescription) {
 
-            if (
-                completed >= WEEKLY_TARGET
-            ) {
+            const remaining =
+                Math.max(
+                    target -
+                    safeCompleted,
+                    0
+                );
+
+
+            if (remaining === 0) {
 
                 goalDescription.textContent =
                     "Weekly workout goal completed. Amazing consistency!";
 
             } else {
-
-                const remaining =
-                    WEEKLY_TARGET - completed;
-
 
                 goalDescription.textContent =
                     `Complete ${remaining} more ${
@@ -780,17 +1416,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* -------------------------------
-           Goal Stats
-        -------------------------------- */
-
         if (goalStats.length >= 2) {
 
             goalStats[0].textContent =
-                completed;
+                safeCompleted;
 
             goalStats[1].textContent =
-                WEEKLY_TARGET;
+                target;
 
         }
 
@@ -798,35 +1430,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       18. ATTENDANCE DEMO
+       16. PROGRESS CIRCLE
     ===================================================== */
 
-    function updateAttendance() {
+    function updateProgressCircle(
+        percentage
+    ) {
 
-        /*
-         * Temporary frontend value.
-         *
-         * Later this will come from the backend.
-         */
-
-        const attendanceDays =
-            18;
+        const progressCircle =
+            document.querySelector(
+                ".progress-circle"
+            );
 
 
-        if (attendanceValue) {
-
-            attendanceValue.innerHTML = `
-                ${attendanceDays}
-                <small>days</small>
-            `;
-
+        if (!progressCircle) {
+            return;
         }
+
+
+        const degrees =
+            percentage * 3.6;
+
+
+        progressCircle.style.background = `
+            radial-gradient(
+                circle,
+                var(--surface) 57%,
+                transparent 58%
+            ),
+            conic-gradient(
+                var(--cyan) 0deg ${degrees}deg,
+                rgba(255, 255, 255, 0.06)
+                ${degrees}deg 360deg
+            )
+        `;
 
     }
 
 
     /* =====================================================
-       19. MOBILE SIDEBAR
+       17. MOBILE SIDEBAR
     ===================================================== */
 
     mobileMenuBtn?.addEventListener(
@@ -841,30 +1484,30 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* =====================================================
-       20. CLOSE SIDEBAR AFTER NAVIGATION
-    ===================================================== */
-
     sidebar
-        ?.querySelectorAll(".nav-item")
-        .forEach(link => {
+        ?.querySelectorAll(
+            ".nav-item"
+        )
+        .forEach(
+            link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener(
+                    "click",
+                    () => {
 
-                    sidebar.classList.remove(
-                        "open"
-                    );
+                        sidebar.classList.remove(
+                            "open"
+                        );
 
-                }
-            );
+                    }
+                );
 
-        });
+            }
+        );
 
 
     /* =====================================================
-       21. NOTIFICATION
+       18. NOTIFICATIONS
     ===================================================== */
 
     notificationBtn?.addEventListener(
@@ -880,7 +1523,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       22. LOGOUT
+       19. LOGOUT
     ===================================================== */
 
     logoutBtn?.addEventListener(
@@ -893,11 +1536,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-            if (!confirmed) return;
+            if (!confirmed) {
+                return;
+            }
 
 
             localStorage.removeItem(
-                "fitzoneMemberFitness"
+                "memberToken"
             );
 
 
@@ -909,7 +1554,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       23. TOAST MESSAGE
+       20. TOAST
     ===================================================== */
 
     function showToast(message) {
@@ -934,13 +1579,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         toast.innerHTML = `
-
-            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-info-circle"></i>
 
             <span>
                 ${escapeHTML(message)}
             </span>
-
         `;
 
 
@@ -965,18 +1608,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 fontWeight: "600"
             }
         );
-
-
-        const icon =
-            toast.querySelector("i");
-
-
-        if (icon) {
-
-            icon.style.color =
-                "var(--cyan)";
-
-        }
 
 
         document.body.appendChild(
@@ -1010,33 +1641,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       24. HTML ESCAPE
+       21. HTML ESCAPE
     ===================================================== */
 
     function escapeHTML(value) {
 
         return String(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
 
     /* =====================================================
-       25. INITIALIZE DASHBOARD
+       22. INITIALIZE
     ===================================================== */
 
     updateCurrentDate();
 
-    updateGreeting();
-
-    updateStreakDays();
-
-    updateWeeklyProgress();
-
-    updateAttendance();
+    loadMemberDashboard();
 
 });
