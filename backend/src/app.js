@@ -9,6 +9,8 @@ import memberAuthRoutes from "./routes/memberAuth.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
 import memberDashboardRoutes
     from "./memberDashboard/memberDashboard.routes.js";
+import memberWorkoutsRoutes
+    from "./memberWorkouts/memberWorkouts.routes.js";
 
 
 const app = express();
@@ -32,6 +34,10 @@ app.use("/api/member/profile", profileRoutes);
 app.use(
     "/api/member/dashboard",
     memberDashboardRoutes
+);
+app.use(
+    "/api/member/workouts",
+    memberWorkoutsRoutes
 );
 
 export default app;

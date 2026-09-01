@@ -1,37 +1,19 @@
 /* =========================================================
-   FITZONE WORKOUTS
-   Frontend demo functionality
+   FITZONE MEMBER WORKOUTS
+   REAL BACKEND DATA
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const API_BASE_URL = "http://localhost:5000";
+
+
     /* =====================================================
-       01. ELEMENTS
+       ELEMENTS
     ===================================================== */
 
-    const editWorkoutBtn =
-        document.getElementById("editWorkoutBtn");
-
-    const exerciseLibrary =
-        document.getElementById("exerciseLibrary");
-
-    const closeLibraryBtn =
-        document.getElementById("closeLibraryBtn");
-
-    const exerciseSearch =
-        document.getElementById("exerciseSearch");
-
-    const exerciseFilters =
-        document.getElementById("exerciseFilters");
-
-    const libraryGrid =
-        document.getElementById("libraryGrid");
-
-    const selectedExerciseCount =
-        document.getElementById("selectedExerciseCount");
-
-    const saveWorkoutBtn =
-        document.getElementById("saveWorkoutBtn");
+    const currentWorkoutName =
+        document.getElementById("currentWorkoutName");
 
     const exerciseList =
         document.getElementById("exerciseList");
@@ -42,474 +24,646 @@ document.addEventListener("DOMContentLoaded", () => {
     const exerciseTotal =
         document.getElementById("exerciseTotal");
 
-    const currentWorkoutName =
-        document.getElementById("currentWorkoutName");
+    const startWorkoutBtn =
+        document.getElementById("startWorkoutBtn");
+
+    const viewWorkoutBtn =
+        document.getElementById("viewWorkoutBtn");
+
+    const editWorkoutBtn =
+        document.getElementById("editWorkoutBtn");
+
+    const workoutLevel =
+        document.querySelector(".workout-level");
+
+    const workoutInfoItems =
+        document.querySelectorAll(
+            ".workout-info-item"
+        );
+
+    const userName =
+        document.querySelector(
+            ".user-info strong"
+        );
+
+    const userAvatar =
+        document.querySelector(
+            ".user-avatar"
+        );
 
     const mobileMenuBtn =
-        document.getElementById("mobileMenuBtn");
+        document.getElementById(
+            "mobileMenuBtn"
+        );
 
     const sidebar =
-        document.querySelector(".sidebar");
+        document.querySelector(
+            ".sidebar"
+        );
 
     const logoutBtn =
-        document.getElementById("logoutBtn");
+        document.getElementById(
+            "logoutBtn"
+        );
+
+    const notificationBtn =
+        document.getElementById(
+            "notificationBtn"
+        );
 
 
     /* =====================================================
-       02. DEMO WORKOUT DATA
+       STATE
     ===================================================== */
 
-    let selectedExercises = [
-        {
-            name: "Bench Press",
-            muscle: "Chest",
-            equipment: "Barbell",
-            sets: 4,
-            reps: 10
-        },
-
-        {
-            name: "Incline Dumbbell Press",
-            muscle: "Upper Chest",
-            equipment: "Dumbbell",
-            sets: 3,
-            reps: 12
-        },
-
-        {
-            name: "Cable Fly",
-            muscle: "Chest",
-            equipment: "Cable",
-            sets: 3,
-            reps: 12
-        },
-
-        {
-            name: "Tricep Pushdown",
-            muscle: "Triceps",
-            equipment: "Cable",
-            sets: 3,
-            reps: 12
-        }
-    ];
-
-
-   /* =====================================================
-    03. OPEN EXERCISE LIBRARY
-    ===================================================== */
-
-    function openExerciseLibrary() {
-
-        if (!exerciseLibrary) return;
-
-
-        exerciseLibrary.hidden = false;
-
-        body.style.overflow = "hidden";
-
-
-        updateLibraryButtons();
-
-        updateSelectedCount();
-
-
-        setTimeout(() => {
-
-            exerciseSearch?.focus();
-
-        }, 150);
-
-    }
+    let currentWorkout = null;
 
 
     /* =====================================================
-    04. CLOSE EXERCISE LIBRARY
+       LOAD MEMBER WORKOUT
     ===================================================== */
 
-    function closeExerciseLibrary() {
+    async function loadMemberWorkout() {
 
-        if (!exerciseLibrary) return;
-
-
-        exerciseLibrary.hidden = true;
-
-
-        body.style.overflow = "";
-
-    }
-
-    /* =====================================================
-       05. EDIT WORKOUT BUTTON
-    ===================================================== */
-
-    editWorkoutBtn?.addEventListener(
-        "click",
-        openExerciseLibrary
-    );
-
-
-    /* =====================================================
-       06. CLOSE LIBRARY BUTTON
-    ===================================================== */
-
-    closeLibraryBtn?.addEventListener(
-        "click",
-        closeExerciseLibrary
-    );
-
-    /* =====================================================
-    06-1. ESCAPE KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                exerciseLibrary &&
-                !exerciseLibrary.hidden
-            ) {
-
-                closeExerciseLibrary();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       07. SEARCH EXERCISES
-    ===================================================== */
-
-    function filterExercises() {
-
-        if (!libraryGrid) return;
-
-        const searchValue =
-            exerciseSearch?.value
-                .trim()
-                .toLowerCase() || "";
-
-        const activeFilter =
-            exerciseFilters?.querySelector(
-                ".filter-btn.active"
-            )?.dataset.filter || "all";
-
-
-        const exercises =
-            libraryGrid.querySelectorAll(
-                ".library-exercise"
+        const token =
+            localStorage.getItem(
+                "memberToken"
             );
 
 
-        exercises.forEach(exercise => {
+        if (!token) {
 
-            const name =
-                exercise.dataset.name
-                    ?.toLowerCase() || "";
-
-            const muscle =
-                exercise.dataset.muscle
-                    ?.toLowerCase() || "";
-
-
-            const matchesSearch =
-                name.includes(searchValue);
-
-
-            const matchesFilter =
-                activeFilter === "all" ||
-                muscle === activeFilter;
-
-
-            if (
-                matchesSearch &&
-                matchesFilter
-            ) {
-
-                exercise.classList.remove(
-                    "library-hidden"
-                );
-
-            } else {
-
-                exercise.classList.add(
-                    "library-hidden"
-                );
-
-            }
-
-        });
-
-    }
-
-
-    exerciseSearch?.addEventListener(
-        "input",
-        filterExercises
-    );
-
-
-    /* =====================================================
-       08. MUSCLE FILTERS
-    ===================================================== */
-
-    exerciseFilters?.addEventListener(
-        "click",
-        event => {
-
-            const filterButton =
-                event.target.closest(
-                    ".filter-btn"
-                );
-
-
-            if (!filterButton) return;
-
-
-            exerciseFilters
-                .querySelectorAll(".filter-btn")
-                .forEach(button => {
-
-                    button.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-            filterButton.classList.add(
-                "active"
+            console.error(
+                "Member token not found."
             );
 
+            window.location.href =
+                "../auth/member-login.html";
 
-            filterExercises();
+            return;
 
         }
-    );
 
 
-    /* =====================================================
-       09. ADD EXERCISE
-    ===================================================== */
+        try {
 
-    libraryGrid?.addEventListener(
-        "click",
-        event => {
+            const response =
+                await fetch(
+                    `${API_BASE_URL}/api/member/workouts`,
+                    {
+                        method: "GET",
 
-            const addButton =
-                event.target.closest(
-                    ".add-exercise-btn"
+                        headers: {
+                            "Authorization":
+                                `Bearer ${token}`
+                        }
+                    }
                 );
 
 
-            if (!addButton) return;
+            const result =
+                await response.json();
 
 
-            const exerciseName =
-                addButton.dataset.exercise;
+            if (!response.ok) {
 
-
-            if (!exerciseName) return;
-
-
-            const alreadySelected =
-                selectedExercises.some(
-                    exercise =>
-                        exercise.name === exerciseName
-                );
-
-
-            if (alreadySelected) {
-
-                removeExercise(exerciseName);
-
-            } else {
-
-                addExercise(
-                    exerciseName,
-                    addButton
+                throw new Error(
+                    result.message ||
+                    "Unable to load workouts."
                 );
 
             }
 
 
-            updateLibraryButtons();
-            updateSelectedCount();
+            currentWorkout =
+                result.data?.workout ||
+                null;
+
+
+            console.log(
+                "Real member workout:",
+                currentWorkout
+            );
+
+
+            renderWorkout();
+
+
+        } catch (error) {
+
+            console.error(
+                "Failed to load member workout:",
+                error
+            );
+
+
+            showMessage(
+                "Unable to load your workout."
+            );
 
         }
-    );
-
-
-    /* =====================================================
-       10. ADD EXERCISE FUNCTION
-    ===================================================== */
-
-    function addExercise(
-        exerciseName,
-        button
-    ) {
-
-        const libraryExercise =
-            button.closest(
-                ".library-exercise"
-            );
-
-
-        const muscle =
-            libraryExercise
-                ?.dataset.muscle || "General";
-
-
-        const description =
-            libraryExercise
-                ?.querySelector(
-                    ".library-exercise-info p"
-                )?.textContent || "";
-
-
-        const equipment =
-            description.includes("•")
-                ? description
-                    .split("•")[1]
-                    .trim()
-                : "Equipment";
-
-
-        selectedExercises.push({
-
-            name: exerciseName,
-
-            muscle: capitalize(
-                muscle
-            ),
-
-            equipment,
-
-            sets: 3,
-
-            reps: 12
-
-        });
 
     }
 
 
     /* =====================================================
-       11. REMOVE EXERCISE
-    ===================================================== */
-
-    function removeExercise(
-        exerciseName
-    ) {
-
-        selectedExercises =
-            selectedExercises.filter(
-                exercise =>
-                    exercise.name !== exerciseName
-            );
-
-    }
-
-
-    /* =====================================================
-       12. UPDATE LIBRARY BUTTONS
-    ===================================================== */
-
-    function updateLibraryButtons() {
-
-        if (!libraryGrid) return;
-
-
-        const buttons =
-            libraryGrid.querySelectorAll(
-                ".add-exercise-btn"
-            );
-
-
-        buttons.forEach(button => {
-
-            const exerciseName =
-                button.dataset.exercise;
-
-
-            const selected =
-                selectedExercises.some(
-                    exercise =>
-                        exercise.name === exerciseName
-                );
-
-
-            if (selected) {
-
-                button.classList.add(
-                    "added"
-                );
-
-
-                button.innerHTML = `
-                    <i class="fa-solid fa-check"></i>
-                    <span>Added</span>
-                `;
-
-            } else {
-
-                button.classList.remove(
-                    "added"
-                );
-
-
-                button.innerHTML = `
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Add</span>
-                `;
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       13. UPDATE SELECTED COUNT
-    ===================================================== */
-
-    function updateSelectedCount() {
-
-        if (!selectedExerciseCount) return;
-
-
-        const count =
-            selectedExercises.length;
-
-
-        selectedExerciseCount.textContent =
-            `${count} ${
-                count === 1
-                    ? "exercise"
-                    : "exercises"
-            } selected`;
-
-    }
-
-
-    /* =====================================================
-       14. RENDER CURRENT WORKOUT
+       RENDER WORKOUT
     ===================================================== */
 
     function renderWorkout() {
 
-        if (!exerciseList) return;
+        if (!currentWorkout) {
+
+            renderNoWorkout();
+
+            return;
+
+        }
+
+
+        renderWorkoutHeader();
+
+        renderWorkoutExercises();
+
+        enableWorkoutActions();
+
+    }
+
+
+    /* =====================================================
+       RENDER NO WORKOUT
+    ===================================================== */
+
+    function renderNoWorkout() {
+
+        if (currentWorkoutName) {
+
+            currentWorkoutName.textContent =
+                "No Workout Assigned";
+
+        }
+
+
+        if (workoutLevel) {
+
+            workoutLevel.textContent =
+                "NOT ASSIGNED";
+
+        }
+
+
+        updateWorkoutInfo(
+            "--",
+            "0 Exercises",
+            "--"
+        );
+
+
+        if (exerciseList) {
+
+            exerciseList.innerHTML = `
+                <div class="exercise-card">
+
+                    <div class="exercise-number">
+                        —
+                    </div>
+
+                    <div class="exercise-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+
+                    <div class="exercise-details">
+
+                        <h3>
+                            No workout available
+                        </h3>
+
+                        <p>
+                            Your gym has not assigned a workout plan yet.
+                        </p>
+
+                    </div>
+
+                </div>
+            `;
+
+        }
+
+
+        if (exerciseCount) {
+
+            exerciseCount.textContent =
+                "0 Exercises";
+
+        }
+
+
+        if (exerciseTotal) {
+
+            exerciseTotal.textContent =
+                "0 Exercises";
+
+        }
+
+
+        if (startWorkoutBtn) {
+
+            startWorkoutBtn.disabled = true;
+
+            startWorkoutBtn.style.opacity =
+                "0.5";
+
+            startWorkoutBtn.style.cursor =
+                "not-allowed";
+
+        }
+
+
+        if (viewWorkoutBtn) {
+
+            viewWorkoutBtn.disabled = true;
+
+            viewWorkoutBtn.style.opacity =
+                "0.5";
+
+            viewWorkoutBtn.style.cursor =
+                "not-allowed";
+
+        }
+
+
+        /*
+         * Editing is disabled for now because
+         * the create/update workout API has not
+         * been implemented yet.
+         */
+
+        if (editWorkoutBtn) {
+
+            editWorkoutBtn.disabled = true;
+
+            editWorkoutBtn.style.opacity =
+                "0.5";
+
+            editWorkoutBtn.style.cursor =
+                "not-allowed";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       WORKOUT HEADER
+    ===================================================== */
+
+    function renderWorkoutHeader() {
+
+        if (currentWorkoutName) {
+
+            currentWorkoutName.textContent =
+                currentWorkout.name ||
+                "Workout";
+
+        }
+
+
+        if (workoutLevel) {
+
+            workoutLevel.textContent =
+                currentWorkout.goal ||
+                "FITNESS";
+
+        }
+
+
+        const exercises =
+            Array.isArray(
+                currentWorkout.exercises
+            )
+                ? currentWorkout.exercises
+                : [];
+
+
+        const duration =
+            calculateWorkoutDuration(
+                exercises
+            );
+
+
+        const difficulty =
+            getWorkoutDifficulty(
+                exercises
+            );
+
+
+        updateWorkoutInfo(
+            duration,
+            `${exercises.length} ${
+                exercises.length === 1
+                    ? "Exercise"
+                    : "Exercises"
+            }`,
+            difficulty
+        );
+
+    }
+
+
+    /* =====================================================
+       WORKOUT INFORMATION
+    ===================================================== */
+
+    function updateWorkoutInfo(
+        duration,
+        exerciseText,
+        intensity
+    ) {
+
+        if (
+            !workoutInfoItems ||
+            workoutInfoItems.length < 3
+        ) {
+
+            return;
+
+        }
+
+
+        // Duration
+        const durationValue =
+            workoutInfoItems[0]
+                ?.querySelector("strong");
+
+
+        if (durationValue) {
+
+            durationValue.textContent =
+                duration;
+
+        }
+
+
+        // Exercise count
+        const exerciseValue =
+            workoutInfoItems[1]
+                ?.querySelector("strong");
+
+
+        if (exerciseValue) {
+
+            exerciseValue.textContent =
+                exerciseText;
+
+        }
+
+
+        // Intensity
+        const intensityValue =
+            workoutInfoItems[2]
+                ?.querySelector("strong");
+
+
+        if (intensityValue) {
+
+            intensityValue.textContent =
+                intensity;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CALCULATE WORKOUT DURATION
+    ===================================================== */
+
+    function calculateWorkoutDuration(
+        exercises
+    ) {
+
+        if (!exercises.length) {
+
+            return "--";
+
+        }
+
+
+        let totalMinutes = 0;
+
+
+        exercises.forEach(
+            item => {
+
+                const duration =
+                    Number(
+                        item.duration
+                    ) || 0;
+
+
+                const sets =
+                    Number(
+                        item.sets
+                    ) || 1;
+
+
+                const restSeconds =
+                    Number(
+                        item.restSeconds
+                    ) || 0;
+
+
+                /*
+                 * If exercise duration exists,
+                 * use it.
+                 *
+                 * Otherwise estimate rest time
+                 * only when available.
+                 */
+
+                if (duration > 0) {
+
+                    totalMinutes +=
+                        duration;
+
+                }
+
+
+                if (restSeconds > 0) {
+
+                    totalMinutes +=
+                        (
+                            restSeconds *
+                            Math.max(
+                                sets - 1,
+                                0
+                            )
+                        ) / 60;
+
+                }
+
+            }
+        );
+
+
+        if (totalMinutes <= 0) {
+
+            return "--";
+
+        }
+
+
+        return `${Math.ceil(
+            totalMinutes
+        )} min`;
+
+    }
+
+
+    /* =====================================================
+       GET DIFFICULTY
+    ===================================================== */
+
+    function getWorkoutDifficulty(
+        exercises
+    ) {
+
+        const difficulties =
+            exercises
+                .map(
+                    item =>
+                        item.exercise
+                            ?.difficulty
+                )
+                .filter(Boolean);
+
+
+        if (!difficulties.length) {
+
+            return "Not Set";
+
+        }
+
+
+        /*
+         * If exercises have different
+         * difficulty values, show the
+         * highest/general level.
+         */
+
+        const priority = {
+            beginner: 1,
+            easy: 1,
+            intermediate: 2,
+            moderate: 2,
+            advanced: 3,
+            hard: 3,
+            expert: 4
+        };
+
+
+        let highest =
+            difficulties[0];
+
+
+        difficulties.forEach(
+            difficulty => {
+
+                if (
+                    (
+                        priority[
+                            String(
+                                difficulty
+                            ).toLowerCase()
+                        ] || 0
+                    ) >
+                    (
+                        priority[
+                            String(
+                                highest
+                            ).toLowerCase()
+                        ] || 0
+                    )
+                ) {
+
+                    highest =
+                        difficulty;
+
+                }
+
+            }
+        );
+
+
+        return highest;
+
+    }
+
+
+    /* =====================================================
+       RENDER EXERCISES
+    ===================================================== */
+
+    function renderWorkoutExercises() {
+
+        if (!exerciseList) {
+
+            return;
+
+        }
+
+
+        const exercises =
+            Array.isArray(
+                currentWorkout.exercises
+            )
+                ? currentWorkout.exercises
+                : [];
 
 
         exerciseList.innerHTML = "";
 
 
-        selectedExercises.forEach(
-            (exercise, index) => {
+        if (!exercises.length) {
+
+            exerciseList.innerHTML = `
+                <div class="exercise-card">
+
+                    <div class="exercise-number">
+                        —
+                    </div>
+
+                    <div class="exercise-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+
+                    <div class="exercise-details">
+
+                        <h3>
+                            No exercises assigned
+                        </h3>
+
+                        <p>
+                            This workout does not have any exercises yet.
+                        </p>
+
+                    </div>
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        exercises.forEach(
+            (item, index) => {
+
+                const exercise =
+                    item.exercise ||
+                    {};
+
 
                 const article =
                     document.createElement(
@@ -522,13 +676,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 article.dataset.exerciseId =
-                    index + 1;
+                    exercise.id ||
+                    item.exerciseId;
+
+
+                const muscle =
+                    exercise.muscleGroup ||
+                    "General";
+
+
+                const equipment =
+                    exercise.equipment ||
+                    "Bodyweight";
+
+
+                const sets =
+                    item.sets;
+
+
+                const reps =
+                    item.reps;
+
+
+                const duration =
+                    item.duration;
+
+
+                let prescription =
+                    "Not specified";
+
+
+                if (
+                    sets !== null &&
+                    sets !== undefined &&
+                    reps !== null &&
+                    reps !== undefined
+                ) {
+
+                    prescription =
+                        `${sets} × ${reps}`;
+
+                } else if (
+                    duration !== null &&
+                    duration !== undefined
+                ) {
+
+                    prescription =
+                        `${duration} min`;
+
+                }
 
 
                 article.innerHTML = `
-
                     <div class="exercise-number">
-                        ${String(index + 1).padStart(2, "0")}
+                        ${String(
+                            index + 1
+                        ).padStart(2, "0")}
                     </div>
 
                     <div class="exercise-icon">
@@ -539,17 +742,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <h3>
                             ${escapeHTML(
-                                exercise.name
+                                exercise.name ||
+                                "Exercise"
                             )}
                         </h3>
 
                         <p>
                             ${escapeHTML(
-                                exercise.muscle
+                                muscle
                             )}
                             •
                             ${escapeHTML(
-                                exercise.equipment
+                                equipment
                             )}
                         </p>
 
@@ -558,27 +762,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="exercise-prescription">
 
                         <strong>
-                            ${exercise.sets} × ${exercise.reps}
+                            ${escapeHTML(
+                                prescription
+                            )}
                         </strong>
 
                         <span>
-                            Sets × Reps
+                            ${
+                                sets !== null &&
+                                sets !== undefined &&
+                                reps !== null &&
+                                reps !== undefined
+                                    ? "Sets × Reps"
+                                    : "Duration"
+                            }
                         </span>
 
                     </div>
 
                     <button
                         class="exercise-menu"
-                        aria-label="Remove exercise"
-                        data-remove-exercise="${escapeHTML(
-                            exercise.name
-                        )}"
+                        aria-label="Exercise details"
+                        data-exercise-details
                     >
-
-                        <i class="fa-solid fa-trash"></i>
-
+                        <i class="fa-solid fa-ellipsis"></i>
                     </button>
-
                 `;
 
 
@@ -590,55 +798,8 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        updateWorkoutCounts();
-
-    }
-
-
-    /* =====================================================
-       15. REMOVE FROM CURRENT WORKOUT
-    ===================================================== */
-
-    exerciseList?.addEventListener(
-        "click",
-        event => {
-
-            const removeButton =
-                event.target.closest(
-                    "[data-remove-exercise]"
-                );
-
-
-            if (!removeButton) return;
-
-
-            const exerciseName =
-                removeButton.dataset.removeExercise;
-
-
-            removeExercise(
-                exerciseName
-            );
-
-
-            renderWorkout();
-
-            updateLibraryButtons();
-
-            updateSelectedCount();
-
-        }
-    );
-
-
-    /* =====================================================
-       16. UPDATE WORKOUT COUNTS
-    ===================================================== */
-
-    function updateWorkoutCounts() {
-
         const count =
-            selectedExercises.length;
+            exercises.length;
 
 
         if (exerciseCount) {
@@ -668,38 +829,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       17. SAVE WORKOUT
+       ENABLE WORKOUT ACTIONS
     ===================================================== */
 
-    saveWorkoutBtn?.addEventListener(
+    function enableWorkoutActions() {
+
+        if (startWorkoutBtn) {
+
+            startWorkoutBtn.disabled =
+                false;
+
+            startWorkoutBtn.style.opacity =
+                "";
+
+            startWorkoutBtn.style.cursor =
+                "";
+
+        }
+
+
+        if (viewWorkoutBtn) {
+
+            viewWorkoutBtn.disabled =
+                false;
+
+            viewWorkoutBtn.style.opacity =
+                "";
+
+            viewWorkoutBtn.style.cursor =
+                "";
+
+        }
+
+
+        /*
+         * Edit remains disabled for now.
+         *
+         * We will connect it after the
+         * create/update workout API exists.
+         */
+
+        if (editWorkoutBtn) {
+
+            editWorkoutBtn.disabled =
+                true;
+
+            editWorkoutBtn.style.opacity =
+                "0.5";
+
+            editWorkoutBtn.style.cursor =
+                "not-allowed";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       START WORKOUT
+    ===================================================== */
+
+    startWorkoutBtn?.addEventListener(
         "click",
         () => {
 
-            if (
-                selectedExercises.length === 0
-            ) {
-
-                alert(
-                    "Please select at least one exercise."
-                );
+            if (!currentWorkout) {
 
                 return;
 
             }
 
 
-            renderWorkout();
-
-            updateSelectedCount();
-
-            updateLibraryButtons();
-
-
-            closeExerciseLibrary();
-
-
             showMessage(
-                "Workout updated successfully."
+                "Workout start API is the next step."
             );
 
         }
@@ -707,50 +909,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       18. START WORKOUT
+       VIEW DETAILS
     ===================================================== */
 
-    document
-        .getElementById("startWorkoutBtn")
-        ?.addEventListener(
-            "click",
-            () => {
+    viewWorkoutBtn?.addEventListener(
+        "click",
+        () => {
 
-                showMessage(
-                    "Workout session is ready to start."
-                );
+            if (!currentWorkout) {
+
+                return;
 
             }
-        );
+
+
+            window.location.href =
+                `workout-details.html?id=${encodeURIComponent(
+                    currentWorkout.id
+                )}`;
+
+        }
+    );
 
 
     /* =====================================================
-       19. VIEW WORKOUT DETAILS
-    ===================================================== */
-
-    document
-        .getElementById("viewWorkoutBtn")
-        ?.addEventListener(
-            "click",
-            () => {
-
-                const current =
-                    document.querySelector(
-                        ".current-workout-section"
-                    );
-
-
-                current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
-        );
-
-
-    /* =====================================================
-       20. MOBILE SIDEBAR
+       MOBILE MENU
     ===================================================== */
 
     mobileMenuBtn?.addEventListener(
@@ -765,30 +948,30 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* =====================================================
-       21. CLOSE SIDEBAR ON LINK CLICK
-    ===================================================== */
+    sidebar
+        ?.querySelectorAll(
+            ".nav-item"
+        )
+        .forEach(
+            link => {
 
-    sidebar?.querySelectorAll(
-        ".nav-item"
-    ).forEach(link => {
+                link.addEventListener(
+                    "click",
+                    () => {
 
-        link.addEventListener(
-            "click",
-            () => {
+                        sidebar.classList.remove(
+                            "open"
+                        );
 
-                sidebar.classList.remove(
-                    "open"
+                    }
                 );
 
             }
         );
 
-    });
-
 
     /* =====================================================
-       22. LOGOUT DEMO
+       LOGOUT
     ===================================================== */
 
     logoutBtn?.addEventListener(
@@ -801,7 +984,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-            if (!confirmed) return;
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                "memberToken"
+            );
 
 
             window.location.href =
@@ -812,25 +1004,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       23. NOTIFICATION DEMO
+       NOTIFICATIONS
     ===================================================== */
 
-    document
-        .getElementById("notificationBtn")
-        ?.addEventListener(
-            "click",
-            () => {
+    notificationBtn?.addEventListener(
+        "click",
+        () => {
 
-                showMessage(
-                    "No new notifications."
-                );
+            showMessage(
+                "No new notifications."
+            );
 
-            }
-        );
+        }
+    );
 
 
     /* =====================================================
-       24. MESSAGE
+       USER DISPLAY
+    ===================================================== */
+
+    function loadMemberName() {
+
+        /*
+         * We don't make another API call here.
+         * The dashboard/profile already uses
+         * the member token.
+         *
+         * If your member name is available in
+         * localStorage later, we can populate it.
+         */
+
+    }
+
+
+    /* =====================================================
+       MESSAGE
     ===================================================== */
 
     function showMessage(message) {
@@ -855,13 +1063,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         toast.innerHTML = `
-
-            <i class="fa-solid fa-check"></i>
-
+            <i class="fa-solid fa-info-circle"></i>
             <span>
                 ${escapeHTML(message)}
             </span>
-
         `;
 
 
@@ -886,18 +1091,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 fontWeight: "600"
             }
         );
-
-
-        const icon =
-            toast.querySelector("i");
-
-
-        if (icon) {
-
-            icon.style.color =
-                "var(--cyan)";
-
-        }
 
 
         document.body.appendChild(
@@ -931,45 +1124,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       25. CAPITALIZE HELPER
-    ===================================================== */
-
-    function capitalize(value) {
-
-        if (!value) return "";
-
-        return value.charAt(0).toUpperCase()
-            + value.slice(1);
-
-    }
-
-
-    /* =====================================================
-       26. HTML ESCAPE
+       HTML ESCAPE
     ===================================================== */
 
     function escapeHTML(value) {
 
         return String(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
 
     /* =====================================================
-       27. INITIAL STATE
+       INITIALIZE
     ===================================================== */
 
-    renderWorkout();
+    loadMemberName();
 
-    updateLibraryButtons();
-
-    updateSelectedCount();
-
-    updateWorkoutCounts();
+    loadMemberWorkout();
 
 });
