@@ -126,7 +126,59 @@ model Exercise {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  workoutExercises WorkoutExercise[]
+  workoutExercises  WorkoutExercise[]
+  templateExercises WorkoutTemplateExercise[]
+}
+
+// =========================================================
+// WORKOUT TEMPLATE
+// Predefined FITZONE workout library
+// =========================================================
+
+model WorkoutTemplate {
+  id Int @id @default(autoincrement())
+
+  name        String
+  description String?
+  muscleGroup String
+  goal        String?
+  difficulty  String?
+  duration    Int?
+  status      String  @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  exercises WorkoutTemplateExercise[]
+
+  @@index([muscleGroup])
+  @@index([status])
+}
+
+// =========================================================
+// WORKOUT TEMPLATE EXERCISE
+// Exercises inside predefined workouts
+// =========================================================
+
+model WorkoutTemplateExercise {
+  id Int @id @default(autoincrement())
+
+  templateId Int
+  exerciseId Int
+
+  sets        Int?
+  reps        Int?
+  duration    Int?
+  restSeconds Int?
+  orderIndex  Int
+
+  template WorkoutTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+
+  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@unique([templateId, exerciseId])
+  @@index([templateId])
+  @@index([exerciseId])
 }
 
 // =========================================================

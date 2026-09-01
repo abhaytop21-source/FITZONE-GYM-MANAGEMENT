@@ -25,3 +25,5 @@ Thumbs.db
 .claude/
 .windsurf/
 .agents/
+
+migrations/
