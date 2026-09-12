@@ -1,8 +1,9 @@
 import {
     getMemberWorkoutsService,
-    createMemberWorkoutService
+    createMemberWorkoutService,
+    getWorkoutLibraryService,
+    getWorkoutLibraryDetailsService
 } from "./memberWorkouts.service.js";
-
 
 // =====================================================
 // GET MEMBER WORKOUTS
@@ -108,3 +109,93 @@ export const createMemberWorkout = async (
     }
 
 };
+
+// =====================================================
+// GET WORKOUT LIBRARY
+// =====================================================
+
+export const getWorkoutLibrary = async (req, res) => {
+
+    try {
+
+        const workouts =
+            await getWorkoutLibraryService();
+
+        res.status(200).json({
+
+            success: true,
+
+            data: {
+                workouts
+            }
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Workout library error:",
+            error
+        );
+
+        res.status(500).json({
+
+            success: false,
+
+            message:
+                "Failed to load workout library."
+
+        });
+
+    }
+
+};
+
+
+// =====================================================
+// GET WORKOUT LIBRARY DETAILS
+// =====================================================
+
+export const getWorkoutLibraryDetails =
+    async (req, res) => {
+
+        try {
+
+            const workoutId =
+                req.params.id;
+
+            const workout =
+                await getWorkoutLibraryDetailsService(
+                    workoutId
+                );
+
+            res.status(200).json({
+
+                success: true,
+
+                data: {
+                    workout
+                }
+
+            });
+
+        } catch (error) {
+
+            console.error(
+                "Workout library details error:",
+                error
+            );
+
+            res.status(404).json({
+
+                success: false,
+
+                message:
+                    error.message ||
+                    "Workout not found."
+
+            });
+
+        }
+
+    };

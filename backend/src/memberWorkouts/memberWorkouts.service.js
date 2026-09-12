@@ -399,3 +399,92 @@ export const createMemberWorkoutService = async (
     return workout;
 
 };
+
+// =====================================================
+// GET WORKOUT LIBRARY
+// =====================================================
+
+export const getWorkoutLibraryService = async () => {
+
+    const workouts =
+        await prisma.workoutTemplate.findMany({
+
+            where: {
+                status: "ACTIVE"
+            },
+
+            orderBy: [
+                {
+                    muscleGroup: "asc"
+                },
+                {
+                    difficulty: "asc"
+                },
+                {
+                    name: "asc"
+                }
+            ],
+
+            include: {
+
+                exercises: {
+
+                    orderBy: {
+                        orderIndex: "asc"
+                    },
+
+                    include: {
+                        exercise: true
+                    }
+
+                }
+
+            }
+
+        });
+
+    return workouts;
+};
+
+
+// =====================================================
+// GET SINGLE WORKOUT FROM LIBRARY
+// =====================================================
+
+export const getWorkoutLibraryDetailsService =
+    async (workoutId) => {
+
+        const workout =
+            await prisma.workoutTemplate.findFirst({
+
+                where: {
+                    id: Number(workoutId),
+                    status: "ACTIVE"
+                },
+
+                include: {
+
+                    exercises: {
+
+                        orderBy: {
+                            orderIndex: "asc"
+                        },
+
+                        include: {
+                            exercise: true
+                        }
+
+                    }
+
+                }
+
+            });
+
+        if (!workout) {
+            throw new Error(
+                "Workout not found."
+            );
+        }
+
+        return workout;
+    };
