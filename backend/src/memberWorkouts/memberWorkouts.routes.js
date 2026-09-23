@@ -4,7 +4,8 @@ import {
     getMemberWorkouts,
     createMemberWorkout,
     getWorkoutLibrary,
-    getWorkoutLibraryDetails
+    getWorkoutLibraryDetails,
+    selectWorkoutTemplate
 } from "./memberWorkouts.controller.js";
 
 import verifyToken from "../middleware/verifyToken.js";
@@ -53,5 +54,60 @@ router.get(
     verifyToken,
     getWorkoutLibraryDetails
 );
+
+// =====================================================
+// WORKOUT LIBRARY
+// =====================================================
+
+router.get(
+    "/library",
+    verifyToken,
+    getWorkoutLibrary
+);
+
+
+// =====================================================
+// WORKOUT LIBRARY DETAILS
+// =====================================================
+
+router.get(
+    "/library/:id",
+    verifyToken,
+    getWorkoutLibraryDetails
+);
+
+
+// =====================================================
+// SELECT WORKOUT FROM LIBRARY
+// =====================================================
+
+router.post(
+    "/library/:id/select",
+    verifyToken,
+    selectWorkoutTemplate
+);
+
+
+// =====================================================
+// GET MEMBER CURRENT WORKOUT
+// =====================================================
+
+router.get(
+    "/",
+    verifyToken,
+    getMemberWorkouts
+);
+
+
+// =====================================================
+// CREATE MEMBER WORKOUT
+// =====================================================
+
+router.post(
+    "/",
+    verifyToken,
+    createMemberWorkout
+);
+
 
 export default router;

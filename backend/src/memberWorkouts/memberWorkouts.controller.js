@@ -2,7 +2,8 @@ import {
     getMemberWorkoutsService,
     createMemberWorkoutService,
     getWorkoutLibraryService,
-    getWorkoutLibraryDetailsService
+    getWorkoutLibraryDetailsService,
+    selectWorkoutTemplateService
 } from "./memberWorkouts.service.js";
 
 // =====================================================
@@ -199,3 +200,78 @@ export const getWorkoutLibraryDetails =
         }
 
     };
+
+// =====================================================
+// SELECT WORKOUT FROM LIBRARY
+// =====================================================
+
+export const selectWorkoutTemplate = async (
+    req,
+    res
+) => {
+
+    try {
+
+        const memberId =
+            req.user.id;
+
+
+        const templateId =
+            req.params.id;
+
+
+        const workout =
+            await selectWorkoutTemplateService(
+                memberId,
+                templateId
+            );
+
+
+        res.status(201).json({
+
+            success: true,
+
+            message:
+                "Workout selected successfully.",
+
+            data: {
+
+                workout
+
+            }
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Select workout error:",
+            error
+        );
+
+
+        const message =
+            error.message ||
+            "Failed to select workout.";
+
+
+        const statusCode =
+            message.includes(
+                "not found"
+            )
+                ? 404
+                : 400;
+
+
+        res.status(statusCode).json({
+
+            success: false,
+
+            message
+
+        });
+
+    }
+
+};

@@ -486,5 +486,221 @@ export const getWorkoutLibraryDetailsService =
             );
         }
 
-        return workout;
-    };
+    return workout;
+
+};
+
+// =====================================================
+// SELECT WORKOUT FROM LIBRARY
+// =====================================================
+
+export const selectWorkoutTemplateService = async (
+    memberId,
+    templateId
+) => {
+
+    const workoutTemplateId =
+        Number(templateId);
+
+
+    // -------------------------------------------------
+    // Validate template ID
+    // -------------------------------------------------
+
+    if (
+        !Number.isInteger(workoutTemplateId) ||
+        workoutTemplateId <= 0
+    ) {
+
+        throw new Error(
+            "Invalid workout template ID."
+        );
+
+    }
+
+
+    // -------------------------------------------------
+    // Get predefined workout template
+    // -------------------------------------------------
+
+    const workoutTemplate =
+        await prisma.workoutTemplate.findFirst({
+
+            where: {
+
+                id: workoutTemplateId,
+
+                status: "ACTIVE"
+
+            },
+
+            include: {
+
+                exercises: {
+
+                    orderBy: {
+
+                        orderIndex: "asc"
+
+                    },
+
+                    include: {
+
+                        exercise: true
+
+                    }
+
+                }
+
+            }
+
+        });
+
+
+    if (!workoutTemplate) {
+
+        throw new Error(
+            "Workout template not found."
+        );
+
+    }
+
+
+    // -------------------------------------------------
+    // Make sure template has exercises
+    // -------------------------------------------------
+
+    if (
+        !Array.isArray(
+            workoutTemplate.exercises
+        ) ||
+        workoutTemplate.exercises.length === 0
+    ) {
+
+        throw new Error(
+            "This workout does not contain any exercises."
+        );
+
+    }
+
+
+    // -------------------------------------------------
+    // Create member workout in transaction
+    // -------------------------------------------------
+
+    const workout =
+        await prisma.$transaction(
+            async (tx) => {
+
+
+                // -------------------------------------
+                // Deactivate current active workout
+                // -------------------------------------
+
+                await tx.workoutPlan.updateMany({
+
+                    where: {
+
+                        memberId,
+
+                        status: "ACTIVE"
+
+                    },
+
+                    data: {
+
+                        status: "INACTIVE"
+
+                    }
+
+                });
+
+
+                // -------------------------------------
+                // Create new member workout
+                // -------------------------------------
+
+                const newWorkout =
+                    await tx.workoutPlan.create({
+
+                        data: {
+
+                            memberId,
+
+                            name:
+                                workoutTemplate.name,
+
+                            description:
+                                workoutTemplate.description ||
+                                null,
+
+                            goal:
+                                workoutTemplate.goal ||
+                                null,
+
+                            status:
+                                "ACTIVE",
+
+                            exercises: {
+
+                                create:
+                                    workoutTemplate.exercises.map(
+                                        templateExercise => ({
+
+                                            exerciseId:
+                                                templateExercise.exerciseId,
+
+                                            sets:
+                                                templateExercise.sets,
+
+                                            reps:
+                                                templateExercise.reps,
+
+                                            duration:
+                                                templateExercise.duration,
+
+                                            restSeconds:
+                                                templateExercise.restSeconds,
+
+                                            orderIndex:
+                                                templateExercise.orderIndex
+
+                                        })
+                                    )
+
+                            }
+
+                        },
+
+                        include: {
+
+                            exercises: {
+
+                                orderBy: {
+
+                                    orderIndex: "asc"
+
+                                },
+
+                                include: {
+
+                                    exercise: true
+
+                                }
+
+                            }
+
+                        }
+
+                    });
+
+
+                return newWorkout;
+
+            }
+        );
+
+
+    return workout;
+
+};

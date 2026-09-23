@@ -278,22 +278,13 @@
                         class="user-profile"
                     >
 
-                        <div class="user-avatar">
-                            A
-                        </div>
+                        <div class="user-avatar" id="memberAvatar"></div>
 
 
                         <div class="user-info">
-
-                            <strong>
-                                Abhay
-                            </strong>
-
-                            <span>
-                                Member
-                            </span>
-
-                        </div>
+                                <strong id="memberName"></strong>
+                                <span>Member</span>
+                            </div>
 
 
                         <i class="fa-solid fa-chevron-down"></i>
@@ -344,13 +335,14 @@
 
                         <button
                             class="secondary-action"
-                            id="editWorkoutBtn"
+                            id="openWorkoutLibraryBtn"
+                            type="button"
                         >
 
-                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-book-open"></i>
 
                             <span>
-                                Edit Workout
+                                Workout Library
                             </span>
 
                         </button>
@@ -384,21 +376,14 @@
                                     CURRENT WORKOUT
                                 </span>
 
-                                <h2 id="currentWorkoutName">
-                                    Chest + Triceps
-                                </h2>
+                                <h2 id="currentWorkoutName"></h2>
 
-                                <p>
-                                    Your personalized training
-                                    session for today.
-                                </p>
+                                <p id="currentWorkoutDescription"></p>
 
                             </div>
 
 
-                            <span class="workout-level">
-                                INTERMEDIATE
-                            </span>
+                            <span class="workout-level" id="workoutLevel"></span>
 
 
                         </div>
@@ -420,9 +405,7 @@
                                         DURATION
                                     </span>
 
-                                    <strong>
-                                        55 min
-                                    </strong>
+                                    <strong id="workoutDuration"></strong>
 
                                 </div>
 
@@ -439,9 +422,7 @@
                                         EXERCISES
                                     </span>
 
-                                    <strong id="exerciseCount">
-                                        6 Exercises
-                                    </strong>
+                                    <strong id="exerciseCount"></strong>
 
                                 </div>
 
@@ -458,9 +439,7 @@
                                         INTENSITY
                                     </span>
 
-                                    <strong>
-                                        Moderate
-                                    </strong>
+                                    <strong id="workoutIntensity"></strong>
 
                                 </div>
 
@@ -537,12 +516,7 @@
                         </div>
 
 
-                        <span
-                            class="exercise-total"
-                            id="exerciseTotal"
-                        >
-                            6 Exercises
-                        </span>
+                        <span class="exercise-total" id="exerciseTotal"></span>
 
 
                     </div>
@@ -553,302 +527,66 @@
 
                     <div
                         class="exercise-list"
-                        id="exerciseList"
-                    >
-
-
-                        <!-- Exercise 01 -->
-
-                        <article
-                            class="exercise-card"
-                            data-exercise-id="1"
-                        >
-
-                            <div class="exercise-number">
-                                01
-                            </div>
-
-
-                            <div class="exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="exercise-details">
-
-                                <h3>
-                                    Bench Press
-                                </h3>
-
-                                <p>
-                                    Chest • Barbell
-                                </p>
-
-                            </div>
-
-
-                            <div class="exercise-prescription">
-
-                                <strong>
-                                    4 × 10
-                                </strong>
-
-                                <span>
-                                    Sets × Reps
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                class="exercise-menu"
-                                aria-label="Exercise options"
-                            >
-
-                                <i class="fa-solid fa-ellipsis"></i>
-
-                            </button>
-
-
-                        </article>
-
-
-
-                        <!-- Exercise 02 -->
-
-                        <article
-                            class="exercise-card"
-                            data-exercise-id="2"
-                        >
-
-                            <div class="exercise-number">
-                                02
-                            </div>
-
-
-                            <div class="exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="exercise-details">
-
-                                <h3>
-                                    Incline Dumbbell Press
-                                </h3>
-
-                                <p>
-                                    Upper Chest • Dumbbell
-                                </p>
-
-                            </div>
-
-
-                            <div class="exercise-prescription">
-
-                                <strong>
-                                    3 × 12
-                                </strong>
-
-                                <span>
-                                    Sets × Reps
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                class="exercise-menu"
-                                aria-label="Exercise options"
-                            >
-
-                                <i class="fa-solid fa-ellipsis"></i>
-
-                            </button>
-
-
-                        </article>
-
-
-
-                        <!-- Exercise 03 -->
-
-                        <article
-                            class="exercise-card"
-                            data-exercise-id="3"
-                        >
-
-                            <div class="exercise-number">
-                                03
-                            </div>
-
-
-                            <div class="exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="exercise-details">
-
-                                <h3>
-                                    Cable Fly
-                                </h3>
-
-                                <p>
-                                    Chest • Cable
-                                </p>
-
-                            </div>
-
-
-                            <div class="exercise-prescription">
-
-                                <strong>
-                                    3 × 12
-                                </strong>
-
-                                <span>
-                                    Sets × Reps
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                class="exercise-menu"
-                                aria-label="Exercise options"
-                            >
-
-                                <i class="fa-solid fa-ellipsis"></i>
-
-                            </button>
-
-
-                        </article>
-
-
-
-                        <!-- Exercise 04 -->
-
-                        <article
-                            class="exercise-card"
-                            data-exercise-id="4"
-                        >
-
-                            <div class="exercise-number">
-                                04
-                            </div>
-
-
-                            <div class="exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="exercise-details">
-
-                                <h3>
-                                    Tricep Pushdown
-                                </h3>
-
-                                <p>
-                                    Triceps • Cable
-                                </p>
-
-                            </div>
-
-
-                            <div class="exercise-prescription">
-
-                                <strong>
-                                    3 × 12
-                                </strong>
-
-                                <span>
-                                    Sets × Reps
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                class="exercise-menu"
-                                aria-label="Exercise options"
-                            >
-
-                                <i class="fa-solid fa-ellipsis"></i>
-
-                            </button>
-
-
-                        </article>
-
-
-
+                        id="exerciseList">
                     </div>
-
 
                 </section>
 
 
 
                 <!-- =================================================
-                     EXERCISE LIBRARY
-                     Hidden until Edit Workout / Add Exercise
+                     WORKOUT LIBRARY
+                     Hidden until the member opens Workout Library
                 ================================================== -->
 
-                <section
-                    class="exercise-library"
-                    id="exerciseLibrary"
-                    hidden
-                    role="dialog"
-                    aria-modal="true"
-                    aria-labelledby="workoutLibraryTitle"
-                >
+            <div
+                class="exercise-library"
+                id="exerciseLibrary"
+                hidden
+            >
 
+                <!-- =================================================
+                    LIBRARY HEADER
+                ================================================== -->
 
-                    <div class="library-header">
+                <div class="library-header">
 
+                    <div>
 
-                        <div>
+                        <span class="section-label">
+                            FITZONE LIBRARY
+                        </span>
 
-                            <span class="section-label">
-                                FITZONE LIBRARY
-                            </span>
+                        <h2>
+                            Workout Library
+                        </h2>
 
-                            <h2 id="workoutLibraryTitle">
-                                Edit Your Workout
-                            </h2>
-
-                            <p>
-                               Choose the exercises you want in your workout.
-                            </p>
-
-                        </div>
-
-
-                        <button
-                            class="close-library-btn"
-                            id="closeLibraryBtn"
-                            aria-label="Close exercise library"
-                        >
-
-                            <i class="fa-solid fa-xmark"></i>
-
-                        </button>
-
+                        <p>
+                            Select a predefined workout for your training.
+                        </p>
 
                     </div>
 
 
+                    <button
+                        type="button"
+                        class="close-library-btn"
+                        id="closeLibraryBtn"
+                        aria-label="Close workout library"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                    SCROLLABLE LIBRARY BODY
+                ================================================== -->
+
+                <div class="library-body">
 
                     <!-- Search -->
 
@@ -858,23 +596,23 @@
 
                         <input
                             type="search"
-                            id="exerciseSearch"
-                            placeholder="Search exercises..."
+                            id="workoutSearch"
+                            placeholder="Search workouts..."
                             autocomplete="off"
                         >
 
                     </div>
 
 
-
-                    <!-- Muscle Filters -->
+                    <!-- Filters -->
 
                     <div
                         class="exercise-filters"
-                        id="exerciseFilters"
+                        id="workoutFilters"
                     >
 
                         <button
+                            type="button"
                             class="filter-btn active"
                             data-filter="all"
                         >
@@ -882,6 +620,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="chest"
                         >
@@ -889,6 +628,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="back"
                         >
@@ -896,6 +636,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="shoulders"
                         >
@@ -903,6 +644,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="legs"
                         >
@@ -910,6 +652,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="arms"
                         >
@@ -917,6 +660,7 @@
                         </button>
 
                         <button
+                            type="button"
                             class="filter-btn"
                             data-filter="core"
                         >
@@ -926,394 +670,39 @@
                     </div>
 
 
-
-                    <!-- Library Grid -->
+                    <!-- Workout Cards -->
 
                     <div
                         class="library-grid"
                         id="libraryGrid"
                     >
 
+                        <div class="library-loading">
 
-                        <!-- Demo Exercise -->
+                            <i class="fa-solid fa-spinner fa-spin"></i>
 
-                        <article
-                            class="library-exercise"
-                            data-muscle="chest"
-                            data-name="Bench Press"
-                        >
+                            <p>
+                                Loading workout library...
+                            </p>
 
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Bench Press
-                                </h3>
-
-                                <p>
-                                    Chest • Barbell
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Bench Press"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="chest"
-                            data-name="Incline Dumbbell Press"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Incline Dumbbell Press
-                                </h3>
-
-                                <p>
-                                    Chest • Dumbbell
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Incline Dumbbell Press"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="chest"
-                            data-name="Cable Fly"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-link"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Cable Fly
-                                </h3>
-
-                                <p>
-                                    Chest • Cable
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Cable Fly"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="back"
-                            data-name="Lat Pulldown"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Lat Pulldown
-                                </h3>
-
-                                <p>
-                                    Back • Cable
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Lat Pulldown"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="legs"
-                            data-name="Barbell Squat"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Barbell Squat
-                                </h3>
-
-                                <p>
-                                    Legs • Barbell
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Barbell Squat"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="shoulders"
-                            data-name="Shoulder Press"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Shoulder Press
-                                </h3>
-
-                                <p>
-                                    Shoulders • Dumbbell
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Shoulder Press"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="arms"
-                            data-name="Bicep Curl"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-dumbbell"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Bicep Curl
-                                </h3>
-
-                                <p>
-                                    Biceps • Dumbbell
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Bicep Curl"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
-
-
-                        <article
-                            class="library-exercise"
-                            data-muscle="core"
-                            data-name="Plank"
-                        >
-
-                            <div class="library-exercise-icon">
-
-                                <i class="fa-solid fa-person"></i>
-
-                            </div>
-
-
-                            <div class="library-exercise-info">
-
-                                <h3>
-                                    Plank
-                                </h3>
-
-                                <p>
-                                    Core • Bodyweight
-                                </p>
-
-                            </div>
-
-
-                            <button
-                                class="add-exercise-btn"
-                                data-exercise="Plank"
-                            >
-
-                                <i class="fa-solid fa-plus"></i>
-
-                                <span>
-                                    Add
-                                </span>
-
-                            </button>
-
-                        </article>
-
+                        </div>
 
                     </div>
 
 
-
-                    <!-- Library Footer -->
+                    <!-- Footer -->
 
                     <div class="library-footer">
 
-                        <span id="selectedExerciseCount">
-                            0 exercises selected
+                        <span id="libraryWorkoutCount">
+                            0 workouts
                         </span>
-
-
-                        <button
-                            class="primary-action"
-                            id="saveWorkoutBtn"
-                        >
-
-                            <span>
-                                Save Workout
-                            </span>
-
-                            <i class="fa-solid fa-check"></i>
-
-                        </button>
 
                     </div>
 
+                </div>
 
-                </section>
-
-
-
-            </section>
+            </div>
 
 
 

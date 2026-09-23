@@ -539,586 +539,7 @@
 
 
 /* =========================================================
-   11. EXERCISE LIBRARY
-========================================================= */
-
-.exercise-library {
-    margin-top: 30px;
-
-    padding: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18, 23, 30, 0.98),
-            rgba(11, 16, 22, 0.98)
-        );
-
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
-
-    animation: libraryReveal 0.25s ease;
-}
-
-.exercise-library[hidden] {
-    display: none;
-}
-
-@keyframes libraryReveal {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   12. LIBRARY HEADER
-========================================================= */
-
-.library-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 20px;
-}
-
-.library-header h2 {
-    color: #e8e9eb;
-
-    font-size: 17px;
-
-    font-weight: 650;
-}
-
-.library-header p {
-    margin-top: 6px;
-
-    color: #686e77;
-
-    font-size: 9px;
-}
-
-.close-library-btn {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    color: #777d86;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    border: 1px solid var(--border);
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.close-library-btn:hover {
-    color: #ff6875;
-
-    background: rgba(255, 95, 109, 0.045);
-
-    border-color: rgba(255, 95, 109, 0.12);
-}
-
-
-/* =========================================================
-   13. EXERCISE SEARCH
-========================================================= */
-
-.exercise-search {
-    position: relative;
-
-    margin-bottom: 15px;
-}
-
-.exercise-search > i {
-    position: absolute;
-
-    left: 14px;
-    top: 50%;
-
-    color: #555b64;
-
-    font-size: 10px;
-
-    transform: translateY(-50%);
-}
-
-.exercise-search input {
-    width: 100%;
-
-    height: 40px;
-
-    padding: 0 14px 0 37px;
-
-    color: #d9dbde;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    border: 1px solid var(--border);
-
-    border-radius: 8px;
-
-    outline: none;
-
-    font-family: inherit;
-
-    font-size: 9px;
-
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-.exercise-search input::placeholder {
-    color: #555b64;
-}
-
-.exercise-search input:focus {
-    background: rgba(255, 255, 255, 0.035);
-
-    border-color: var(--cyan-border);
-}
-
-
-/* =========================================================
-   14. EXERCISE FILTERS
-========================================================= */
-
-.exercise-filters {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    margin-bottom: 18px;
-}
-
-.filter-btn {
-    min-height: 31px;
-
-    padding: 0 12px;
-
-    color: #6f757e;
-
-    background: rgba(255, 255, 255, 0.02);
-
-    border: 1px solid var(--border);
-
-    border-radius: 7px;
-
-    font-family: inherit;
-
-    font-size: 8px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.filter-btn:hover {
-    color: #c8cbd0;
-
-    border-color: rgba(255, 255, 255, 0.12);
-}
-
-.filter-btn.active {
-    color: var(--cyan);
-
-    background: var(--cyan-soft);
-
-    border-color: var(--cyan-border);
-}
-
-
-/* =========================================================
-   15. LIBRARY GRID
-========================================================= */
-
-.library-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 9px;
-}
-
-
-/* =========================================================
-   16. LIBRARY EXERCISE CARD
-========================================================= */
-
-.library-exercise {
-    display: flex;
-    align-items: center;
-
-    gap: 11px;
-
-    min-height: 70px;
-
-    padding: 11px;
-
-    background: rgba(255, 255, 255, 0.018);
-
-    border: 1px solid var(--border);
-
-    border-radius: 10px;
-
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-.library-exercise:hover {
-    background: rgba(255, 255, 255, 0.028);
-
-    border-color: rgba(0, 229, 255, 0.11);
-}
-
-.library-exercise-icon {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    color: var(--cyan);
-
-    background: var(--cyan-soft);
-
-    border-radius: 8px;
-
-    font-size: 10px;
-}
-
-.library-exercise-info {
-    min-width: 0;
-
-    flex: 1;
-}
-
-.library-exercise-info h3 {
-    overflow: hidden;
-
-    color: #d3d5d8;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-}
-
-.library-exercise-info p {
-    margin-top: 4px;
-
-    color: #5f656e;
-
-    font-size: 7px;
-}
-
-.add-exercise-btn {
-    min-height: 29px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 5px;
-
-    padding: 0 9px;
-
-    flex-shrink: 0;
-
-    color: #777d86;
-
-    background: transparent;
-
-    border: 1px solid var(--border);
-
-    border-radius: 6px;
-
-    font-family: inherit;
-
-    font-size: 7px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.add-exercise-btn:hover {
-    color: var(--cyan);
-
-    background: var(--cyan-soft);
-
-    border-color: var(--cyan-border);
-}
-
-.add-exercise-btn.added {
-    color: var(--success);
-
-    background: rgba(66, 232, 161, 0.06);
-
-    border-color: rgba(66, 232, 161, 0.12);
-}
-
-
-/* =========================================================
-   17. LIBRARY FOOTER
-========================================================= */
-
-.library-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-top: 20px;
-
-    padding-top: 17px;
-
-    border-top: 1px solid var(--border);
-}
-
-.library-footer > span {
-    color: #626873;
-
-    font-size: 8px;
-}
-
-.library-footer .primary-action {
-    width: auto;
-
-    min-width: 135px;
-
-    padding: 0 15px;
-}
-
-
-/* =========================================================
-   18. EMPTY / HIDDEN LIBRARY ITEMS
-========================================================= */
-
-.library-exercise.library-hidden {
-    display: none;
-}
-
-
-
-/* =========================================================
-   19. WORKOUT PAGE RESPONSIVE
-========================================================= */
-
-@media (max-width: 1150px) {
-
-    .workout-content {
-        padding: 38px 30px 55px;
-    }
-
-    .library-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 900px) {
-
-    .workout-content {
-        padding: 32px 22px 50px;
-    }
-
-    .workout-page-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-    }
-
-    .workout-header-actions {
-        width: 100%;
-    }
-
-    .secondary-action {
-        width: 100%;
-    }
-}
-
-
-@media (max-width: 650px) {
-
-    .workout-content {
-        padding: 28px 18px 45px;
-    }
-
-    .workout-page-header h1 {
-        font-size: 24px;
-    }
-
-    .workout-page-header p {
-        font-size: 10px;
-    }
-
-    .workout-main-card,
-    .exercise-library {
-        padding: 18px;
-    }
-
-    .current-workout-header {
-        flex-direction: column;
-
-        gap: 14px;
-    }
-
-    .current-workout-header h2 {
-        font-size: 19px;
-    }
-
-    .workout-info-row {
-        grid-template-columns: 1fr;
-
-        gap: 14px;
-    }
-
-    .workout-info-item {
-        padding: 0;
-    }
-
-    .workout-info-item + .workout-info-item {
-        padding-top: 14px;
-
-        border-left: none;
-
-        border-top: 1px solid var(--border);
-    }
-
-    .current-workout-actions {
-        flex-direction: column;
-    }
-
-    .current-workout-actions .primary-action,
-    .outline-action {
-        width: 100%;
-    }
-
-    .section-heading-row {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 5px;
-    }
-
-    .exercise-card {
-        gap: 9px;
-
-        padding: 10px;
-    }
-
-    .exercise-number {
-        display: none;
-    }
-
-    .exercise-icon {
-        width: 34px;
-        height: 34px;
-    }
-
-    .exercise-prescription {
-        min-width: 55px;
-    }
-
-    .exercise-prescription span {
-        display: none;
-    }
-
-    .library-footer {
-        align-items: stretch;
-
-        flex-direction: column;
-    }
-
-    .library-footer .primary-action {
-        width: 100%;
-    }
-}
-
-
-@media (max-width: 450px) {
-
-    .workout-content {
-        padding: 24px 15px 40px;
-    }
-
-    .current-workout-header h2 {
-        font-size: 18px;
-    }
-
-    .exercise-details h3 {
-        font-size: 9px;
-    }
-
-    .exercise-details p {
-        font-size: 7px;
-    }
-
-    .exercise-prescription strong {
-        font-size: 9px;
-    }
-
-    .library-header h2 {
-        font-size: 15px;
-    }
-
-    .exercise-filters {
-        gap: 5px;
-    }
-
-    .filter-btn {
-        padding: 0 9px;
-    }
-}
-
-/* =========================================================
-   20. EDIT WORKOUT MODAL
+   11. WORKOUT LIBRARY MODAL
 ========================================================= */
 
 .exercise-library {
@@ -1129,43 +550,40 @@
 
     z-index: 5000;
 
-    width: min(
-        920px,
-        calc(100vw - 40px)
-    );
+    width: min(1080px, calc(100vw - 48px));
+    height: min(820px, calc(100vh - 70px));
 
-    max-height: calc(100vh - 50px);
+    transform: translate(-50%, -50%);
 
-    margin: 0;
+    display: flex;
+    flex-direction: column;
 
-    overflow-y: auto;
+    padding: 0;
 
-    transform:
-        translate(-50%, -50%);
+    overflow: hidden;
 
     background:
         linear-gradient(
             145deg,
-            rgba(20, 26, 33, 0.99),
-            rgba(11, 16, 22, 0.99)
+            rgba(18, 24, 31, 0.99),
+            rgba(10, 15, 21, 0.99)
         );
 
-    border:
-        1px solid rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.14);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.65),
-        0 0 0 100vmax rgba(2, 6, 9, 0.78);
+        0 30px 90px rgba(0, 0, 0, 0.72),
+        0 0 0 100vmax rgba(2, 6, 10, 0.80);
 
     animation:
-        workoutModalIn 0.22s ease;
+        workoutLibraryOpen 0.22s ease;
 }
 
 
 /* =========================================================
-   21. HIDDEN MODAL
+   HIDDEN
 ========================================================= */
 
 .exercise-library[hidden] {
@@ -1174,10 +592,10 @@
 
 
 /* =========================================================
-   22. MODAL ANIMATION
+   MODAL ANIMATION
 ========================================================= */
 
-@keyframes workoutModalIn {
+@keyframes workoutLibraryOpen {
 
     from {
         opacity: 0;
@@ -1194,136 +612,803 @@
             translate(-50%, -50%)
             scale(1);
     }
-
 }
 
 
 /* =========================================================
-   23. MODAL SCROLLBAR
-========================================================= */
-
-.exercise-library::-webkit-scrollbar {
-    width: 5px;
-}
-
-.exercise-library::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.exercise-library::-webkit-scrollbar-thumb {
-    background:
-        rgba(255, 255, 255, 0.08);
-
-    border-radius: 10px;
-}
-
-.exercise-library::-webkit-scrollbar-thumb:hover {
-    background:
-        rgba(0, 229, 255, 0.18);
-}
-
-
-/* =========================================================
-   24. MODAL HEADER UPDATE
+   LIBRARY HEADER
 ========================================================= */
 
 .exercise-library .library-header {
-    position: sticky;
 
-    top: 0;
+    flex-shrink: 0;
 
-    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
-    margin: -24px -24px 20px;
+    gap: 20px;
 
-    padding: 24px;
+    margin: 0;
+
+    padding: 24px 26px 20px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(20, 26, 33, 0.99),
-            rgba(20, 26, 33, 0.94)
+            rgba(20, 27, 35, 1),
+            rgba(18, 24, 31, 0.98)
         );
 
     border-bottom:
-        1px solid var(--border);
+        1px solid rgba(255, 255, 255, 0.06);
+}
 
-    backdrop-filter: blur(10px);
+
+.exercise-library .library-header h2 {
+
+    color: #eef0f2;
+
+    font-size: 19px;
+
+    line-height: 1.25;
+
+    font-weight: 650;
+}
+
+
+.exercise-library .library-header p {
+
+    margin-top: 6px;
+
+    color: #6d747e;
+
+    font-size: 9px;
+
+    line-height: 1.5;
 }
 
 
 /* =========================================================
-   25. MODAL CLOSE BUTTON
+   CLOSE BUTTON
 ========================================================= */
 
 .exercise-library .close-library-btn {
-    width: 32px;
-    height: 32px;
 
-    color: #777d86;
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #777f89;
 
     background:
         rgba(255, 255, 255, 0.025);
 
     border:
-        1px solid var(--border);
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
+
 .exercise-library .close-library-btn:hover {
-    color: #f0f1f2;
+
+    color: #ff6875;
 
     background:
-        rgba(255, 255, 255, 0.045);
+        rgba(255, 95, 109, 0.06);
 
     border-color:
-        rgba(255, 255, 255, 0.1);
+        rgba(255, 95, 109, 0.15);
 }
 
 
 /* =========================================================
-   26. MOBILE EDIT WORKOUT MODAL
+   LIBRARY BODY
 ========================================================= */
+
+.exercise-library .library-body {
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 22px 26px 26px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(0, 229, 255, 0.16)
+        transparent;
+}
+
+
+.exercise-library .library-body::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+
+.exercise-library .library-body::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.exercise-library .library-body::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(0, 229, 255, 0.16);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.exercise-search {
+
+    position: relative;
+
+    margin-bottom: 14px;
+}
+
+
+.exercise-search > i {
+
+    position: absolute;
+
+    left: 14px;
+    top: 50%;
+
+    color: #5d6570;
+
+    font-size: 10px;
+
+    transform: translateY(-50%);
+}
+
+
+.exercise-search input {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding:
+        0
+        14px
+        0
+        38px;
+
+    color: #dce0e4;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.exercise-search input::placeholder {
+
+    color: #555d67;
+}
+
+
+.exercise-search input:focus {
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border-color:
+        rgba(0, 229, 255, 0.25);
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.exercise-filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+.filter-btn {
+
+    min-height: 31px;
+
+    padding:
+        0
+        13px;
+
+    color: #777e87;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.filter-btn:hover {
+
+    color: #d1d4d8;
+
+    border-color:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+.filter-btn.active {
+
+    color: var(--cyan);
+
+    background:
+        rgba(0, 229, 255, 0.055);
+
+    border-color:
+        rgba(0, 229, 255, 0.20);
+}
+
+
+/* =========================================================
+   WORKOUT GRID
+========================================================= */
+
+.library-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   WORKOUT CARD
+========================================================= */
+
+.library-exercise {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        42px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 128px;
+
+    padding: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 30, 38, 0.90),
+            rgba(14, 19, 25, 0.96)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.065);
+
+    border-radius: 11px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.library-exercise:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 35, 43, 0.96),
+            rgba(15, 21, 28, 0.98)
+        );
+
+    border-color:
+        rgba(0, 229, 255, 0.16);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   WORKOUT ICON
+========================================================= */
+
+.library-exercise-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--cyan);
+
+    background:
+        rgba(0, 229, 255, 0.055);
+
+    border:
+        1px solid rgba(0, 229, 255, 0.10);
+
+    border-radius: 10px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   WORKOUT INFO
+========================================================= */
+
+.library-exercise-info {
+
+    min-width: 0;
+}
+
+
+.library-muscle {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--cyan);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+.library-exercise-info h3 {
+
+    margin: 0;
+
+    color: #e1e4e7;
+
+    font-size: 12px;
+
+    line-height: 1.35;
+
+    font-weight: 650;
+}
+
+
+.library-exercise-info p {
+
+    margin-top: 5px;
+
+    color: #626a74;
+
+    font-size: 8px;
+
+    line-height: 1.45;
+
+    display:
+        -webkit-box;
+
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   WORKOUT META
+========================================================= */
+
+.library-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 9px;
+}
+
+
+.library-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding:
+        5px
+        7px;
+
+    color: #858c95;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    border-radius: 6px;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.library-meta i {
+
+    color: #6f7781;
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+========================================================= */
+
+.add-exercise-btn {
+
+    min-width: 68px;
+
+    min-height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    padding:
+        0
+        10px;
+
+    color: #858c95;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.add-exercise-btn:hover {
+
+    color: var(--cyan);
+
+    background:
+        rgba(0, 229, 255, 0.05);
+
+    border-color:
+        rgba(0, 229, 255, 0.20);
+}
+
+
+.add-exercise-btn:disabled {
+
+    opacity: 0.5;
+
+    cursor: wait;
+}
+
+
+/* =========================================================
+   LIBRARY FOOTER
+========================================================= */
+
+.library-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding-top: 17px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.library-footer > span {
+
+    color: #626a73;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   LOADING / EMPTY
+========================================================= */
+
+.library-loading {
+
+    grid-column: 1 / -1;
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #6d747d;
+
+    border:
+        1px dashed rgba(255, 255, 255, 0.07);
+
+    border-radius: 11px;
+}
+
+
+.library-loading i {
+
+    color: var(--cyan);
+
+    font-size: 17px;
+}
+
+
+.library-loading p {
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   WORKOUT PAGE RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .exercise-library {
+
+        width:
+            min(
+                760px,
+                calc(100vw - 32px)
+            );
+    }
+
+
+    .library-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
 
 @media (max-width: 650px) {
 
     .exercise-library {
 
         width:
-            calc(100vw - 24px);
+            calc(100vw - 20px);
 
-        max-height:
-            calc(100vh - 24px);
+        height:
+            calc(100vh - 30px);
 
         border-radius: 13px;
-
-        padding: 18px;
     }
 
-    .exercise-library .library-header {
 
-        margin:
-            -18px -18px 18px;
+    .exercise-library .library-header {
 
         padding:
             18px;
     }
 
+
+    .exercise-library .library-body {
+
+        padding:
+            18px;
+    }
+
+
+    .library-exercise {
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr);
+
+        align-items: start;
+
+        padding: 13px;
+    }
+
+
+    .library-exercise-icon {
+
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .add-exercise-btn {
+
+        grid-column:
+            2;
+
+        width: 100%;
+    }
+
+
+    .library-footer {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
 }
 
-
-/* =========================================================
-   27. SMALL MOBILE MODAL
-========================================================= */
 
 @media (max-width: 450px) {
 
     .exercise-library {
 
         width:
-            calc(100vw - 16px);
+            calc(100vw - 12px);
 
-        max-height:
+        height:
             calc(100vh - 16px);
+    }
+
+
+    .exercise-library .library-header {
+
+        padding:
+            16px;
+    }
+
+
+    .exercise-library .library-body {
+
+        padding:
+            16px;
+    }
+
+
+    .exercise-library .library-header h2 {
+
+        font-size: 17px;
+    }
+
+
+    .library-exercise-info h3 {
+
+        font-size: 11px;
+    }
+
+
+    .library-meta span {
+
+        font-size: 6.5px;
+    }
+
+
+    .filter-btn {
+
+        padding:
+            0
+            10px;
     }
 
 }
